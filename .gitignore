@@ -1,0 +1,59 @@
+#############
+## IntelliJ IDEA
+#############
+.idea/
+*.iml
+*.ipr
+*.iws
+/out
+*/out
+
+#################
+## svn
+#################
+.svn/
+
+#################
+## vi
+#################
+.*.swp
+
+
+
+#################
+## Eclipse
+#################
+
+*.pydevproject
+.project
+.metadata
+.mymetadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.myeclipse/
+.loadpath
+
+#Geany project file
+.geany
+
+#KDevelop project file and directory
+.kdev4/
+*.kdev4
+
+#Build targets
+/target
+*/target
+
+#Report directories
+/reports
+*/reports
+
+#Mac-specific directory that no other operating system needs.
+.DS_Store
