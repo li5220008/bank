@@ -22,7 +22,7 @@ public class PifbusServiceImplTest extends BaseTest {
 
     @Test
     public void testSelectByID() throws Exception {
-        Pifbus pifbus = ipifbusService.selectByID("001");
+        Pifbus pifbus = ipifbusService.selectByID("00d");
         System.out.println(pifbus);
     }
 

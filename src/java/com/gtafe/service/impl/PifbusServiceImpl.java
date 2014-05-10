@@ -29,6 +29,8 @@ public class PifbusServiceImpl implements IPIFBUSService {
     }
 
     public void add(Pifbus pifbus) {
+        //设置默认值
+        pifbus.setRec_sts("P");
         pifbusMapper.add(pifbus);
     }
 

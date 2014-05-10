@@ -7,12 +7,12 @@
 
     <!-- 根据ID搜索一条记录 -->
     <select id="selectByID" parameterType="string" resultType="PIFBUS">
-        select * from PIFBUS as a where a.BUS_CDE = #{id} and a.REC_STS != 'I'
+        select * from PIFBUS as a where a.BUS_CDE = #{id}
     </select>
 
     <!-- 获取全部 -->
     <select id="fetchAll" resultMap="resultListPIFBUS">
-        select * FROM PIFBUS as a where a.REC_STS != 'I'
+        select * FROM PIFBUS as a where a.REC_STS != 'I' or a.REC_STS IS NULL
     </select>
 
     <!-- 为了返回list 类型而定义的returnMap -->
@@ -40,7 +40,6 @@
           ,#{bus_snm,jdbcType=VARCHAR} -- bus_snm - in char(6)
           ,#{upt_dat,jdbcType=DATE} -- upt_dat - in date
           ,#{upt_tlr,jdbcType=VARCHAR} -- upt_tlr - in char(6)
-          ,#{rec_sts,jdbcType=VARCHAR} -- rec_sts - in char(1)
           ,#{bus_kd1,jdbcType=VARCHAR} -- bus_kd1 - in char(1)
           ,#{bus_kd2,jdbcType=NUMERIC} -- BUS_KD2 - IN numeric(2, 0)
         )
@@ -56,7 +55,6 @@
           ,BUS_SNM = #{bus_snm,jdbcType=VARCHAR} -- char(6)
           ,UPT_DAT = #{upt_dat,jdbcType=DATE} -- date
           ,UPT_TLR = #{upt_tlr,jdbcType=VARCHAR} -- char(6)
-          ,REC_STS = #{rec_sts,jdbcType=VARCHAR} -- char(1)
           ,BUS_KD1 = #{bus_kd1,jdbcType=VARCHAR} -- char(1)
           ,BUS_KD2 = #{bus_kd2,jdbcType=NUMERIC} -- numeric(2, 0)
       WHERE BUS_CDE = #{bus_cde,jdbcType=VARCHAR} -- char(3)

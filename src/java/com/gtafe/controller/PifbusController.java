@@ -1,17 +1,14 @@
 package com.gtafe.controller;
 
 import com.gtafe.dto.Message;
-import com.gtafe.dto.pifbus.AddDto;
 import com.gtafe.model.Pifbus;
 import com.gtafe.service.IPIFBUSService;
-import com.gtafe.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -23,7 +20,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/pifbus")
-public class PifbusController {
+public class PifbusController extends BaseController {
     @Autowired
     private IPIFBUSService service;
 
@@ -49,31 +46,32 @@ public class PifbusController {
     @RequestMapping(value = {"/addDo"},method = RequestMethod.POST)
     public String addDo(Pifbus pifbus,Model model){
         Message message = null;
+        service.add(pifbus);
         try {
-            service.add(pifbus);
         } catch (Exception e) {
             e.printStackTrace();
-            message = new Message("操作有误,添加失败！","/pifbus/list");
-            model.addAttribute("message",message);
-            return "/message";
+            return errorMessage(model);
         }
         message = new Message("添加成功!","/pifbus/list","3");
         model.addAttribute("message",message);
-        return "/message";
+        return "/errorMessage";
     }
 
     @RequestMapping(value = {"/update"},method = RequestMethod.GET)
     public String update(String id, Model model){
         Pifbus pifbus = service.selectByID(id);
-        model.addAttribute("model",pifbus);
+        model.addAttribute(pifbus);
         return "/pifbus/update";
     }
 
     @RequestMapping(value = {"/updateDo"},method = RequestMethod.POST)
-    public String updateDo(AddDto dto) {
-        Pifbus pifbus = new Pifbus();
-        WebUtils.copyBean(dto,pifbus);
-        service.update(pifbus);
+    public String updateDoo(Pifbus pifbus,Model model) {
+        try {
+            service.update(pifbus);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return errorMessage(model);
+        }
         return "redirect:/pifbus/list";
     }
 

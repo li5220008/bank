@@ -25,7 +25,7 @@ public class GlobalController {
 
     @RequestMapping("/message")
     public String message() {
-        return "message";
+        return "errorMessage";
     }
     @RequestMapping("/randomImg")
     public void randomImg(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

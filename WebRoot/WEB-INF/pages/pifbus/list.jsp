@@ -34,7 +34,7 @@
               <c:forEach items="${pifbus}" varStatus="status" var="item">
                   <tr>
                       <td>${status.count}</td>
-                      <td>${item.app_cde}</td>
+                      <td>${item.bus_cde}</td>
                       <td>${item.bus_itm}</td>
                       <td>${item.bus_app}</td>
                       <td>${item.bus_nam}</td>
