@@ -43,17 +43,21 @@ public class PifbusController {
     @RequestMapping(value = {"/add"},method = RequestMethod.GET)
     public String add(Model model) {
         Pifbus pifbus = new Pifbus();
-        model.addAttribute("pifbus",pifbus);
+        model.addAttribute(pifbus);
         return "/pifbus/add";
     }
     @RequestMapping(value = {"/addDo"},method = RequestMethod.POST)
     public String addDo(Pifbus pifbus,Model model){
+        Message message = null;
         try {
             service.add(pifbus);
         } catch (Exception e) {
             e.printStackTrace();
+            message = new Message("操作有误,添加失败！","/pifbus/list");
+            model.addAttribute("message",message);
+            return "/message";
         }
-        Message message = new Message("添加成功!","/pifbus/list","3");
+        message = new Message("添加成功!","/pifbus/list","3");
         model.addAttribute("message",message);
         return "/message";
     }

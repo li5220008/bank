@@ -48,10 +48,14 @@ public class Message {
         this.time = time;
     }
     public Message(String message, String uri) {
-        new Message(message,uri,null);
+        this.message = message;
+        this.uri = uri;
+        this.time = null;
     }
 
     public Message(String message) {
-        new Message(message,null,null);
+        this.message = message;
+        this.uri = null;
+        this.time = null;
     }
 }

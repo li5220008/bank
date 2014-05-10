@@ -34,11 +34,11 @@
           ,BUS_KD2
         ) VALUES (
            #{bus_cde,jdbcType=VARCHAR}  -- BUS_CDE - IN char(3)
-          ,#{bus_cde,jdbcType=VARCHAR} -- BUS_ITM - IN char(4)
+          ,#{bus_itm,jdbcType=VARCHAR} -- BUS_ITM - IN char(4)
           ,#{bus_app,jdbcType=VARCHAR} -- bus_app - in char(2)
           ,#{bus_nam,jdbcType=VARCHAR} -- bus_nam - in char(34)
           ,#{bus_snm,jdbcType=VARCHAR} -- bus_snm - in char(6)
-          ,#{upt_dat,jdbcType=Date} -- upt_dat - in date
+          ,#{upt_dat,jdbcType=DATE} -- upt_dat - in date
           ,#{upt_tlr,jdbcType=VARCHAR} -- upt_tlr - in char(6)
           ,#{rec_sts,jdbcType=VARCHAR} -- rec_sts - in char(1)
           ,#{bus_kd1,jdbcType=VARCHAR} -- bus_kd1 - in char(1)
@@ -54,7 +54,7 @@
           ,BUS_APP = #{bus_app,jdbcType=VARCHAR} -- char(2)
           ,BUS_NAM = #{bus_nam,jdbcType=VARCHAR} -- char(34)
           ,BUS_SNM = #{bus_snm,jdbcType=VARCHAR} -- char(6)
-          ,UPT_DAT = #{upt_dat,jdbcType=Date} -- date
+          ,UPT_DAT = #{upt_dat,jdbcType=DATE} -- date
           ,UPT_TLR = #{upt_tlr,jdbcType=VARCHAR} -- char(6)
           ,REC_STS = #{rec_sts,jdbcType=VARCHAR} -- char(1)
           ,BUS_KD1 = #{bus_kd1,jdbcType=VARCHAR} -- char(1)

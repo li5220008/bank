@@ -37,11 +37,11 @@ public class PifbusServiceImplTest extends BaseTest {
     @Test
     public void testAdd() throws Exception {
         Pifbus pifbus = new Pifbus();
-        pifbus.setBus_cde("001");
-        pifbus.setBus_app("ab");
-        pifbus.setBus_itm("abc");
+        pifbus.setBus_cde("016");
+        pifbus.setBus_app("a");
+        pifbus.setBus_itm("a");
         pifbus.setBus_nam("姓名上看看快快快快姓名上看看快快快快快快快快快快看快快快快快快快快快快快快快快快快看快快快快快快快看快快快快快快快快快快快快快快快快看快快快快快快快快看");
-        pifbus.setBus_snm("abck");
+        pifbus.setBus_snm("a");
         pifbus.setUpt_dat(new Date());
         pifbus.setUpt_tlr("1");
         pifbus.setBus_kd1("1");
