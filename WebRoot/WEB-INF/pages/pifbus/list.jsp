@@ -45,10 +45,10 @@
                       <td>${item.bus_kd2}</td>
                       <td>${item.rec_sts}</td>
                       <td>
-                          <a href="${basePath}/pifbus/info?id=${item.bus_cde}"> info </a>
-                          <a href="${basePath}/pifbus/add"> add </a>
-                          <a href="${basePath}/pifbus/update?id=${item.bus_cde}"> update </a>
-                          <a href="${basePath}/pifbus/delete?id=${item.bus_cde}" onclick="return delConfirm('sure to delete?')"> delete </a>
+                          <a href="${pageContext.request.contextPath}/pifbus/info?id=${item.bus_cde}"> info </a>
+                          <a href="${pageContext.request.contextPath}/pifbus/add"> add </a>
+                          <a href="${pageContext.request.contextPath}/pifbus/update?id=${item.bus_cde}"> update </a>
+                          <a href="${pageContext.request.contextPath}/pifbus/delete?id=${item.bus_cde}" onclick="return delConfirm('sure to delete?')"> delete </a>
                       </td>
                   </tr>
               </c:forEach>

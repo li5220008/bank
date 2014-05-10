@@ -1,5 +1,7 @@
 package com.gtafe.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.text.NumberFormat;
 import java.util.Date;
 
@@ -16,10 +18,11 @@ public class Pifbus {
     private String bus_app;//对应的应用码
     private String bus_nam;//业务描述
     private String bus_snm;//业务简称
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date upt_dat;//最后更新日期
     private String upt_tlr;//更新柜员
     private String bus_kd1;//业务大类
-    private int bus_kd2;//业务小类
+    private Integer bus_kd2;//业务小类
     private String rec_sts;//记录状态
 
     public String getBus_cde() {
@@ -98,7 +101,7 @@ public class Pifbus {
         return bus_kd2;
     }
 
-    public void setBus_kd2(int bus_kd2) {
+    public void setBus_kd2(Integer bus_kd2) {
         this.bus_kd2 = bus_kd2;
     }
 

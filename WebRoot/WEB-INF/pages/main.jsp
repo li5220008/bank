@@ -19,3 +19,6 @@
 
 <!--通用js插件-->
 <script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
+
+<!--插件-->
+<script src="${pageContext.request.contextPath}/resources/js/My97DatePicker/WdatePicker.js"></script>

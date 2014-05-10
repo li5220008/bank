@@ -5,15 +5,28 @@
   主要是配置实体类映射文件中的别名，其他内容都交给spring管理
  -->
 <configuration>
- <typeAliases> 
-        <typeAlias alias="User" type="com.gtafe.model.User"/> 
-        <typeAlias alias="Pifccy" type="com.gtafe.model.Pifccy"/> 
-        <typeAlias alias="Pifitm" type="com.gtafe.model.Pifitm"/>
-        <typeAlias alias="FeeRate" type="com.gtafe.model.Piffrt"/>
-        
-        <typeAlias alias="ExchangeRate" type="com.gtafe.model.ExchangeRate"/> 
-        <typeAlias alias="Pifbus" type="com.gtafe.model.Pifbus"/>
-        <typeAlias alias="Pifirt" type="com.gtafe.model.Pifirt"/>
+     <typeAliases>
+            <typeAlias alias="User" type="com.gtafe.model.User"/>
+            <typeAlias alias="Pifccy" type="com.gtafe.model.Pifccy"/>
+            <typeAlias alias="Pifitm" type="com.gtafe.model.Pifitm"/>
+            <typeAlias alias="FeeRate" type="com.gtafe.model.Piffrt"/>
 
- </typeAliases>  
+            <typeAlias alias="ExchangeRate" type="com.gtafe.model.ExchangeRate"/>
+            <typeAlias alias="Pifbus" type="com.gtafe.model.Pifbus"/>
+            <typeAlias alias="Pifirt" type="com.gtafe.model.Pifirt"/>
+
+     </typeAliases>
+    <!--
+    Specifies the JDBC type for null values when no specific JDBC type was provided for the parameter.
+     Some drivers require specifying the column JDBC type but others work with generic values like NULL,
+      VARCHAR or OTHER.
+       JdbcType enumeration.
+       Most common are: NULL,
+       VARCHAR and OTHER	 OTHER
+
+    <settings>
+        <setting name="jdbcTypeForNull" value="VARCHAR"/>
+    </settings>
+    -->
+
 </configuration>

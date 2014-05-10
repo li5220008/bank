@@ -33,16 +33,16 @@
           ,BUS_KD1
           ,BUS_KD2
         ) VALUES (
-           #{bus_cde}  -- BUS_CDE - IN char(3)
-          ,#{bus_cde} -- BUS_ITM - IN char(4)
-          ,#{bus_app} -- bus_app - in char(2)
-          ,#{bus_nam} -- bus_nam - in char(34)
-          ,#{bus_snm} -- bus_snm - in char(6)
-          ,#{upt_dat} -- upt_dat - in date
-          ,#{upt_tlr} -- upt_tlr - in char(6)
-          ,#{rec_sts} -- rec_sts - in char(1)
-          ,#{bus_kd1} -- bus_kd1 - in char(1)
-          ,#{bus_kd2} -- BUS_KD2 - IN numeric(2, 0)
+           #{bus_cde,jdbcType=VARCHAR}  -- BUS_CDE - IN char(3)
+          ,#{bus_cde,jdbcType=VARCHAR} -- BUS_ITM - IN char(4)
+          ,#{bus_app,jdbcType=VARCHAR} -- bus_app - in char(2)
+          ,#{bus_nam,jdbcType=VARCHAR} -- bus_nam - in char(34)
+          ,#{bus_snm,jdbcType=VARCHAR} -- bus_snm - in char(6)
+          ,#{upt_dat,jdbcType=Date} -- upt_dat - in date
+          ,#{upt_tlr,jdbcType=VARCHAR} -- upt_tlr - in char(6)
+          ,#{rec_sts,jdbcType=VARCHAR} -- rec_sts - in char(1)
+          ,#{bus_kd1,jdbcType=VARCHAR} -- bus_kd1 - in char(1)
+          ,#{bus_kd2,jdbcType=NUMERIC} -- BUS_KD2 - IN numeric(2, 0)
         )
     </insert>
 
@@ -50,16 +50,16 @@
     <update id="update" parameterType="PIFBUS" >
         update PIFBUS SET
            --APP_CDE = ab -- char(2) 外键依赖
-           BUS_ITM = #{bus_itm} -- char(4)
-          ,BUS_APP = #{bus_app} -- char(2)
-          ,BUS_NAM = #{bus_nam} -- char(34)
-          ,BUS_SNM = #{bus_snm} -- char(6)
-          ,UPT_DAT = #{upt_dat} -- date
-          ,UPT_TLR = #{upt_tlr} -- char(6)
-          ,REC_STS = #{rec_sts} -- char(1)
-          ,BUS_KD1 = #{bus_kd1} -- char(1)
-          ,BUS_KD2 = #{bus_kd2} -- numeric(2, 0)
-      WHERE BUS_CDE = #{bus_cde} -- char(3)
+           BUS_ITM = #{bus_itm,jdbcType=VARCHAR} -- char(4)
+          ,BUS_APP = #{bus_app,jdbcType=VARCHAR} -- char(2)
+          ,BUS_NAM = #{bus_nam,jdbcType=VARCHAR} -- char(34)
+          ,BUS_SNM = #{bus_snm,jdbcType=VARCHAR} -- char(6)
+          ,UPT_DAT = #{upt_dat,jdbcType=Date} -- date
+          ,UPT_TLR = #{upt_tlr,jdbcType=VARCHAR} -- char(6)
+          ,REC_STS = #{rec_sts,jdbcType=VARCHAR} -- char(1)
+          ,BUS_KD1 = #{bus_kd1,jdbcType=VARCHAR} -- char(1)
+          ,BUS_KD2 = #{bus_kd2,jdbcType=NUMERIC} -- numeric(2, 0)
+      WHERE BUS_CDE = #{bus_cde,jdbcType=VARCHAR} -- char(3)
     </update>
 
     <!-- 软删除一条记录 -->

@@ -13,6 +13,11 @@
     <title>网站全局消息页面</title>
 </head>
 <body>
-    ${message.message}
+    <div class="container">
+        ${message.message}
+        <br/>
+        浏览器将在<c:out value="${message.time}" default="3"/>秒后跳转!
+    </div>
 </body>
 </html>
+<%@include file="main.jsp"%>

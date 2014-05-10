@@ -20,9 +20,10 @@
     <!-- 定时清理上下文内容 -->
   <listener>
     <listener-class>
-            org.springframework.web.context.ContextCleanupListener</listener-class>
+            org.springframework.web.context.ContextCleanupListener
+    </listener-class>
   </listener>
-  
+
     <!-- 指定log4j配置文件的位置 -->
   <listener>
      <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>

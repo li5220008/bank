@@ -1,5 +1,6 @@
 package com.gtafe.controller;
 
+import com.gtafe.dto.Message;
 import com.gtafe.dto.pifbus.AddDto;
 import com.gtafe.model.Pifbus;
 import com.gtafe.service.IPIFBUSService;
@@ -46,9 +47,15 @@ public class PifbusController {
         return "/pifbus/add";
     }
     @RequestMapping(value = {"/addDo"},method = RequestMethod.POST)
-    public String addDo(Pifbus pifbus){
-        service.add(pifbus);
-        return "redirect:/pifbus/list";
+    public String addDo(Pifbus pifbus,Model model){
+        try {
+            service.add(pifbus);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Message message = new Message("添加成功!","/pifbus/list","3");
+        model.addAttribute("message",message);
+        return "/message";
     }
 
     @RequestMapping(value = {"/update"},method = RequestMethod.GET)

@@ -47,4 +47,11 @@ public class Message {
         this.uri = uri;
         this.time = time;
     }
+    public Message(String message, String uri) {
+        new Message(message,uri,null);
+    }
+
+    public Message(String message) {
+        new Message(message,null,null);
+    }
 }
