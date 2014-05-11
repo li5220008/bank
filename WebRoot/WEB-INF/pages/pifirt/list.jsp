@@ -10,6 +10,7 @@
 <%@include file="/WEB-INF/pages/header.jsp"%>
 <html>
 <head>
+    <%@include file="/WEB-INF/pages/header.jsp"%>
     <title></title>
 </head>
 <body>
@@ -18,37 +19,58 @@
               <thead>
               <tr>
                   <th>#</th>
-                  <th>应用码</th>
-                  <th>对应的核算科目号</th>
-                  <th>对应的应用码</th>
-                  <th>业务描述</th>
-                  <th>业务简称</th>
+                  <th>利率主键</th>
+                  <th>货币码</th>
+                  <th>利率代码</th>
+                  <th>利率大类</th>
+                  <th>利率细类</th>
+                  <th>启用日期</th>
+                  <th>利率名称</th>
+                  <th>当天使用标记</th>
+                  <th>当天修改标记</th>
+                  <th>年利率值</th>
+                  <th>浮动上限值</th>
+                  <th>浮动下限值</th>
+                  <th>浮动标记</th>
+                  <th>借贷标记</th>
+                  <th>期限单位</th>
+                  <th>建档柜员</th>
+                  <th>建档日期</th>
                   <th>最后更新日期</th>
                   <th>更新柜员</th>
-                  <th>业务大类</th>
-                  <th>业务小类</th>
                   <th>记录状态</th>
               </tr>
               </thead>
               <tbody>
-              <c:forEach items="${pifbus}" varStatus="status" var="item">
+              <c:forEach items="${pifirt}" varStatus="status" var="item">
                   <tr>
                       <td>${status.count}</td>
-                      <td>${item.bus_cde}</td>
-                      <td>${item.bus_itm}</td>
-                      <td>${item.bus_app}</td>
-                      <td>${item.bus_nam}</td>
-                      <td>${item.bus_snm}</td>
+                      <td>${item.irt_key}</td>
+                      <td>${item.cur_cde}</td>
+                      <td>${item.irt_cde}</td>
+                      <td>${item.irt_kd1}</td>
+                      <td>${item.irt_kd2}</td>
+                      <td>${item.eff_dat}</td>
+                      <td>${item.irt_nam}</td>
+                      <td>${item.cur_flg}</td>
+                      <td>${item.mod_flg}</td>
+                      <td>${item.irt_val}</td>
+                      <td>${item.irt_sph}</td>
+                      <td>${item.irt_spl}</td>
+                      <td>${item.spr_flg}</td>
+                      <td>${item.cdr_flg}</td>
+                      <td>${item.irt_trm}</td>
+                      <td>${item.trm_unt}</td>
+                      <td>${item.cre_tlr}</td>
+                      <td>${item.cre_dat}</td>
                       <td>${item.upt_dat}</td>
                       <td>${item.upt_tlr}</td>
-                      <td>${item.bus_kd1}</td>
-                      <td>${item.bus_kd2}</td>
                       <td>${item.rec_sts}</td>
                       <td>
-                          <a href="${pageContext.request.contextPath}/pifbus/info?id=${item.bus_cde}"> info </a>
-                          <a href="${pageContext.request.contextPath}/pifbus/add"> add </a>
-                          <a href="${pageContext.request.contextPath}/pifbus/update?id=${item.bus_cde}"> update </a>
-                          <a href="${pageContext.request.contextPath}/pifbus/delete?id=${item.bus_cde}" onclick="return delConfirm('sure to delete?')"> delete </a>
+                          <a href="${pageContext.request.contextPath}/pifirt/info?id=${item.irt_key}"> info </a>
+                          <a href="${pageContext.request.contextPath}/pifirt/add"> add </a>
+                          <a href="${pageContext.request.contextPath}/pifirt/update?id=${item.irt_key}"> update </a>
+                          <a href="${pageContext.request.contextPath}/pifirt/delete?id=${item.irt_key}" onclick="return delConfirm('sure to delete?')"> delete </a>
                       </td>
                   </tr>
               </c:forEach>

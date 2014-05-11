@@ -10,6 +10,7 @@
 <%@include file="/WEB-INF/pages/header.jsp"%>
 <html>
 <head>
+    <%@include file="/WEB-INF/pages/header.jsp"%>
     <title></title>
 </head>
 <body>

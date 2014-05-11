@@ -17,9 +17,9 @@ public class BaseController {
      * @param model
      * @return
      */
-    protected String errorMessage(Model model){
+    protected String failMessage(Model model){
         Message message = new Message("操作有误，服务器错误！","/pifbus/list");
         model.addAttribute("message",message);
-        return "/errorMessage";
+        return "/message";
     }
 }

@@ -12,7 +12,7 @@
 
     <!-- 获取全部 -->
     <select id="fetchAll" resultMap="resultListPIFIRT">
-        select * FROM PIFIRT as a where a.REC_STS != 'I'
+        select * FROM PIFIRT as a where a.REC_STS != 'I' or a.REC_STS IS NULL
     </select>
 
     <!-- 为了返回list 类型而定义的returnMap -->

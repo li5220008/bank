@@ -50,11 +50,11 @@ public class PifirtController extends BaseController {
         try {
         } catch (Exception e) {
             e.printStackTrace();
-            return errorMessage(model);
+            return failMessage(model);
         }
         message = new Message("添加成功!","/pifirt/list","3");
         model.addAttribute("message",message);
-        return "/errorMessage";
+        return "/message";
     }
 
     @RequestMapping(value = {"/update"},method = RequestMethod.GET)
@@ -70,7 +70,7 @@ public class PifirtController extends BaseController {
             service.update(pifirt);
         } catch (Exception e) {
             e.printStackTrace();
-            return errorMessage(model);
+            return failMessage(model);
         }
         return "redirect:/pifirt/list";
     }

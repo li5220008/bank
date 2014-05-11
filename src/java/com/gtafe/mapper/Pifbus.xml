@@ -40,6 +40,7 @@
           ,#{bus_snm,jdbcType=VARCHAR} -- bus_snm - in char(6)
           ,#{upt_dat,jdbcType=DATE} -- upt_dat - in date
           ,#{upt_tlr,jdbcType=VARCHAR} -- upt_tlr - in char(6)
+          ,#{rec_sts,jdbcType=VARCHAR} -- rec_sts - in char(1)
           ,#{bus_kd1,jdbcType=VARCHAR} -- bus_kd1 - in char(1)
           ,#{bus_kd2,jdbcType=NUMERIC} -- BUS_KD2 - IN numeric(2, 0)
         )
