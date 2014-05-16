@@ -3,6 +3,8 @@ package com.gtafe.controller;
 import com.gtafe.dto.Message;
 import com.gtafe.model.Pifirt;
 import com.gtafe.service.IPIFIRTService;
+import com.gtafe.util.CommonUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,20 +22,20 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/pifirt")
-public class PifirtController extends BaseController {
+public class PifirtController {
     @Autowired
     private IPIFIRTService service;
 
     @RequestMapping(value = {"/list"},method = RequestMethod.GET)
     public String list(Model model){
-        List<Pifirt> pifirtes = service.selectAll();
+        List<Pifirt> pifirtes = service.fetchAll();
         model.addAttribute("pifirt",pifirtes);
         return "/pifirt/list";
     }
 
     @RequestMapping("/info")
     public @ResponseBody Pifirt info(String id) {
-        Pifirt pifirt = service.selectByID(id);
+        Pifirt pifirt = service.selectById(id);
         return pifirt;
     }
 
@@ -45,21 +47,19 @@ public class PifirtController extends BaseController {
     }
     @RequestMapping(value = {"/addDo"},method = RequestMethod.POST)
     public String addDo(Pifirt pifirt,Model model){
-        Message message = null;
-        service.add(pifirt);
         try {
+        	service.add(pifirt);
         } catch (Exception e) {
             e.printStackTrace();
-            return failMessage(model);
+            return CommonUtils.message(model);
         }
-        message = new Message("添加成功!","/pifirt/list","3");
-        model.addAttribute("message",message);
-        return "/message";
+        Message message = new Message("添加成功!","/pifirt/list","2");
+        return CommonUtils.message(model,message);
     }
 
     @RequestMapping(value = {"/update"},method = RequestMethod.GET)
     public String update(String id, Model model){
-        Pifirt pifirt = service.selectByID(id);
+        Pifirt pifirt = service.selectById(id);
         model.addAttribute(pifirt);
         return "/pifirt/update";
     }
@@ -70,15 +70,16 @@ public class PifirtController extends BaseController {
             service.update(pifirt);
         } catch (Exception e) {
             e.printStackTrace();
-            return failMessage(model);
+            return CommonUtils.message(model);
         }
-        return "redirect:/pifirt/list";
+        Message message = new Message("更新成功!","/pifirt/list","2");
+        return CommonUtils.message(model,message);
     }
 
     @RequestMapping("/delete")
     public String delete(String id){
         service.softDeleteById(id);
-        return "redirect:/pifbus/list";
+        return "redirect:/pifirt/list";
     }
 
 }

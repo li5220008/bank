@@ -13,13 +13,15 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-    <!--//改配置已被移到applicationcontext-->
-  <context:component-scan base-package="com.gtafe" />
+    <context:component-scan base-package="com.gtafe" />
+    <context:annotation-config />
     <mvc:annotation-driven />
-
-   <mvc:resources mapping="/resources/**" location="/resources/"/>
-   
-     
+    
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    
+    <!-- 事务注解驱动加载 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>  
+       
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">

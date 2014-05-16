@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
     <%@include file="/WEB-INF/pages/header.jsp"%>
@@ -14,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-horizontal" action="${pageContext.request.contextPath}/pifbus/updateDo" method="post" role="form">
+    <form class="form-horizontal" id="pifbusForm" action="${pageContext.request.contextPath}/pifbus/updateDo" method="post" role="form">
         <div class="form-group">
             <label for="bus_cde" class="col-sm-1">业务码</label>
             <div class="col-sm-3">
@@ -45,7 +46,7 @@
 
             <label for="upt_dat" class="col-sm-1">最后更新日期</label>
             <div class="col-sm-3">
-                <input type="text" onclick="WdatePicker()" class="form-control" value="${pifbus.upt_dat}" name="upt_dat" id="upt_dat" placeholder="最后更新日期">
+                <input type="text" onclick="WdatePicker()" class="form-control" value="<fmt:formatDate value='${pifbus.upt_dat}' pattern='yyyy-MM-dd' />" name="upt_dat" id="upt_dat" placeholder="最后更新日期">
             </div>
         </div>
 
@@ -56,8 +57,21 @@
             </div>
 
             <label for="bus_kd1" class="col-sm-1">业务大类</label>
+
             <div class="col-sm-3">
-                <input type="text" class="form-control" value="${pifbus.bus_kd1}" name="bus_kd1" id="bus_kd1" placeholder="业务大类">
+                <%--<input type="text" class="form-control" value="${pifbus.bus_kd1}" name="bus_kd1" id="bus_kd1" placeholder="业务大类">--%>
+                <select class="form-control" name="nus_kd1" id="bus_kd1">
+                    <option value="1">存款类</option>
+                    <option value="2">贷款类</option>
+                    <option value="3">国内结算类</option>
+                    <option value="4">国际结算类</option>
+                    <option value="5">资金业务类</option>
+                    <option value="6">信用卡类</option>
+                    <option value="7">自动转帐类</option>
+                    <option value="8">理财类</option>
+                    <option value="9">其他</option>
+                    <option value="0">代理类</option>
+                </select>
             </div>
 
             <label for="bus_kd2" class="col-sm-1">业务小类</label>
@@ -69,7 +83,8 @@
         <div class="form-group">
             <div class="col-sm-9"></div>
             <div class="col-sm-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">提交</button>
+                <button type="button" onclick="history.go(-1);" class="btn btn-primary">返回</button>
             </div>
         </div>
     </form>
@@ -77,3 +92,74 @@
 </body>
 </html>
 <%@include file="/WEB-INF/pages/main.jsp"%>
+
+<script>
+    $('#pifbusForm').validate({
+        rules: {
+            "bus_cde": {
+                required: true,
+                digits: true,
+                rangelength:[3,3]
+            },
+            "app_cde": {
+                required: true,
+                digits: true,
+                rangelength:[2,2]
+                /*remote:{
+                 url:'/UserCt/findUserByAccount',
+                 type:"post",
+                 datatype:"json",
+                 data:{
+                 account:function(){ return $("#username").val()}
+                 }
+                 }*/
+            },
+            'bus_itm': {
+                required: true,
+                digits: true,
+                rangelength:[4,4]
+            },
+            "upt_tlr": {
+                required: true,
+                digits: true
+            },
+            "upt_dat": {
+                required: false,
+                isDate: true
+            },
+            "bus_kd1": {
+                required: true
+                /*remote: {
+                 url: '/UserCt/findUserByEmail',//检测EMAIL
+                 type:"post",
+                 dataType: "json",
+                 data:{
+                 email:function() { return $("#myEmail").val()}
+                 }
+                 }*/
+            },
+            "bus_kd2": {
+                required: true,
+                digits: true
+            }
+        },
+        messages: {
+            "bus_cde": {
+                required: "业务码不能为空！",
+                digits:"必须是数字哦",
+                rangelength:"请输入3位业务码"
+            },
+            "app_cde": {
+                required: "请输入应用码",
+                digits: "应该是数字类型哦",
+                rangelength: "请输入2位应用码"
+            }
+        },
+        highlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function (element) {
+            element.addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success');
+        }
+    });
+</script>

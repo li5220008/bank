@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <h3>新增科目表</h3>
+    <h3>修改科目信息</h3>
       <div><form action="pifitm/edit.html" method="post" id="pifitm">
       <table>
                     <tr>

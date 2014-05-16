@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IAcctOpenDao">
+
+    <!-- 根据ID搜索一条记录 -->
+    <select id="selectById" parameterType="int" resultType="AcctOpen">
+        select * from acct_open as a where a.id = #{id}
+    </select>
+
+    <!-- 获取全部 -->
+    <select id="findAll" resultMap="resultListAcctOpen">
+        select * FROM acct_open as a where a.REC_STS != 'I' or a.REC_STS IS NULL
+    </select>
+
+    <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="AcctOpen" id="resultListAcctOpen" ></resultMap>
+
+    <!-- 添加一条记录 -->
+    <insert id="add" parameterType="AcctOpen">
+        insert into acct_open (
+		   ope_code
+		  ,account
+		  ,subject_code
+		  ,order_code
+		  ,account_name
+		  ,count_code
+		  ,open_limit
+		  ,icon_limit
+		  ,allow_deriction
+		  ,remain_deriction
+		  ,account_type
+		  ,detail_flag
+		  ,borrow_code
+		  ,load_code
+		  ,destroy_flag
+		  ,flush_type
+		  ,flush_limit
+		  ,close_limit
+		  ,allow_input
+		  ,deriction_flag
+		  ,public_type
+		  ,public_flag
+		  ,remain_flag
+		  ,org_code
+		  ,start_time
+		  ,last_time
+		  ,UPT_CLR
+		  ,use_status
+		  ,REC_STS
+		) VALUES (
+		   #{opeCode} -- ope_code - IN char(1)
+		  ,#{account} -- account - IN char(21)
+		  ,#{subjectCode} -- subject_code - IN char(5)
+		  ,#{orderCode} -- order_code - IN char(5)
+		  ,#{accountName} -- account_name - IN nvarchar(40)
+		  ,#{countCode} -- count_code - IN char(16)
+		  ,#{openLimit} -- open_limit - IN char(10)
+		  ,#{iconLimit} -- icon_limit - IN char(1)
+		  ,#{allowDeriction} -- allow_deriction - IN char(1)
+		  ,#{remainDeriction} -- remain_deriction - IN char(1)
+		  ,#{accountType} -- account_type - IN char(1)
+		  ,#{detailFlag} -- detail_flag - IN char(1)
+		  ,#{borrowCode} -- borrow_code - IN char(4)
+		  ,#{loadCode} -- load_code - IN char(4)
+		  ,#{destroyFlag} -- destroy_flag - IN char(4)
+		  ,#{flushType} -- flush_type - IN char(1)
+		  ,#{flushLimit} -- flush_limit - IN char(1)
+		  ,#{closeLimit} -- close_limit - IN char(3)
+		  ,#{allowInput} -- allow_input - IN char(1)
+		  ,#{derictionFlag} -- deriction_flag - IN char(1)
+		  ,#{publicType} -- public_type - IN char(1)
+		  ,#{publicFlag} -- public_flag - IN char(1)
+		  ,#{remainFlag} -- remain_flag - IN char(1)
+		  ,#{orgCode} -- org_code - IN char(6)
+		  ,#{startTime} -- start_time - IN datetime
+		  ,#{lastTime} -- last_time - IN datetime
+		  ,#{uptClr} -- UPT_CLR - IN char(6)
+		  ,#{useStatus} -- use_status - IN char(1)
+		  ,#{recSts} -- REC_STS - IN char(1)
+		)
+    </insert>
+
+    <!-- 更新一条记录 -->
+    <update id="update" parameterType="AcctOpen" >
+        update acct_open SET
+		   ope_code = #{ope_code} -- char(1)
+		  ,account = #{account} -- char(21)
+		  ,subject_code = #{subject_code} -- char(5)
+		  ,order_code = #{order_code} -- char(5)
+		  ,account_name = #{account_name} -- nvarchar(40)
+		  ,count_code = #{count_code} -- char(16)
+		  ,open_limit = #{open_limit} -- char(10)
+		  ,icon_limit = #{icon_limit} -- char(1)
+		  ,allow_deriction = #{allowDeriction} -- char(1)
+		  ,remain_deriction = #{remainDeriction} -- char(1)
+		  ,account_type = #{accountType} -- char(1)
+		  ,detail_flag = #{detailFlag} -- char(1)
+		  ,borrow_code = #{borrowCode} -- char(4)
+		  ,load_code = #{loadCode} -- char(4)
+		  ,destroy_flag = #{destroyFlag} -- char(4)
+		  ,flush_type = #{flushType} -- char(1)
+		  ,flush_limit = #{flushLimit} -- char(1)
+		  ,close_limit = #{closeLimit} -- char(3)
+		  ,allow_input = #{allowInput} -- char(1)
+		  ,deriction_flag = #{derictionFlag} -- char(1)
+		  ,public_type = #{publicType} -- char(1)
+		  ,public_flag = #{publicFlag} -- char(1)
+		  ,remain_flag = #{remainFlag} -- char(1)
+		  ,org_code = #{orgCode} -- char(6)
+		  ,start_time = #{startTime} -- datetime
+		  ,last_time = #{lastTime} -- datetime
+		  ,UPT_CLR = #{uptClr} -- char(6)
+		  ,use_status = #{useStatus} -- char(1)
+		  ,REC_STS = #{recSts} -- char(1)
+		WHERE id = #{id} -- numeric(8, 0)
+    </update>
+
+    <!-- 软删除一条记录 -->
+    <update id="softDeleteById" parameterType="int">
+        update acct_open SET a.REC_STS = 'I' where id=#{id}
+    </update>
+</mapper>

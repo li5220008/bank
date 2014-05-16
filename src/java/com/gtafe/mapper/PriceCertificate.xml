@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IPriceCertificateDao">
+     <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="PriceCertificate" id="resultList">
+        <id column="id" property="id" />
+        <id column="usage" property="usage" />
+        <id column="price_code" property="price_code" />
+        <id column="price_name" property="price_name" />
+        <id column="coin" property="coin" />
+        <id column="timelimit" property="timelimit" />
+        <id column="price_type" property="price_type" />
+        <id column="is_contrl" property="is_contrl" />
+        <id column="count_unit" property="count_unit" />
+        <id column="unit_num" property="unit_num" />
+        <id column="flush_flag" property="flush_flag" />
+        <id column="valid_flag" property="valid_flag" />
+        <id column="start_time" property="start_time" />
+        <id column="last_time" property="last_time" />
+        <id column="UDT_CLR" property="udt_clr" />
+        <id column="use_status" property="use_status" />
+        <id column="REC_STS" property="rec_sts" />
+        
+    </resultMap>  
+    <!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+    <select id="findAll"  resultMap="resultList">
+         select * from price_certificate 
+    </select>
+    
+    <select id="selectByID" parameterType="int" resultType="PriceCertificate" >
+         select * from price_certificate where id=#{id}
+    </select>
+    
+    <delete id="realDeleteById" parameterType="int">
+         delete from price_certificate  where id=#{id}
+    </delete>
+    
+    <update id="update" parameterType="PriceCertificate">
+         update price_certificate set 
+         usage=#{usage,jdbcType=CHAR},price_code=#{price_code,jdbcType=VARCHAR},price_name=#{price_name,jdbcType=VARCHAR},
+         coin=#{coin,jdbcType=VARCHAR},timelimit=#{timelimit,jdbcType=VARCHAR},price_type=#{price_type,jdbcType=CHAR},
+         is_contrl=#{is_contrl,jdbcType=CHAR},count_unit=#{count_unit,jdbcType= CHAR},unit_num=#{unit_num,jdbcType= VARCHAR},
+         flush_flag=#{flush_flag,jdbcType= CHAR},valid_flag=#{valid_flag,jdbcType= CHAR},
+         start_time=#{start_time,jdbcType= DATE},last_time=#{last_time,jdbcType= DATE},UDT_CLR=#{udt_clr,jdbcType= VARCHAR},
+         use_status=#{use_status,jdbcType=CHAR},REC_STS=#{rec_sts,jdbcType= CHAR}
+         where id=#{id,jdbcType=NUMERIC}
+    </update>
+       
+    <insert id="add" parameterType="PriceCertificate">
+        insert into price_certificate(usage,price_code,price_name,coin,timelimit,
+                             price_type,is_contrl,count_unit,unit_num,flush_flag,
+                             valid_flag,start_time,last_time,UDT_CLR,use_status,
+                             REC_STS
+        ) values (#{usage,jdbcType=CHAR},#{price_code,jdbcType=VARCHAR},#{price_name,jdbcType=VARCHAR},
+        #{coin,jdbcType=VARCHAR},#{timelimit,jdbcType=VARCHAR},#{price_type,jdbcType=CHAR},
+        #{is_contrl,jdbcType=CHAR},#{count_unit,jdbcType= CHAR},#{unit_num,jdbcType= VARCHAR},    
+        #{flush_flag,jdbcType= CHAR},#{valid_flag,jdbcType= CHAR},#{start_time,jdbcType= DATE},       
+        #{last_time,jdbcType= DATE},#{udt_clr,jdbcType= VARCHAR},#{use_status,jdbcType=CHAR},
+        #{rec_sts,jdbcType= CHAR}
+         )
+    </insert>
+
+</mapper>

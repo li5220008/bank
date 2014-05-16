@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.gtafe.dao.FeeRateMapper;
 import com.gtafe.model.Piffrt;
 import com.gtafe.service.IPiffrtService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PiffrtServiceImpl implements IPiffrtService {
     
 	@Autowired
 	private FeeRateMapper frm;
+
 	public void addFeeRate(Piffrt pf) {
 		frm.addFeeRate(pf);
 	}

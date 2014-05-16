@@ -137,7 +137,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       <td>
                           <select name="rev_flg">
                           <option value="" selected="selected">--请选择--</option>
-                          <option value="N、">非销账类科目</option>
+                          <option value="N">非销账类科目</option>
                           <option value="D">借方销账</option>
                           <option value="C">贷方销账</option> 
                          </select>

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -20,6 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+<script type="text/javascript" src=${pageContext.request.contextPath}/resources/js/My97DatePicker/WdatePicker.js></script>
+<script type="text/javascript" src=${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js></script>
   </head>
   
   <body>
@@ -164,13 +167,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </tr>
                  <tr>
                       <td>启用日期</td>
-                      <td><input type="text" name="eff_dat" class="Wdate" onClick="WdatePicker()"  readonly="readonly"/></td> 
+                      <td><input type="text" name="eff_dat" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${pifccy.eff_dat }"/>" class="Wdate" onClick="WdatePicker()"  readonly="readonly"/></td> 
                       <td>使用到期日</td>
-                      <td><input type="text" name="exp_dat" class="Wdate"  onClick="WdatePicker()"  readonly="readonly"/></td>                    
+                      <td><input type="text" name="exp_dat" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${pifccy.exp_dat }"/>" class="Wdate"  onClick="WdatePicker()"  readonly="readonly"/></td>                    
                     </tr>   
                        <tr>
                       <td>最后更新日</td>
-                      <td><input type="text" name="upt_dat"  class="Wdate" onClick="WdatePicker()"  readonly="readonly"/></td> 
+                      <td><input type="text" name="upt_dat"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${pifccy.upt_dat }"/>" class="Wdate" onClick="WdatePicker()"  readonly="readonly"/></td> 
                       <td>更新柜员</td>
                       <td><input type="text" name="upt_tlr"/></td>                     
                     </tr> 

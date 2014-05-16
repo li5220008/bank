@@ -6,17 +6,28 @@
 <mapper namespace="com.gtafe.dao.PifbusMapper">
 
     <!-- 根据ID搜索一条记录 -->
-    <select id="selectByID" parameterType="string" resultType="PIFBUS">
+    <select id="selectById" parameterType="String" resultType="PIFBUS">
         select * from PIFBUS as a where a.BUS_CDE = #{id}
     </select>
 
     <!-- 获取全部 -->
-    <select id="fetchAll" resultMap="resultListPIFBUS">
+    <select id="findAll" resultMap="resultListPIFBUS">
         select * FROM PIFBUS as a where a.REC_STS != 'I' or a.REC_STS IS NULL
     </select>
 
     <!-- 为了返回list 类型而定义的returnMap -->
-    <resultMap type="PIFBUS" id="resultListPIFBUS"></resultMap>
+    <resultMap  type="PIFBUS" id="resultListPIFBUS" >
+        <id property="bus_cde" column="BUS_CDE"/>
+        <result property="bus_itm" column="BUS_ITM"/>
+        <result property="bus_app" column="BUS_APP"/>
+        <result property="bus_nam" column="BUS_NAM"/>
+        <result property="bus_snm" column="BUS_SNM"/>
+        <result property="upt_dat" column="UPT_DAT"/>
+        <result property="upt_tlr" column="UPT_TLR"/>
+        <result property="rec_sts" column="REC_STS"/>
+        <result property="bus_kd1" column="BUS_KD1"/>
+        <result property="bus_kd2" column="BUS_KD2"/>
+    </resultMap>
 
     <!-- 添加一条记录 -->
     <insert id="add" parameterType="PIFBUS">

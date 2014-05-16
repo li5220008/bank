@@ -1,5 +1,7 @@
 package com.gtafe.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -27,7 +29,9 @@ public class Pifirt {
     private double irt_trm;//期限
     private String trm_unt;//期限单位
     private String cre_tlr;//建档柜员
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date cre_dat;//建档日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date upt_dat;//最后更新日期
     private String upt_tlr;//更新柜员
     private String rec_sts;//记录状态

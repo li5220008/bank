@@ -8,5 +8,5 @@ import com.gtafe.model.Pifbus;
  * Date: 14-5-5
  * Time: 下午1:27
  */
-public interface PifbusMapper extends BaseMapper<Pifbus> {
+public interface PifbusMapper extends IBaseDao<Pifbus> {
 }

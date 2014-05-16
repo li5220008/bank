@@ -27,9 +27,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <br>
          要访问的页面链接，这里自己添加吧
         <ul>
-           <li><a href="pifccy.html">货币表操作</a></li>
-           <li><a href="pifitm.html">科目表操作</a></li>
-           <li><a href="pifapp/pifappList.html">应用码表操作</a></li>
+           <li><a href="pifccy">货币表操作</a></li>
+           <li><a href="pifitm">科目表操作</a></li>
+           <li><a href="bankcar">银行卡表操作</a></li>
+           <li><a href="priceCertificate">有价单证表操作</a></li>
+           <li><a href="cusRelations">客户关系表操作</a></li>
+           <li><a href="pifapp">应用码表操作</a></li>
+           <li><a href="piftrx">交易码表操作</a></li>
+           
+           
+           <li><a href="<%=path %>/CountryCode/list">国家码表操作</a></li>
+           <li><a href="#">假日码表操作</a></li>
+           
+           
+           <li><a href="exchangeList.html">汇率表操作</a></li>
+           <li><a href="${pageContext.request.contextPath}/pifbus/list">利率表操作</a></li>
+           <li><a href="${pageContext.request.contextPath}/pifirt/list">业务码表表操作</a></li>
         </ul>
         
         

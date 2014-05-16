@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.ICusRelationsDao">
+	<!-- 为了返回list 类型而定义的returnMap -->
+	<resultMap type="CusRelations" id="resultList">
+		<id column="id" property="id" />
+		<id column="usage" property="usage" />
+		<id column="cus_code" property="cus_code" />
+		<id column="cus_name" property="cus_name" />
+		<id column="other_cus_name" property="other_cus_name" />
+		<id column="other_cus_code" property="other_cus_code" />
+		<id column="certificate" property="certificate" />
+		<id column="certificate_code" property="certificate_code" />
+		<id column="cus_address" property="cus_address" />
+		<id column="cus_phone" property="cus_phone" />
+		<id column="relp_code" property="relp_code" />
+		<id column="start_code" property="start_code" />
+		<id column="UDT_DAT" property="udt_dat" />
+		<id column="UDT_CLR" property="udt_clr" />
+		<id column="use_status" property="use_status" />
+		<id column="REC_STS" property="rec_sts" />
+
+	</resultMap>
+	<!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+	<select id="findAll" resultMap="resultList">
+		select * from cus_relations
+	</select>
+
+	<select id="selectByID" parameterType="int" resultType="CusRelations">
+		select * from cus_relations where id=#{id}
+	</select>
+
+	<delete id="realDeleteById" parameterType="int">
+		delete from cus_relations where id=#{id}
+	</delete>
+
+	<update id="update" parameterType="CusRelations">
+		update cus_relations set
+		usage=#{usage,jdbcType=CHAR},cus_code=#{cus_code,jdbcType=VARCHAR},cus_name=#{cus_name,jdbcType=VARCHAR},
+		other_cus_name=#{other_cus_name,jdbcType=VARCHAR},other_cus_code=#{other_cus_code,jdbcType=VARCHAR},
+		certificate=#{certificate,jdbcType=CHAR},certificate_code=#{certificate_code,jdbcType=VARCHAR},
+		cus_address=#{cus_address,jdbcType=VARCHAR},cus_phone=#{cus_phone,jdbcType= VARCHAR},relp_code=#{relp_code,jdbcType= VARCHAR},
+		start_code=#{start_code,jdbcType= DATE},UDT_DAT=#{udt_dat,jdbcType=DATE},UDT_CLR=#{udt_clr,jdbcType= VARCHAR},
+		use_status=#{use_status,jdbcType=CHAR},REC_STS=#{rec_sts,jdbcType=CHAR}
+		where id=#{id,jdbcType=NUMERIC}
+	</update>
+
+	<insert id="add" parameterType="CusRelations">
+		insert into
+		cus_relations(usage,cus_code,cus_name,other_cus_name,other_cus_code,
+		certificate,certificate_code,cus_address,cus_phone,relp_code,
+		start_code,UDT_DAT,UDT_CLR,use_status,
+		REC_STS
+		) values
+		(#{usage,jdbcType=CHAR},#{cus_code,jdbcType=VARCHAR},#{cus_name,jdbcType=VARCHAR},
+		#{other_cus_name,jdbcType=VARCHAR},#{other_cus_code,jdbcType=VARCHAR},#{certificate,jdbcType=CHAR},
+		#{certificate_code,jdbcType=VARCHAR},#{cus_address,jdbcType=VARCHAR},#{cus_phone,jdbcType= VARCHAR},
+		#{relp_code,jdbcType= VARCHAR},#{start_code,jdbcType= DATE},#{udt_dat,jdbcType= DATE},
+		#{udt_clr,jdbcType= VARCHAR},#{use_status,jdbcType=CHAR},#{rec_sts,jdbcType= CHAR}
+		)
+	</insert>
+
+</mapper>

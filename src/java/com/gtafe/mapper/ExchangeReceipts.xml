@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IExchangeReceiptsDao">
+
+    <!-- 根据ID搜索一条记录 -->
+    <select id="selectById" parameterType="int" resultType="ExchangeReceipts">
+        select * from exchange_receipts as a where a.id = #{id}
+    </select>
+
+    <!-- 获取全部 -->
+    <select id="findAll" resultMap="resultListExchangeReceipts">
+        select * FROM exchange_receipts as a where a.REC_STS != 'I' or a.REC_STS IS NULL
+    </select>
+
+    <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="ExchangeReceipts" id="resultListExchangeReceipts" ></resultMap>
+
+    <!-- 添加一条记录 -->
+    <insert id="add" parameterType="ExchangeReceipts">
+        insert into exchange_receipts (
+		   exchange_type
+		  ,icon_name
+		  ,icon_sign
+		  ,rate_type
+		  ,rate
+		  ,rate_flag
+		  ,date_flag
+		  ,date_upt_flag
+		  ,start_time
+		  ,create_teller
+		  ,create_time
+		  ,last_time
+		  ,UDT_CLR
+		  ,REC_STS
+		) VALUES (
+		   #{exchangeType} -- exchange_type - IN char(10)
+		  ,#{iconName} -- icon_name - IN char(10)
+		  ,#{iconSign} -- icon_sign - IN char(3)
+		  ,#{rateType} -- rate_type - IN char(1)
+		  ,#{rate,jdbcType=DOUBLE} -- rate - IN decimal(3, 1)
+		  ,#{rateFlag} -- rate_flag - IN char(1)
+		  ,#{dateFlag} -- date_flag - IN char(1)
+		  ,#{dateUptFlag} -- date_upt_flag - IN char(1)
+		  ,#{startTime} -- start_time - IN datetime
+		  ,#{createTeller} -- create_teller - IN char(6)
+		  ,#{createTime} -- create_time - IN datetime
+		  ,#{lastTime} -- last_time - IN datetime
+		  ,#{udtClr} -- UDT_CLR - IN char(6)
+		  ,#{recSts} -- REC_STS - IN char(1)
+		)
+    </insert>
+
+    <!-- 更新一条记录 -->
+    <update id="update" parameterType="ExchangeReceipts" >
+        update exchange_receipts SET
+		   exchange_type = #{exchangeType} -- char(10)
+		  ,icon_name = #{iconName} -- char(10)
+		  ,icon_sign = #{iconSign} -- char(3)
+		  ,rate_type = #{rateType} -- char(1)
+		  ,rate = #{rate,jdbcType=DOUBLE} -- decimal(3, 1)
+		  ,rate_flag = #{rateFlag} -- char(1)
+		  ,date_flag = #{dateFlag} -- char(1)
+		  ,date_upt_flag = #{dateUptFlag} -- char(1)
+		  ,start_time = #{startTime} -- datetime
+		  ,create_teller = #{createTeller} -- char(6)
+		  ,create_time = #{createTime} -- datetime
+		  ,last_time = #{lastTime} -- datetime
+		  ,UDT_CLR = #{udtClr} -- char(6)
+		  ,REC_STS = #{recSts} -- char(1)
+		WHERE id = #{id} -- numeric(8, 0)
+    </update>
+
+    <!-- 软删除一条记录 -->
+    <update id="softDeleteById" parameterType="int">
+        update exchange_receipts SET a.REC_STS = 'I' where id=#{id}
+    </update>
+</mapper>

@@ -3,6 +3,7 @@ package com.gtafe.controller;
 import com.gtafe.dto.Message;
 import com.gtafe.model.Pifbus;
 import com.gtafe.service.IPIFBUSService;
+import com.gtafe.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,14 +27,14 @@ public class PifbusController extends BaseController {
 
     @RequestMapping(value = {"/list"},method = RequestMethod.GET)
     public String list(Model model){
-        List<Pifbus> pifbuses = service.selectAll();
+        List<Pifbus> pifbuses = service.fetchAll();
         model.addAttribute("pifbus",pifbuses);
         return "/pifbus/list";
     }
 
     @RequestMapping("/info")
     public @ResponseBody Pifbus info(String id) {
-        Pifbus pifbus = service.selectByID(id);
+        Pifbus pifbus = service.selectById(id);
         return pifbus;
     }
 
@@ -45,21 +46,19 @@ public class PifbusController extends BaseController {
     }
     @RequestMapping(value = {"/addDo"},method = RequestMethod.POST)
     public String addDo(Pifbus pifbus,Model model){
-        Message message = null;
-        service.add(pifbus);
         try {
+        	service.add(pifbus);
         } catch (Exception e) {
             e.printStackTrace();
-            return failMessage(model);
+            return CommonUtils.message(model);
         }
-        message = new Message("添加成功!","/pifbus/list","3");
-        model.addAttribute("message",message);
-        return "/message";
+        Message message = new Message("添加成功!","/pifbus/list","3");
+        return CommonUtils.message(model,message);
     }
 
     @RequestMapping(value = {"/update"},method = RequestMethod.GET)
     public String update(String id, Model model){
-        Pifbus pifbus = service.selectByID(id);
+        Pifbus pifbus = service.selectById(id);
         model.addAttribute(pifbus);
         return "/pifbus/update";
     }
@@ -70,9 +69,10 @@ public class PifbusController extends BaseController {
             service.update(pifbus);
         } catch (Exception e) {
             e.printStackTrace();
-            return failMessage(model);
+            return CommonUtils.message(model);
         }
-        return "redirect:/pifbus/list";
+        Message message = new Message("更新成功!","/pifbus/list","2");
+        return CommonUtils.message(model,message);
     }
 
     @RequestMapping("/delete")

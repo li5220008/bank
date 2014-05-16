@@ -22,13 +22,13 @@ public class PifirtServiceImplTest extends BaseTest {
 
     @Test
     public void testSelectByID() throws Exception {
-        Pifirt pifirt = ipifirtService.selectByID("123456789");
+        Pifirt pifirt = ipifirtService.selectById("123456789");
         System.out.println(pifirt);
     }
 
     @Test
     public void testSelectAll() throws Exception {
-        List<Pifirt> pifirts = ipifirtService.selectAll();
+        List<Pifirt> pifirts = ipifirtService.fetchAll();
         for(Pifirt pifirt : pifirts){
             System.out.println(pifirt);
         }
@@ -36,7 +36,7 @@ public class PifirtServiceImplTest extends BaseTest {
     @Test
     public void testAdd() throws Exception {
         Pifirt pifirt = new Pifirt();
-        pifirt.setIrt_key("1234567855");
+        pifirt.setIrt_key("1234567856");
         pifirt.setCur_cde("ab");
         pifirt.setIrt_cde("ab");
         pifirt.setIrt_kd1("a");

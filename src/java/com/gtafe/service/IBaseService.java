@@ -10,9 +10,10 @@ import java.util.List;
  * Time: 下午7:20
  */
 public interface IBaseService<E> {
-    E selectByID(String id);
-    List<E> selectAll();
-    void add(E E);
-    void update(E E);
-    void softDeleteById(String id);
+    //E selectById(String id);
+    E selectById(Object id);//为了兼容String 和int类型故用Object
+    List<E> fetchAll();
+    void add(E e);
+    void update(E e);
+    void softDeleteById(Object id);
 }

@@ -1,8 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="com.gtafe.constants.PifitmSelect;"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+request.setAttribute("ITM_TYPS",PifitmSelect.ITM_TYPS);
+request.setAttribute("ITM_ATRS",PifitmSelect.ITM_ATRS);
+request.setAttribute("ITM_CLAS",PifitmSelect.ITM_CLAS);
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -47,16 +51,25 @@ table{
               <tr>
                 <td>${pifitm.itm_num }</td>
 	            <td>${pifitm.itm_nam }</td>
-	            <td>${pifitm.itm_typ }</td>
-	            <td>${pifitm.itm_atr }</td>
-	            <td>${pifitm.itm_cla }</td>
+	            <td>
+	               <c:set var="itm_typ" value="${pifitm.itm_typ }"/>
+	                ${ITM_TYPS[itm_typ] }   
+	            </td>
+	            <td>
+	                <c:set var="itm_atr" value="${pifitm.itm_atr }"/>
+	                ${ITM_ATRS[itm_atr] }
+	            </td>
+	            <td>
+	                <c:set var="itm_cla" value="${pifitm.itm_cla }"/>
+	                ${ITM_CLAS[itm_cla] }
+	            </td>
 	            <td><a href="pifitm/edit.html?itm_num=${pifitm.itm_num }">修改</a>|
 	                <a href="pifitm/delete.html?itm_num=${pifitm.itm_num }">删除</a>
 	            </td>
             </tr>
            </c:forEach>
          </table>
-       <a href="pifitm/add.html">新增</a>
+      <a href="pifitm/add.html">新增</a>
       <a href="javascript:history.go(-1)">返回</a>
       </div>
   </body>

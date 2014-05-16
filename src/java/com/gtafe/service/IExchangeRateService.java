@@ -1,16 +1,20 @@
 package com.gtafe.service;
 
-import java.util.Date;
 import java.util.List;
 
 import com.gtafe.model.ExchangeRate;
-
+/*
+ * author yangchuan
+ * 汇率表增删改查接口
+ */
 public interface IExchangeRateService {
-	public ExchangeRate selectByID(int XRT_KEY);
+	public ExchangeRate selectByID(String XRT_KEY);
 
 	public List<ExchangeRate> findAll();
 
 	public void addExchangeRate(ExchangeRate er);
 	
-	public void deleteExchangeRate(int XRT_key);
+	public void deleteExchangeRate(String XRT_key);
+	
+	public void updateExchangeRate(ExchangeRate er);
 }

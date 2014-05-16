@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IPifappDao">
+
+     <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="Pifapp" id="resultListPifapp">
+        <id column="APP_CDE" property="app_cde" />
+        <id column="APP_SNM" property="app_snm" />
+        <id column="APP_NAM" property="app_nam" />
+        <id column="APP_IDT" property="app_idt" />
+        <id column="APP_TYP" property="app_typ" />
+        <id column="APP_STS" property="app_sts" />
+        <id column="STR_EXT" property="str_ext" />
+        <id column="DWN_EXT" property="dwn_ext" />
+        <id column="RST_EXT" property="rst_ext" />
+        <id column="APP_CAL" property="app_cal" />
+        <id column="RUN_MOD" property="run_mod" />
+        <id column="RUN_HOL" property="run_hol" />
+        <id column="UPT_DAT" property="upt_dat" />
+        <id column="UPT_TLR" property="upt_tlr" />
+        <id column="REC_STS" property="rec_sts" />
+    </resultMap>  
+    <!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+    <select id="findAll"  resultMap="resultListPifapp">
+         select * from PIFAPP 
+    </select>
+    
+    <select id="selectByID" parameterType="String" resultType="Pifapp" >
+         select * from PIFAPP where APP_CDE=#{app_cde}
+    </select>
+    
+    <delete id="realDeleteById" parameterType="String">
+         delete from PIFAPP  where APP_CDE=#{app_cde}
+    </delete>
+    
+    <update id="update" parameterType="Pifapp">
+         update PIFAPP set 
+         APP_CDE=#{app_cde,jdbcType=VARCHAR},
+         APP_SNM=#{app_snm,jdbcType=VARCHAR},
+         APP_NAM=#{app_nam,jdbcType=VARCHAR},
+         APP_IDT=#{app_idt,jdbcType=VARCHAR},
+         APP_TYP=#{app_typ,jdbcType=CHAR},
+         APP_STS=#{app_sts,jdbcType=CHAR},
+         STR_EXT=#{str_ext,jdbcType=CHAR},
+         DWN_EXT=#{dwn_ext,jdbcType= CHAR},
+         RST_EXT=#{rst_ext,jdbcType= CHAR},
+         APP_CAL=#{app_cal,jdbcType= VARCHAR},
+         RUN_MOD=#{run_mod,jdbcType= CHAR},
+         RUN_HOL=#{run_hol,jdbcType= CHAR},
+         UPT_DAT=#{upt_dat,jdbcType= DATE},
+         UPT_TLR=#{upt_tlr,jdbcType= VARCHAR},
+         REC_STS=#{rec_sts,jdbcType=CHAR}
+         where APP_CDE=#{app_cde,jdbcType=VARCHAR}
+    </update>
+       
+    <insert id="add" parameterType="Pifapp">
+        insert into PIFAPP(
+         APP_CDE,
+         APP_SNM,
+         APP_NAM,
+         APP_IDT,
+         APP_TYP,
+         APP_STS,
+         STR_EXT,
+         DWN_EXT,
+         RST_EXT,
+         APP_CAL,
+         RUN_MOD,
+         RUN_HOL,
+         UPT_DAT,
+         UPT_TLR,
+         REC_STS) values (#{app_cde,jdbcType=VARCHAR},
+         #{app_snm,jdbcType=VARCHAR},
+         #{app_nam,jdbcType=VARCHAR},
+         #{app_idt,jdbcType=VARCHAR},
+        #{app_typ,jdbcType=CHAR},
+        #{app_sts,jdbcType=CHAR},
+        #{str_ext,jdbcType=CHAR},
+        #{dwn_ext,jdbcType=CHAR},
+        #{rst_ext,jdbcType= CHAR},
+        #{app_cal,jdbcType= VARCHAR},
+        #{run_mod,jdbcType= CHAR},
+        #{run_hol,jdbcType= CHAR},
+        #{upt_dat,jdbcType= CHAR},
+        #{upt_tlr,jdbcType= VARCHAR},
+        #{rec_sts,jdbcType= CHAR})
+    </insert>
+
+</mapper>

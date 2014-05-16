@@ -1,5 +1,9 @@
 package com.gtafe.model;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 //汇率表
 
 public class ExchangeRate {
@@ -7,11 +11,13 @@ public class ExchangeRate {
 	private String CUR_CDE;
 	private String SEC_CCY;
 	private String XRT_CDE;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private String EFF_DAT;
+	@DateTimeFormat(pattern="HH:mm:ss")
 	private String EFF_TIM;
 	private String CUR_FLG;
 	private String MOD_FLG;
-	private String RAT_VAL;
+	private Double RAT_VAL;
 	private String RAT_FLG;
 	private String CRE_TLR;
 	private String CRE_DAT;
@@ -84,12 +90,12 @@ public class ExchangeRate {
 		MOD_FLG = mod_flg;
 	}
 
-	public String getRAT_VAL() {
+	public Double getRAT_VAL() {
 		return RAT_VAL;
 	}
 
-	public void setRAT_VAL(String rat_val) {
-		RAT_VAL = rat_val;
+	public void setRAT_VAL(double d) {
+		RAT_VAL = d;
 	}
 
 	public String getRAT_FLG() {

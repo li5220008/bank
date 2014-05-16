@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  Desc: common lib
+  Desc: 模板JS
   User: free
   Date: 5/1/14
   Time: 10:28 AM
@@ -19,3 +19,13 @@
 
 <!--插件-->
 <script src="${pageContext.request.contextPath}/resources/js/My97DatePicker/WdatePicker.js"></script>
+
+<!--Jquery 验证插件-->
+<script src="${pageContext.request.contextPath}/resources/js/validate/jquery.validate.min.js"></script>
+
+<!--自定义基础公用部分-->
+<script src="${pageContext.request.contextPath}/resources/js/validate/base.validate.js"></script>
+
+<!--插件-->
+
+<script src="${pageContext.request.contextPath}/resources/js/jquery.fancybox-1.3.4.pack.js"></script>

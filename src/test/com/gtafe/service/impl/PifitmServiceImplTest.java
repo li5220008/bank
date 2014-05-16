@@ -5,7 +5,8 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.gtafe.dao.PifitmMapper;
+import com.gtafe.constants.PifitmSelect;
+import com.gtafe.dao.IPifitmDao;
 import com.gtafe.model.Pifitm;
 import com.gtafe.service.BaseTest;
 
@@ -18,7 +19,7 @@ import com.gtafe.service.BaseTest;
 public class PifitmServiceImplTest extends BaseTest {
 
 	@Autowired
-    PifitmMapper pifitmMapper;
+    IPifitmDao pifitmMapper;
 	
 	@Test
 	public void deletePifitm() {      
@@ -50,6 +51,8 @@ public class PifitmServiceImplTest extends BaseTest {
 	}
 	@Test
 	public void getPifitm(){
+		
+	    System.out.println("常量测试："+PifitmSelect.ITM_TYPS.get("2"));
 		System.out.println(pifitmMapper.getPifitm("1").getItm_nam());
 	}
 

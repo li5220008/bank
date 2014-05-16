@@ -20,15 +20,17 @@ public class PifirtServiceImpl implements IPIFIRTService {
     @Autowired
     private PifirtMapper pifirtMapper;
 
-    public Pifirt selectByID(String id) {
-        return pifirtMapper.selectByID(id);
+    public Pifirt selectById(Object id) {
+        return pifirtMapper.selectById(id);
     }
 
-    public List<Pifirt> selectAll() {
-        return pifirtMapper.fetchAll();
+    public List<Pifirt> fetchAll() {
+        return pifirtMapper.findAll();
     }
 
     public void add(Pifirt pifbus) {
+        //设置默认值
+        pifbus.setRec_sts("P");
         pifirtMapper.add(pifbus);
     }
 
@@ -36,7 +38,7 @@ public class PifirtServiceImpl implements IPIFIRTService {
         pifirtMapper.update(pifbus);
     }
 
-    public void softDeleteById(String id) {
+    public void softDeleteById(Object id) {
         pifirtMapper.softDeleteById(id);
     }
 }

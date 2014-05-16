@@ -3,7 +3,10 @@ package com.gtafe.service;
 import java.util.List;
 
 import com.gtafe.model.Piffrt;
-
+/*
+ * author chuan
+ * 费率表增增删改查接口
+ */
 public interface IPiffrtService {
 
 	   public Piffrt selectFeeRateByID(String id);

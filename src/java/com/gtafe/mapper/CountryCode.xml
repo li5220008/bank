@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.ICountryCodeDao">
+
+    <!-- 根据ID搜索一条记录 -->
+    <select id="selectById" parameterType="int" resultType="CountryCode">
+        select * from country_code as a where a.id = #{id}
+    </select>
+
+    <!-- 获取全部 -->
+    <select id="findAll" resultMap="resultListCountryCode">
+        select * FROM country_code as a where a.REC_STS != 'I' or a.REC_STS IS NULL
+    </select>
+
+    <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="CountryCode" id="resultListCountryCode" ></resultMap>
+
+    <!-- 添加一条记录 -->
+    <insert id="add" parameterType="CountryCode">
+        insert into country_code (
+		   country_code
+		  ,conutry_name
+		  ,allow_flag
+		  ,currency
+		  ,rate
+		  ,start_time
+		  ,last_time
+		  ,UPT_TLR
+		  ,use_status
+		  ,REC_STS
+		) VALUES (
+		   #{countryCode}  -- country_code - IN char(3)
+		  ,#{conutryName} -- conutry_name - IN nvarchar(16)
+		  ,#{allowFlag} -- allow_flag - IN char(1)
+		  ,#{currency} -- currency - IN char(4)
+		  ,#{rate} -- rate - IN char(21)
+		  ,#{startTime} -- start_time - IN datetime
+		  ,#{lastTime} -- last_time - IN datetime
+		  ,#{uptTlr} -- UPT_TLR - IN char(6)
+		  ,#{useStatus} -- use_status - IN char(1)
+		  ,#{recSts} -- REC_STS - IN char(1)
+		)
+    </insert>
+
+    <!-- 更新一条记录 -->
+    <update id="update" parameterType="CountryCode" >
+        update country_code SET
+		   country_code = #{countryCode} -- char(3)
+		  ,conutry_name = #{conutryName} -- nvarchar(16)
+		  ,allow_flag = #{allowFlag} -- char(1)
+		  ,currency = #{currency} -- char(4)
+		  ,rate = #{rate} -- char(21)
+		  ,start_time = #{startTime} -- datetime
+		  ,last_time = #{lastTime} -- datetime
+		  ,UPT_TLR = #{uptTlr} -- char(6)
+		  ,use_status = #{useStatus} -- char(1)
+		  ,REC_STS = #{recSts} -- char(1)
+		WHERE id = #{id} -- numeric(3, 0)
+    </update>
+
+    <!-- 软删除一条记录 -->
+    <update id="softDeleteById" parameterType="int">
+        update country_code SET a.REC_STS = 'I' where id=#{id}
+    </update>
+</mapper>

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Desc:
+ * Desc: 业务码表业务实现类
  * User: weiguili(li5220008@gmail.com)
  * Date: 14-5-5
  * Time: 下午4:41
@@ -20,12 +20,12 @@ public class PifbusServiceImpl implements IPIFBUSService {
     @Autowired
     private PifbusMapper pifbusMapper;
 
-    public Pifbus selectByID(String id) {
-        return pifbusMapper.selectByID(id);
+    public Pifbus selectById(Object id) {
+        return pifbusMapper.selectById(id);
     }
 
-    public List<Pifbus> selectAll() {
-        return pifbusMapper.fetchAll();
+    public List<Pifbus> fetchAll() {
+        return pifbusMapper.findAll();
     }
 
     public void add(Pifbus pifbus) {
@@ -38,7 +38,7 @@ public class PifbusServiceImpl implements IPIFBUSService {
         pifbusMapper.update(pifbus);
     }
 
-    public void softDeleteById(String id) {
+    public void softDeleteById(Object id) {
         pifbusMapper.softDeleteById(id);
     }
 }

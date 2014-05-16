@@ -8,6 +8,6 @@ import com.gtafe.model.Pifirt;
  * Date: 14-5-5
  * Time: 下午1:27
  */
-public interface PifirtMapper extends BaseMapper<Pifirt> {
+public interface PifirtMapper extends IBaseDao<Pifirt> {
 
 }

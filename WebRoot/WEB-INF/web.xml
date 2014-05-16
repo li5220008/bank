@@ -20,10 +20,9 @@
     <!-- 定时清理上下文内容 -->
   <listener>
     <listener-class>
-            org.springframework.web.context.ContextCleanupListener
-    </listener-class>
+            org.springframework.web.context.ContextCleanupListener</listener-class>
   </listener>
-
+  
     <!-- 指定log4j配置文件的位置 -->
   <listener>
      <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
@@ -54,6 +53,7 @@
   		<filter-name>springEncoding</filter-name>
   		<url-pattern>/*</url-pattern>
   </filter-mapping>
+  
   
     <!-- 给servlet-name定义的名称是springMVC,这样的话会在web-inf下spring会自动扫描一个XML文件名叫springMVC-servlet.xml文件，这里都是spring自动扫描的 -->
   <servlet>

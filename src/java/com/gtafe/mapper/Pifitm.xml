@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.gtafe.dao.PifitmMapper">
+<mapper namespace="com.gtafe.dao.IPifitmDao">
 
      <!-- 为了返回list 类型而定义的returnMap -->
     <resultMap type="Pifitm" id="resultListPifitm">

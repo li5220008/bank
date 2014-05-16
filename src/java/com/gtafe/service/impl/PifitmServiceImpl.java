@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gtafe.dao.PifitmMapper;
+import com.gtafe.dao.IPifitmDao;
 import com.gtafe.model.Pifitm;
 import com.gtafe.service.IPifitmService;
 
@@ -14,7 +14,7 @@ import com.gtafe.service.IPifitmService;
 public class PifitmServiceImpl implements IPifitmService{
 
 	@Autowired
-    PifitmMapper pifitmMapper;
+    IPifitmDao pifitmMapper;
 
 	public boolean deletePifitm(String itm_num) {      
 		try {

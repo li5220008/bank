@@ -5,28 +5,47 @@
   主要是配置实体类映射文件中的别名，其他内容都交给spring管理
  -->
 <configuration>
-     <typeAliases>
-            <typeAlias alias="User" type="com.gtafe.model.User"/>
-            <typeAlias alias="Pifccy" type="com.gtafe.model.Pifccy"/>
-            <typeAlias alias="Pifitm" type="com.gtafe.model.Pifitm"/>
-            <typeAlias alias="FeeRate" type="com.gtafe.model.Piffrt"/>
-
-            <typeAlias alias="ExchangeRate" type="com.gtafe.model.ExchangeRate"/>
-            <typeAlias alias="Pifbus" type="com.gtafe.model.Pifbus"/>
-            <typeAlias alias="Pifirt" type="com.gtafe.model.Pifirt"/>
-
-     </typeAliases>
-    <!--
-    Specifies the JDBC type for null values when no specific JDBC type was provided for the parameter.
-     Some drivers require specifying the column JDBC type but others work with generic values like NULL,
-      VARCHAR or OTHER.
-       JdbcType enumeration.
-       Most common are: NULL,
-       VARCHAR and OTHER	 OTHER
-
     <settings>
+        <!-- 启用自动驼峰映射配置-->
+        <setting name="mapUnderscoreToCamelCase" value="false"/>
+        <!-- 空值默认null来处理不需要全部指定jdbcType=VARCHAR -->
         <setting name="jdbcTypeForNull" value="VARCHAR"/>
     </settings>
-    -->
+    <typeAliases>
+        <typeAlias alias="User" type="com.gtafe.model.User"/>
+        <!-- 货币表 -->
+        <typeAlias alias="Pifccy" type="com.gtafe.model.Pifccy"/>
+        <!-- 科目表-->
+        <typeAlias alias="Pifitm" type="com.gtafe.model.Pifitm"/>
+        <!-- 银行卡实体类 -->
+        <typeAlias alias="BankCar" type="com.gtafe.model.BankCar"/>
+        <!-- 客户关系表 -->
+        <typeAlias alias="CusRelations" type="com.gtafe.model.CusRelations"/>
+        <!--  有价单证实体类 -->
+        <typeAlias alias="PriceCertificate" type="com.gtafe.model.PriceCertificate"/>
 
+        <typeAlias alias="ExchangeRate" type="com.gtafe.model.ExchangeRate"/>
+
+        <!--  费率表   -->
+        <typeAlias alias="FeeRate" type="com.gtafe.model.Piffrt"/>
+        <!--  结售汇牌价表   -->
+        <typeAlias alias="ExchangeReceipts" type="com.gtafe.model.ExchangeReceipts"/>
+        <!--  内部账户控制表   -->
+        <typeAlias alias="AcctControl" type="com.gtafe.model.AcctControl"/>
+        <!--  公共代码表   -->
+        <typeAlias alias="PublicCode" type="com.gtafe.model.PublicCode"/>
+        <!--  内部账户开户表   -->
+        <typeAlias alias="AcctOpen" type="com.gtafe.model.AcctOpen"/>
+        <!--  业务码表   -->
+        <typeAlias alias="Pifbus" type="com.gtafe.model.Pifbus"/>
+        <!--  利率表   -->
+        <typeAlias alias="Pifirt" type="com.gtafe.model.Pifirt"/>
+
+        <!-- 应用码表 -->
+        <typeAlias alias="Pifapp" type="com.gtafe.model.Pifapp"/>
+        <!-- 交易码表 -->
+        <typeAlias alias="Piftrx" type="com.gtafe.model.Piftrx"/>
+        <!-- 国家码表 -->
+        <typeAlias alias="CountryCode" type="com.gtafe.model.CountryCode"/>
+    </typeAliases>
 </configuration>

@@ -22,13 +22,13 @@ public class PifbusServiceImplTest extends BaseTest {
 
     @Test
     public void testSelectByID() throws Exception {
-        Pifbus pifbus = ipifbusService.selectByID("00d");
+        Pifbus pifbus = ipifbusService.selectById("00d");
         System.out.println(pifbus);
     }
 
     @Test
     public void testSelectAll() throws Exception {
-        List<Pifbus> pifbuses = ipifbusService.selectAll();
+        List<Pifbus> pifbuses = ipifbusService.fetchAll();
         for(Pifbus pifbus : pifbuses){
             System.out.println(pifbus);
         }
@@ -37,7 +37,7 @@ public class PifbusServiceImplTest extends BaseTest {
     @Test
     public void testAdd() throws Exception {
         Pifbus pifbus = new Pifbus();
-        pifbus.setBus_cde("016");
+        pifbus.setBus_cde("110");
         pifbus.setBus_app("a");
         pifbus.setBus_itm("a");
         pifbus.setBus_nam("姓名上看看快快快快姓名上看看快快快快快快快快快快看快快快快快快快快快快快快快快快快看快快快快快快快看快快快快快快快快快快快快快快快快看快快快快快快快快看");

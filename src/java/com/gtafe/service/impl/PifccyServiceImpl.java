@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gtafe.dao.PifccyMapper;
+import com.gtafe.dao.IPifccyDao;
 import com.gtafe.model.Pifccy;
 import com.gtafe.service.IPifccyService;
 
@@ -14,7 +14,7 @@ import com.gtafe.service.IPifccyService;
 public class PifccyServiceImpl implements IPifccyService{
 
 	@Autowired
-    PifccyMapper pifccyMapper;
+    IPifccyDao pifccyMapper;
 	
 	public boolean deletePifccy(String cur_cde) {      
 		try {

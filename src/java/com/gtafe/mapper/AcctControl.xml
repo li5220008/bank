@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IAcctControlDao">
+
+    <!-- 根据ID搜索一条记录 -->
+    <select id="selectById" parameterType="int" resultType="AcctControl">
+        select * from acct_control as a where a.id = #{id}
+    </select>
+
+    <!-- 获取全部 -->
+    <select id="findAll" resultMap="resultListAcctControl">
+        select * FROM acct_control as a where a.REC_STS != 'I' or a.REC_STS IS NULL
+    </select>
+
+    <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="AcctControl" id="resultListAcctControl" ></resultMap>
+
+    <!-- 添加一条记录 -->
+    <insert id="add" parameterType="AcctControl">
+        insert into acct_control (
+		   ope_code
+		  ,org_code
+		  ,subject_code
+		  ,order_code
+		  ,account_name
+		  ,count_code
+		  ,account_limit
+		  ,icon_limit
+		  ,detail_code
+		  ,allow_direction
+		  ,remaining_direction
+		  ,account_type
+		  ,detail_flag
+		  ,borrow_code
+		  ,loan_code
+		  ,destroy_type
+		  ,flush_type
+		  ,hand_up_limit
+		  ,close_limit
+		  ,isallowA
+		  ,directional_flag
+		  ,public_type
+		  ,public_count_type
+		  ,remain_flag
+		  ,car_flag
+		  ,start_time
+		  ,last_time
+		  ,UDT_CLR
+		  ,use_status
+		  ,REC_STS
+		) VALUES (
+		   #{opeCode} -- ope_code - IN char(1)
+		  ,#{orgCode} -- org_code - IN char(6)
+		  ,#{subjectCode} -- subject_code - IN char(5)
+		  ,#{orderCode} -- order_code - IN char(5)
+		  ,#{accountName} -- account_name - IN nvarchar(20)
+		  ,#{countCode} -- count_code - IN char(16)
+		  ,#{accountLimit} -- account_limit - IN char(10)
+		  ,#{iconLimit} -- icon_limit - IN char(1)
+		  ,#{detailCode} -- detail_code - IN char(3)
+		  ,#{allowDirection} -- allow_direction - IN char(1)
+		  ,#{remainingDirection} -- remaining_direction - IN char(1)
+		  ,#{accountType} -- account_type - IN char(1)
+		  ,#{detailFlag} -- detail_flag - IN char(1)
+		  ,#{borrowCode} -- borrow_code - IN char(4)
+		  ,#{loanCode} -- loan_code - IN char(4)
+		  ,#{destroyType} -- destroy_type - IN char(1)
+		  ,#{flushType} -- flush_type - IN char(1)
+		  ,#{handUpLimit} -- hand_up_limit - IN char(3)
+		  ,#{closeLimit} -- close_limit - IN char(3)
+		  ,#{isallowA} -- isallowA - IN char(1)
+		  ,#{directionalFlag} -- directional_flag - IN char(1)
+		  ,#{publicType} -- public_type - IN char(1)
+		  ,#{publicCountType} -- public_count_type - IN char(1)
+		  ,#{remainFlag} -- remain_flag - IN char(1)
+		  ,#{carFlag} -- car_flag - IN char(1)
+		  ,#{startTime} -- start_time - IN datetime
+		  ,#{lastTime} -- last_time - IN datetime
+		  ,#{udtClr} -- UDT_CLR - IN char(6)
+		  ,#{useStatus} -- use_status - IN char(1)
+		  ,#{recSts} -- REC_STS - IN char(1)
+		)
+    </insert>
+
+    <!-- 更新一条记录 -->
+    <update id="update" parameterType="AcctControl" >
+        update acct_control SET
+		   ope_code = #{opeCode} -- char(1)
+		  ,org_code = #{orgCode} -- char(6)
+		  ,subject_code = #{subjectCode} -- char(5)
+		  ,order_code = #{orderCode} -- char(5)
+		  ,account_name = #{accountName} -- nvarchar(20)
+		  ,count_code = #{countCode} -- char(16)
+		  ,account_limit = #{accountLimit} -- char(10)
+		  ,icon_limit = #{iconLimit} -- char(1)
+		  ,detail_code = #{detailCode} -- char(3)
+		  ,allow_direction = #{allowDirection} -- char(1)
+		  ,remaining_direction = #{remainingDirection} -- char(1)
+		  ,account_type = #{accountType} -- char(1)
+		  ,detail_flag = #{detailFlag} -- char(1)
+		  ,borrow_code = #{borrowCode} -- char(4)
+		  ,loan_code = #{loanCode} -- char(4)
+		  ,destroy_type = #{destroyType} -- char(1)
+		  ,flush_type = #{flushType} -- char(1)
+		  ,hand_up_limit = #{handUpLimit} -- char(3)
+		  ,close_limit = #{closeLimit} -- char(3)
+		  ,isallowA = #{isallowA} -- char(1)
+		  ,directional_flag = #{directionalFlag} -- char(1)
+		  ,public_type = #{publicType} -- char(1)
+		  ,public_count_type = #{publicCountType} -- char(1)
+		  ,remain_flag = #{remainFlag} -- char(1)
+		  ,car_flag = #{carFlag} -- char(1)
+		  ,start_time = #{startTime} -- datetime
+		  ,last_time = #{lastTime} -- datetime
+		  ,UDT_CLR = #{udtClr} -- char(6)
+		  ,use_status = #{useStatus} -- char(1)
+		  ,REC_STS = #{recSts} -- char(1)
+		WHERE id = #{id} -- numeric(8, 0)
+    </update>
+
+    <!-- 软删除一条记录 -->
+    <update id="softDeleteById" parameterType="int">
+        update acct_control SET a.REC_STS = 'I' where id=#{id}
+    </update>
+</mapper>

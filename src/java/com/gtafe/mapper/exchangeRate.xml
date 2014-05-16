@@ -5,13 +5,13 @@
 
 <mapper namespace="com.gtafe.dao.ExchangeRateMapper">
 
-    <select id="selectByID" parameterType="int" resultType="ExchangeRate">
-        select * from pifxrt where XRT_KEY = #{XRT_KEY}
+    <select id="selectByID" parameterType="String" resultType="ExchangeRate">
+        select * from PIFXRT where XRT_KEY = #{XRT_KEY}
     </select> 
   
  <!-- 为了返回list 类型而定义的returnMap -->
     <resultMap type="ExchangeRate" id="resultListExchangeRate">
-        <id column="XRT_KEY" property="XRT_KEY" />
+       
         <result column="CUR_CDE" property="CUR_CDE" />
         <result column="SEC_CCY" property="SEC_CCY" />
         <result column="XRT_CDE" property="XRT_CDE" />
@@ -33,46 +33,45 @@
   
     
     <select id="findAll"  resultMap="resultListExchangeRate">
-        select * from pifxrt
+        select * from PIFXRT
     </select>
    
-    <insert id="addExchangeRate" parameterType="com.gtafe.model.ExchangeRate" useGeneratedKeys="true" keyProperty="XRT_KEY"> 
-    INSERT INTO pifxrt(
-  CUR_CDE ,SEC_CCY ,XRT_CDE ,EFF_DAT ,EFF_TIM,CUR_FLG ,MOD_FLG
-  ,RAT_VAL,RAT_FLG,CRE_TLR ,CRE_DAT,CRE_TIM,UPT_DAT ,UPT_TLR,REC_STS
-) VALUES (
-   
-  #{CUR_CDE}
-  ,#{SEC_CCY}
-  ,#{XRT_CDE}
-  ,#{EFF_DAT}
-  ,#{EFF_TIM}
-  ,#{CUR_FLG}
-  ,#{MOD_FLG}
-  ,#{RAT_VAL}
-  ,#{RAT_FLG}
-  ,#{CRE_TLR}
-  ,#{CRE_DAT}
-  ,#{CRE_TIM}
-  ,#{UPT_DAT}
-  ,#{UPT_TLR}
-  ,#{REC_STS}
+    <insert id="addExchangeRate" parameterType="com.gtafe.model.ExchangeRate" > 
+    insert into PIFXRT(XRT_KEY,
+  CUR_CDE,SEC_CCY,XRT_CDE,EFF_DAT,EFF_TIM,CUR_FLG,MOD_FLG
+  ,RAT_VAL,RAT_FLG,CRE_TLR,CRE_DAT,CRE_TIM,UPT_DAT,UPT_TLR,REC_STS
+) values (
+  #{XRT_KEY,jdbcType=VARCHAR}
+  ,#{CUR_CDE,jdbcType=VARCHAR}
+  ,#{SEC_CCY,jdbcType=VARCHAR}
+  ,#{XRT_CDE,jdbcType=VARCHAR}
+  ,#{EFF_DAT,jdbcType=VARCHAR}
+  ,#{EFF_TIM,jdbcType=VARCHAR}
+  ,#{CUR_FLG,jdbcType=VARCHAR}
+  ,#{MOD_FLG,jdbcType=VARCHAR}
+  ,#{RAT_VAL,jdbcType=NUMERIC}
+  ,#{RAT_FLG,jdbcType=VARCHAR}
+  ,#{CRE_TLR,jdbcType=VARCHAR}
+  ,#{CRE_DAT,jdbcType=VARCHAR}
+  ,#{CRE_TIM,jdbcType=VARCHAR}
+  ,#{UPT_DAT,jdbcType=VARCHAR}
+  ,#{UPT_TLR,jdbcType=VARCHAR}
+  ,#{REC_STS,jdbcType=VARCHAR}
 ) 
     </insert>
     
-    <!--执行增加操作的SQL语句。id和parameterType分别与IUserOperation接口中的addUser方法的名字和  
-       参数类型一致。以#{name}的形式引用User参数 的name属性，MyBatis将使用反射读取User参数  
-        的此属性。#{name}中name大小写敏感。引用其他  
-       的gender等属性与此一致。seGeneratedKeys设置  
-       为"true"表明要MyBatis获取由数据库自动生成的主  
-       键；keyProperty="id"指定把获取到的主键值注入  
-       到Student的id属性?charset=cp936
-               useGeneratedKeys="true" keyProperty="uid"
-       --> 
+    
+     <update id="updateExchangeRate" parameterType="ExchangeRate">update PIFXRT set 
+        CUR_CDE=#{CUR_CDE,jdbcType=VARCHAR},
+       SEC_CCY=#{SEC_CCY,jdbcType=VARCHAR},XRT_CDE=#{XRT_CDE,jdbcType=VARCHAR},
+      EFF_DAT=#{EFF_DAT,jdbcType=VARCHAR},EFF_TIM=#{EFF_TIM,jdbcType=VARCHAR}, 
+      CUR_FLG=#{CUR_FLG,jdbcType=VARCHAR},MOD_FLG=#{MOD_FLG,jdbcType=VARCHAR},RAT_VAL=#{RAT_VAL,jdbcType=NUMERIC}, 
+      RAT_FLG=#{RAT_FLG,jdbcType=VARCHAR},UPT_DAT=#{UPT_DAT,jdbcType=VARCHAR},UPT_TLR=#{UPT_TLR,jdbcType=VARCHAR}, 
+      REC_STS=#{REC_STS,jdbcType=VARCHAR} where XRT_KEY=#{XRT_KEY}</update>
        
 
-      <delete id="deleteExchangeRate" parameterType="int">
-        delete from pifxrt where XRT_KEY=#{XRT_KEY}
+      <delete id="deleteExchangeRate" parameterType="String">
+        delete from PIFXRT where XRT_KEY=#{XRT_KEY}
     </delete> 
 
 </mapper>

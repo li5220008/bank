@@ -6,17 +6,39 @@
 <mapper namespace="com.gtafe.dao.PifirtMapper">
 
     <!-- 根据ID搜索一条记录 -->
-    <select id="selectByID" parameterType="string" resultType="PIFIRT">
+    <select id="selectById" parameterType="string" resultType="PIFIRT">
         select * from PIFIRT as a where a.IRT_KEY = #{id} and a.REC_STS != 'I'
     </select>
 
     <!-- 获取全部 -->
-    <select id="fetchAll" resultMap="resultListPIFIRT">
+    <select id="findAll" resultMap="resultListPIFIRT">
         select * FROM PIFIRT as a where a.REC_STS != 'I' or a.REC_STS IS NULL
     </select>
 
     <!-- 为了返回list 类型而定义的returnMap -->
-    <resultMap type="PIFIRT" id="resultListPIFIRT"></resultMap>
+    <resultMap type="PIFIRT" id="resultListPIFIRT">
+        <id column="IRT_KEY"  property="irt_key"/>
+        <result column="cur_cde" property="cur_cde" />
+        <result column="irt_cde" property="irt_cde" />
+        <result column="irt_kd1" property="irt_kd1" />
+        <result column="irt_kd2" property="irt_kd2" />
+        <result column="eff_dat" property="eff_dat" />
+        <result column="irt_nam" property="irt_nam" />
+        <result column="cur_flg" property="cur_flg" />
+        <result column="mod_flg" property="mod_flg" />
+        <result column="irt_val" property="irt_val" />
+        <result column="irt_sph" property="irt_sph" />
+        <result column="irt_spl" property="irt_spl" />
+        <result column="spr_flg" property="spr_flg" />
+        <result column="cdr_flg" property="cdr_flg" />
+        <result column="irt_trm" property="irt_trm" />
+        <result column="trm_unt" property="trm_unt" />
+        <result column="cre_tlr" property="cre_tlr" />
+        <result column="cre_dat" property="cre_dat" />
+        <result column="upt_dat" property="upt_dat" />
+        <result column="upt_tlr" property="upt_tlr" />
+        <result column="REC_STS" property="rec_sts" />
+    </resultMap>
 
     <!-- 添加一条记录 -->
     <insert id="add" parameterType="PIFIRT">
