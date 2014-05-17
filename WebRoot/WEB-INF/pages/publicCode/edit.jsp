@@ -14,84 +14,84 @@
     <title></title>
 </head>
 <body>
-<div class="container">
-    <form class="form-horizontal" id="countryCodeForm" action="${pageContext.request.contextPath}/countryCode/updateDo" method="post" role="form">
-        <input type="hidden" name="id" value="${countryCode.id}"/>
-        <div class="form-group">
-            <label for="country_code" class="col-sm-1">国家码</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" value="${countryCode.country_code}" name="country_code" id="country_code" placeholder="国家码">
+    <div class="container">
+        <form class="form-horizontal" id="publicCodeForm" action="${pageContext.request.contextPath}/publicCode/updateDo" method="post" role="form">
+            <input type="hidden" name="id" value="${publicCode.id}"/>
+            <div class="form-group">
+                <label for="public_code" class="col-sm-1">代码编号</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" value="${publicCode.public_code}" name="public_code" id="public_code" placeholder="代码编号">
+                </div>
+
+                <label for="public_type" class="col-sm-1">代码种类</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" value="${publicCode.public_type}" name="public_type" id="public_type" placeholder="代码种类">
+                </div>
+
+                <label for="public_name" class="col-sm-1">代码名称</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" value="${publicCode.public_name}" name="public_name" id="public_name" placeholder="代码名称">
+                </div>
             </div>
 
-            <label for="country_name" class="col-sm-1">国家名称</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" value="${countryCode.country_name}" name="country_name" id="country_name" placeholder="国家名称">
+            <div class="form-group">
+                <label for="comment" class="col-sm-1">注释</label>
+                <div class="col-sm-3">
+                    <textarea name="comment" class="form-control" rows="3"  placeholder="注释"  id="comment">${publicCode.comment}</textarea>
+                </div>
+
+                <label for="control_message" class="col-sm-1">控制信息</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" value="${publicCode.control_message}" name="control_message" id="control_message" placeholder="控制信息">
+                </div>
+
+                <label for="start_time" class="col-sm-1">启用日期</label>
+                <div class="col-sm-3">
+                    <input type="text" onclick="WdatePicker()" class="form-control" value="<fmt:formatDate value='${publicCode.start_time}' pattern='yyyy-MM-dd' />" name="start_time" id="start_time" placeholder="启用日期">
+                </div>
             </div>
 
-            <label for="allow_flag" class="col-sm-1">允许货币标志</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" value="${countryCode.allow_flag}" name="allow_flag" id="allow_flag" placeholder="允许货币标志">
-            </div>
-        </div>
+            <div class="form-group">
+                <label for="last_time" class="col-sm-1">最后更新日期</label>
+                <div class="col-sm-3">
+                    <input type="text" onclick="WdatePicker()" class="form-control" value="<fmt:formatDate value='${publicCode.last_time}' pattern='yyyy-MM-dd' />"  name="last_time" id="last_time" placeholder="最后更新日期">
+                </div>
 
-        <div class="form-group">
-            <label for="currency" class="col-sm-1">货币</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" value="${countryCode.currency}" name="currency" id="currency" placeholder="货币">
-            </div>
+                <label for="upt_tlr" class="col-sm-1">更新柜员</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" value="${publicCode.upt_tlr}" name="upt_tlr" id="upt_tlr" placeholder="更新柜员">
+                </div>
 
-            <label for="rate" class="col-sm-1">汇率</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" value="${countryCode.rate}" name="rate" id="rate" placeholder="汇率">
-            </div>
-
-            <label for="start_time" class="col-sm-1">启用日期</label>
-            <div class="col-sm-3">
-                <input type="text" onclick="WdatePicker()" class="form-control" value="<fmt:formatDate value='${countryCode.start_time}' pattern='yyyy-MM-dd' />" name="start_time" id="start_time" placeholder="启用日期">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="last_time" class="col-sm-1">最后更新日期</label>
-            <div class="col-sm-3">
-                <input type="text" onclick="WdatePicker()" class="form-control" value="<fmt:formatDate value='${countryCode.last_time}' pattern='yyyy-MM-dd' />" name="last_time" id="last_time" placeholder="最后更新日期">
+                <label for="use_status" class="col-sm-1">使用状态</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" value="${publicCode.use_status}" name="use_status" id="use_status" placeholder="使用状态">
+                </div>
             </div>
 
-            <label for="upt_tlr" class="col-sm-1">更新柜员</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" value="${countryCode.upt_tlr}" name="upt_tlr" id="upt_tlr" placeholder="更新柜员">
+            <div class="form-group">
+                <label for="rec_sts" class="col-sm-1">记录状态</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" value="${publicCode.rec_sts}" name="rec_sts" id="rec_sts" placeholder="记录状态">
+                </div>
+
+                <label class="col-sm-1">###</label>
+                <div class="col-sm-3">
+                </div>
+
+                <label class="col-sm-1">###</label>
+                <div class="col-sm-3">
+                </div>
             </div>
 
-            <label for="use_status" class="col-sm-1">使用状态</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" value="${countryCode.use_status}" name="use_status" id="use_status" placeholder="使用状态">
+            <div class="form-group">
+                <div class="col-sm-9"></div>
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <button type="button" onclick="history.go(-1);" class="btn btn-primary">返回</button>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label for="rec_sts" class="col-sm-1">记录状态</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" value="${countryCode.rec_sts}" name="rec_sts" id="rec_sts" placeholder="记录状态">
-            </div>
-
-            <label class="col-sm-1">###</label>
-            <div class="col-sm-3">
-            </div>
-
-            <label class="col-sm-1">###</label>
-            <div class="col-sm-3">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-9"></div>
-            <div class="col-sm-3">
-                <button type="submit" class="btn btn-primary">提交</button>
-                <button type="button" onclick="history.go(-1);" class="btn btn-primary">返回</button>
-            </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 </body>
 </html>
 <%@include file="/WEB-INF/pages/main.jsp"%>

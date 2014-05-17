@@ -41,6 +41,7 @@
                           <th>最后更新日期</th>
                           <th>更新柜员</th>
                           <th>记录状态</th>
+                          <th>操作</th>
                       </tr>
                       </thead>
                       <tbody>

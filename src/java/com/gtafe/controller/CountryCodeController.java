@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * Desc: 业务码表
+ * Desc: 国家码表
  * User: weiguili(li5220008@gmail.com)
  * Date: 14-5-16
  * Time: 上午11:47

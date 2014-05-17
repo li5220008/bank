@@ -34,7 +34,7 @@
             <div class="form-group">
                 <label for="comment" class="col-sm-1">注释</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="comment" id="comment" placeholder="注释">
+                    <textarea name="comment" class="form-control"  placeholder="注释"  id="comment"></textarea>
                 </div>
 
                 <label for="control_message" class="col-sm-1">控制信息</label>
@@ -79,7 +79,6 @@
                 <div class="col-sm-3">
                 </div>
             </div>
-
 
             <div class="form-group">
                 <div class="col-sm-9"></div>

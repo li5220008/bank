@@ -31,6 +31,7 @@
                     <th>业务大类</th>
                     <th>业务小类</th>
                     <th>记录状态</th>
+                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
