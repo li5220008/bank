@@ -23,10 +23,22 @@ public class GlobalController {
         return "index";
     }*/
 
+    /**
+     * 消息
+     * @return
+     */
     @RequestMapping("/message")
     public String message() {
         return "message";
     }
+
+    /**
+     * 生成中文验证码
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @RequestMapping("/randomImg")
     public void randomImg(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //指定输入内容
@@ -38,14 +50,30 @@ public class GlobalController {
         ImgUtils.randomImg(resp.getOutputStream());
     }
 
+    /**
+     * 头部
+     * @return
+     */
     @RequestMapping("/head")
     public String head(){
-        return "navbar";
+        return "head";
     }
 
-
+    /**
+     *  主体
+     * @return
+     */
     @RequestMapping("/main")
-    public String foot(){
+    public String main(){
         return "main";
+    }
+
+    /**
+     *  底部
+     * @return
+     */
+    @RequestMapping("/foot")
+    public String foot(){
+        return "foot";
     }
 }

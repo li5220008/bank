@@ -37,11 +37,11 @@
 		  ,#{publicName} -- public_name - IN nvarchar(50)
 		  ,#{comment} -- comment - IN text
 		  ,#{controlMessage} -- control_message - IN nvarchar(20)
-		  ,#{startTime} -- start_time - IN datetime
-		  ,#{lastTime} -- last_time - IN datetime
-		  ,#{uptTlr} -- UPT_TLR - IN char(6)
-		  ,#{useStatus} -- use_status - IN char(1)
-		  ,#{recSts} -- REC_STS - IN char(1)
+		  ,#{start_time} -- start_time - IN datetime
+		  ,#{last_time} -- last_time - IN datetime
+		  ,#{upt_tlr} -- UPT_TLR - IN char(6)
+		  ,#{use_status} -- use_status - IN char(1)
+		  ,#{rec_sts} -- REC_STS - IN char(1)
 		)
     </insert>
 
@@ -53,11 +53,11 @@
 		  ,public_name = #{publicName} -- nvarchar(50)
 		  ,comment = #{comment} -- text
 		  ,control_message = #{controlMessage} -- nvarchar(20)
-		  ,start_time = #{startTime} -- datetime
-		  ,last_time = #{lastTime} -- datetime
-		  ,UPT_TLR = #{uptTlr} -- char(6)
-		  ,use_status = #{useStatus} -- char(1)
-		  ,REC_STS = #{recSts} -- char(1)
+		  ,start_time = #{start_time} -- datetime
+		  ,last_time = #{last_time} -- datetime
+		  ,UPT_TLR = #{upt_tlr} -- char(6)
+		  ,use_status = #{use_status} -- char(1)
+		  ,REC_STS = #{rec_sts} -- char(1)
 		WHERE id = #{id} -- numeric(8, 0)
 	</update>
 

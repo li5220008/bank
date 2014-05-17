@@ -75,11 +75,11 @@
 		  ,#{publicFlag} -- public_flag - IN char(1)
 		  ,#{remainFlag} -- remain_flag - IN char(1)
 		  ,#{orgCode} -- org_code - IN char(6)
-		  ,#{startTime} -- start_time - IN datetime
-		  ,#{lastTime} -- last_time - IN datetime
+		  ,#{start_time} -- start_time - IN datetime
+		  ,#{last_time} -- last_time - IN datetime
 		  ,#{uptClr} -- UPT_CLR - IN char(6)
-		  ,#{useStatus} -- use_status - IN char(1)
-		  ,#{recSts} -- REC_STS - IN char(1)
+		  ,#{use_status} -- use_status - IN char(1)
+		  ,#{rec_sts} -- REC_STS - IN char(1)
 		)
     </insert>
 
@@ -110,11 +110,11 @@
 		  ,public_flag = #{publicFlag} -- char(1)
 		  ,remain_flag = #{remainFlag} -- char(1)
 		  ,org_code = #{orgCode} -- char(6)
-		  ,start_time = #{startTime} -- datetime
-		  ,last_time = #{lastTime} -- datetime
+		  ,start_time = #{start_time} -- datetime
+		  ,last_time = #{last_time} -- datetime
 		  ,UPT_CLR = #{uptClr} -- char(6)
-		  ,use_status = #{useStatus} -- char(1)
-		  ,REC_STS = #{recSts} -- char(1)
+		  ,use_status = #{use_status} -- char(1)
+		  ,REC_STS = #{rec_sts} -- char(1)
 		WHERE id = #{id} -- numeric(8, 0)
     </update>
 

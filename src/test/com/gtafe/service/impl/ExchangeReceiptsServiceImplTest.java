@@ -1,10 +1,7 @@
 package com.gtafe.service.impl;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
-import org.directwebremoting.extend.Sleeper;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,12 +34,12 @@ public class ExchangeReceiptsServiceImplTest extends BaseTest {
 	@Test
 	public void testAdd() {
 		ExchangeReceipts er = new ExchangeReceipts();
-		er.setExchangeType("a");
-		er.setIconName("b");
-		er.setIconSign("a");
+		er.setExchange_type("a");
+		er.setIcon_name("b");
+		er.setIcon_sign("a");
 		//er.setRate(32.0);
-		er.setRateFlag("a");
-		er.setDateFlag("d");
+		er.setRate_flag("a");
+		er.setDate_flag("d");
 		service.add(er);
 	}
 
@@ -50,12 +47,12 @@ public class ExchangeReceiptsServiceImplTest extends BaseTest {
 	public void testUpdate() {
 		ExchangeReceipts er = new ExchangeReceipts();
 		er.setId(1);
-		er.setExchangeType("a");
-		er.setIconName("b");
-		er.setIconSign("a");
+		er.setExchange_type("a");
+		er.setIcon_name("b");
+		er.setIcon_sign("a");
 		er.setRate(32.4);
-		er.setRateFlag("a");
-		er.setDateFlag("d");
+		er.setRate_flag("a");
+		er.setDate_flag("d");
 		service.update(er);
 	}
 

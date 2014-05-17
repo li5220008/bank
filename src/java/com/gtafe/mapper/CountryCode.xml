@@ -22,7 +22,7 @@
     <insert id="add" parameterType="CountryCode">
         insert into country_code (
 		   country_code
-		  ,conutry_name
+		  ,country_name
 		  ,allow_flag
 		  ,currency
 		  ,rate
@@ -32,32 +32,32 @@
 		  ,use_status
 		  ,REC_STS
 		) VALUES (
-		   #{countryCode}  -- country_code - IN char(3)
-		  ,#{conutryName} -- conutry_name - IN nvarchar(16)
-		  ,#{allowFlag} -- allow_flag - IN char(1)
+		   #{country_code}  -- country_code - IN char(3)
+		  ,#{country_name} -- country_name - IN nvarchar(16)
+		  ,#{allow_flag} -- allow_flag - IN char(1)
 		  ,#{currency} -- currency - IN char(4)
 		  ,#{rate} -- rate - IN char(21)
-		  ,#{startTime} -- start_time - IN datetime
-		  ,#{lastTime} -- last_time - IN datetime
-		  ,#{uptTlr} -- UPT_TLR - IN char(6)
-		  ,#{useStatus} -- use_status - IN char(1)
-		  ,#{recSts} -- REC_STS - IN char(1)
+		  ,#{start_time} -- start_time - IN datetime
+		  ,#{last_time} -- last_time - IN datetime
+		  ,#{upt_tlr} -- UPT_TLR - IN char(6)
+		  ,#{use_status} -- use_status - IN char(1)
+		  ,#{rec_sts} -- REC_STS - IN char(1)
 		)
     </insert>
 
     <!-- 更新一条记录 -->
     <update id="update" parameterType="CountryCode" >
         update country_code SET
-		   country_code = #{countryCode} -- char(3)
-		  ,conutry_name = #{conutryName} -- nvarchar(16)
-		  ,allow_flag = #{allowFlag} -- char(1)
+		   country_code = #{country_code} -- char(3)
+		  ,country_name = #{country_name} -- nvarchar(16)
+		  ,allow_flag = #{allow_flag} -- char(1)
 		  ,currency = #{currency} -- char(4)
 		  ,rate = #{rate} -- char(21)
-		  ,start_time = #{startTime} -- datetime
-		  ,last_time = #{lastTime} -- datetime
-		  ,UPT_TLR = #{uptTlr} -- char(6)
-		  ,use_status = #{useStatus} -- char(1)
-		  ,REC_STS = #{recSts} -- char(1)
+		  ,start_time = #{start_time} -- datetime
+		  ,last_time = #{last_time} -- datetime
+		  ,UPT_TLR = #{upt_tlr} -- char(6)
+		  ,use_status = #{use_status} -- char(1)
+		  ,REC_STS = #{rec_sts} -- char(1)
 		WHERE id = #{id} -- numeric(3, 0)
     </update>
 

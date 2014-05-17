@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/pifbus")
-public class PifbusController extends BaseController {
+public class PifbusController {
     @Autowired
     private IPIFBUSService service;
 

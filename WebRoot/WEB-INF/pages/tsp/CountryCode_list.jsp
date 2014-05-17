@@ -41,7 +41,7 @@
 				<tr>
 					<td>${CountryCode.id}</td>
 					<td>${CountryCode.country_code}</td>
-					<td>${CountryCode.conutry_name}</td>
+					<td>${CountryCode.country_name}</td>
 					<td><fmt:formatDate value="${CountryCode.start_time}"
 							pattern="yyyy-MM-dd" /></td>
 					<td><fmt:formatDate value="${CountryCode.last_time}"

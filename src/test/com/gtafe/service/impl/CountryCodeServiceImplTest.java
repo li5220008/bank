@@ -1,11 +1,8 @@
 package com.gtafe.service.impl;
 
-import static org.junit.Assert.*;
-
 import java.util.Date;
 import java.util.List;
 
-import org.directwebremoting.export.Data;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,11 +34,11 @@ public class CountryCodeServiceImplTest extends BaseTest {
 	@Test
 	public void testAdd() {
 		CountryCode cc = new CountryCode();
-		cc.setCountryCode("aa");
-		cc.setAllowFlag("a");
+		cc.setCountry_code("aa");
+		cc.setAllow_flag("a");
 		cc.setCurrency("a");
-		cc.setLastTime(new Date());
-		cc.setStartTime(new Date());
+		cc.setLast_time(new Date());
+		cc.setStart_time(new Date());
 		service.add(cc);
 	}
 
@@ -49,11 +46,11 @@ public class CountryCodeServiceImplTest extends BaseTest {
 	public void testUpdate() {
 		CountryCode cc = new CountryCode();
 	    cc.setId(1);
-		cc.setCountryCode("004");
-		cc.setAllowFlag("a");
+		cc.setCountry_code("004");
+		cc.setAllow_flag("a");
 		cc.setCurrency("a");
-		cc.setLastTime(new Date());
-		cc.setStartTime(new Date());
+		cc.setLast_time(new Date());
+		cc.setStart_time(new Date());
 		service.update(cc);
 	}
 

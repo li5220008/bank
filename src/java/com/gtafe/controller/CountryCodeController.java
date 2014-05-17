@@ -1,101 +1,84 @@
 package com.gtafe.controller;
 
-import java.util.List;
-
+import com.gtafe.dto.Message;
+import com.gtafe.model.CountryCode;
+import com.gtafe.service.ICountryCodeService;
+import com.gtafe.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gtafe.model.CountryCode;
-import com.gtafe.service.ICountryCodeService;
+import java.util.List;
 
 /**
- * 国家码表控制层
- * @author 唐世朋
- *
+ * Desc: 业务码表
+ * User: weiguili(li5220008@gmail.com)
+ * Date: 14-5-16
+ * Time: 上午11:47
  */
 @Controller
-@RequestMapping(value="/CountryCode")
+@RequestMapping("/countryCode")
 public class CountryCodeController {
-    
-	@Autowired
-	ICountryCodeService srevice;
-	
-	/**
-	 * 查询全部信息
-	 * @return
-	 */
-	@RequestMapping("/list")
-	public String findAll(Model model){
-		List<CountryCode> CountryCodeList = srevice.fetchAll();
-		model.addAttribute("CountryCodeList", CountryCodeList);
-		return "tsp/CountryCode_list";
-	}
-	
-	/**
-	 * 删除信息
-	 * @param id
-	 * @return
-	 */
-	@RequestMapping("/delete")
-	public String delete(Integer id){
-		srevice.softDeleteById(id);
-		return "redirect:/CountryCode/list";
-		
-	}
-	
-	/**
-	 * 根据ID获得需要的对象
-	 * @param id
-	 * @return
-	 */
-	@RequestMapping("/edit")
-	public String get(CountryCode country,Model model,Integer id){
-		country = srevice.selectById(id);
-		model.addAttribute("country", country);
-		return "tsp/CountryCode_edit";
-	}
-	
-	/**
-	 * 修改对象
-	 * @return
-	 */
-	@RequestMapping("/update")
-	public String update(CountryCode country,BindingResult br){
-		if(br.hasErrors()){
-			//如果修改失败直接跳转到CountryCode_edit.jsp视图
-			return "tsp/CountryCode_edit";
-		}
-		srevice.update(country);
-		return "redirect:/CountryCode/list";
-		
-	}
-	
-	/**
-	 * 跳转到添加页面
-	 * @return
-	 */
-	@RequestMapping(value="/addition",method=RequestMethod.GET)
-	public String addition(){
-		
-		return "tsp/CountryCode_add";
-	}
-	
-	/**
-	 * 添加对象
-	 * @return
-	 */
-	@RequestMapping("/add")
-	public String add(CountryCode country,BindingResult br,Model model){
-		if(br.hasErrors()){
-			//如果添加失败直接跳转到add.jsp视图
-			model.addAttribute("error", "添加失败");
-			return "/CountryCode_add";
-		}
-		srevice.add(country);
-		return "redirect:/CountryCode/list";
-	}
+    @Autowired
+    private ICountryCodeService service;
+
+    @RequestMapping(value = {"/list"},method = RequestMethod.GET)
+    public String list(Model model){
+        List<CountryCode> countryCodees = service.fetchAll();
+        model.addAttribute("countryCode",countryCodees);
+        return "/countryCode/list";
+    }
+
+    @RequestMapping("/info")
+    public @ResponseBody CountryCode info(int id) {
+        CountryCode countryCode = service.selectById(id);
+        return countryCode;
+    }
+
+    @RequestMapping(value = {"/add"},method = RequestMethod.GET)
+    public String add(Model model) {
+        CountryCode countryCode = new CountryCode();
+        model.addAttribute(countryCode);
+        return "/countryCode/add";
+    }
+    @RequestMapping(value = {"/addDo"},method = RequestMethod.POST)
+    public String addDo(CountryCode countryCode,Model model){
+        try {
+        	service.add(countryCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return CommonUtils.message(model);
+        }
+        Message message = new Message("添加成功!","/countryCode/list","3");
+        return CommonUtils.message(model,message);
+    }
+
+    @RequestMapping(value = {"/update"},method = RequestMethod.GET)
+    public String update(int id, Model model){
+        CountryCode countryCode = service.selectById(id);
+        model.addAttribute("countryCode",countryCode);
+        return "/countryCode/update";
+    }
+
+    @RequestMapping(value = {"/updateDo"},method = RequestMethod.POST)
+    public String updateDoo(CountryCode countryCode,Model model) {
+        try {
+            service.update(countryCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return CommonUtils.message(model);
+        }
+        Message message = new Message("更新成功!","/countryCode/list","2");
+        return CommonUtils.message(model,message);
+    }
+
+    @RequestMapping("/delete")
+    public String delete(int id){
+        service.softDeleteById(id);
+        return "redirect:/countryCode/list";
+    }
+
 }

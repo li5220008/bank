@@ -1,9 +1,8 @@
 package com.gtafe.model;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 /**
  * 国家码表模型
@@ -14,39 +13,41 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class CountryCode {
 
 	private int id;// numeric(3) identity,
-	private String countryCode;// 国家码 char(3) not null,
-	private String conutryName;// 国家名称 nvarchar(8) null,
-	private String allowFlag;// 允许货币标志 char(1) null,
+	private String country_code;// 国家码 char(3) not null,
+	private String country_name;// 国家名称 nvarchar(8) null,
+	private String allow_flag;// 允许货币标志 char(1) null,
 	private String currency;// 货币 char(4) null,
 	private String rate;// 汇率 char(21) null,
-	private Date startTime;// 启用日期 datetime null,
-	private Date lastTime;// 最后更新日期 datetime null,
-	private String uptTlr;// 更新柜员 char(6) null,
-	private String useStatus;// 使用状态 char(1) null,
-	private String recSts;// 记录状态 char(1) null
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date start_time;// 启用日期 datetime null,
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date last_time;// 最后更新日期 datetime null,
+	private String upt_tlr;// 更新柜员 char(6) null,
+	private String use_status;// 使用状态 char(1) null,
+	private String rec_sts;// 记录状态 char(1) null
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getCountryCode() {
-		return countryCode;
+	public String getCountry_code() {
+		return country_code;
 	}
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
+	public void setCountry_code(String country_code) {
+		this.country_code = country_code;
 	}
-	public String getConutryName() {
-		return conutryName;
+	public String getCountry_name() {
+		return country_name;
 	}
-	public void setConutryName(String conutryName) {
-		this.conutryName = conutryName;
+	public void setCountry_name(String country_name) {
+		this.country_name = country_name;
 	}
-	public String getAllowFlag() {
-		return allowFlag;
+	public String getAllow_flag() {
+		return allow_flag;
 	}
-	public void setAllowFlag(String allowFlag) {
-		this.allowFlag = allowFlag;
+	public void setAllow_flag(String allow_flag) {
+		this.allow_flag = allow_flag;
 	}
 	public String getCurrency() {
 		return currency;
@@ -60,43 +61,42 @@ public class CountryCode {
 	public void setRate(String rate) {
 		this.rate = rate;
 	}
-	public Date getStartTime() {
-		return startTime;
+	public Date getStart_time() {
+		return start_time;
 	}
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+	public void setStart_time(Date start_time) {
+		this.start_time = start_time;
 	}
-	public Date getLastTime() {
-		return lastTime;
+	public Date getLast_time() {
+		return last_time;
 	}
-	public void setLastTime(Date lastTime) {
-		this.lastTime = lastTime;
+	public void setLast_time(Date last_time) {
+		this.last_time = last_time;
 	}
-	public String getUptTlr() {
-		return uptTlr;
+	public String getUpt_tlr() {
+		return upt_tlr;
 	}
-	public void setUptTlr(String uptTlr) {
-		this.uptTlr = uptTlr;
+	public void setUpt_tlr(String upt_tlr) {
+		this.upt_tlr = upt_tlr;
 	}
-	public String getUseStatus() {
-		return useStatus;
+	public String getUse_status() {
+		return use_status;
 	}
-	public void setUseStatus(String useStatus) {
-		this.useStatus = useStatus;
+	public void setUse_status(String use_status) {
+		this.use_status = use_status;
 	}
-	public String getRecSts() {
-		return recSts;
+	public String getRec_sts() {
+		return rec_sts;
 	}
-	public void setRecSts(String recSts) {
-		this.recSts = recSts;
+	public void setRec_sts(String rec_sts) {
+		this.rec_sts = rec_sts;
 	}
 	@Override
 	public String toString() {
-		return "CountryCode [id=" + id + ", countryCode=" + countryCode
-				+ ", conutryName=" + conutryName + ", allowFlag=" + allowFlag
-				+ ", currency=" + currency + ", rate=" + rate + ", startTime="
-				+ startTime + ", lastTime=" + lastTime + ", uptTlr=" + uptTlr
-				+ ", useStatus=" + useStatus + ", recSts=" + recSts + "]";
+		return "CountryCode [id=" + id + ", country_code=" + country_code
+				+ ", country_name=" + country_name + ", allow_flag=" + allow_flag
+				+ ", currency=" + currency + ", rate=" + rate + ", start_time="
+				+ start_time + ", last_time=" + last_time + ", upt_tlr=" + upt_tlr
+				+ ", use_status=" + use_status + ", rec_sts=" + rec_sts + "]";
 	}
-	
 }

@@ -36,40 +36,40 @@
 		  ,UDT_CLR
 		  ,REC_STS
 		) VALUES (
-		   #{exchangeType} -- exchange_type - IN char(10)
-		  ,#{iconName} -- icon_name - IN char(10)
-		  ,#{iconSign} -- icon_sign - IN char(3)
-		  ,#{rateType} -- rate_type - IN char(1)
+		   #{exchange_type} -- exchange_type - IN char(10)
+		  ,#{icon_name} -- icon_name - IN char(10)
+		  ,#{icon_sign} -- icon_sign - IN char(3)
+		  ,#{rate_type} -- rate_type - IN char(1)
 		  ,#{rate,jdbcType=DOUBLE} -- rate - IN decimal(3, 1)
-		  ,#{rateFlag} -- rate_flag - IN char(1)
-		  ,#{dateFlag} -- date_flag - IN char(1)
-		  ,#{dateUptFlag} -- date_upt_flag - IN char(1)
-		  ,#{startTime} -- start_time - IN datetime
-		  ,#{createTeller} -- create_teller - IN char(6)
-		  ,#{createTime} -- create_time - IN datetime
-		  ,#{lastTime} -- last_time - IN datetime
-		  ,#{udtClr} -- UDT_CLR - IN char(6)
-		  ,#{recSts} -- REC_STS - IN char(1)
+		  ,#{rate_flag} -- rate_flag - IN char(1)
+		  ,#{date_flag} -- date_flag - IN char(1)
+		  ,#{date_upt_flag} -- date_upt_flag - IN char(1)
+		  ,#{start_time} -- start_time - IN datetime
+		  ,#{create_teller} -- create_teller - IN char(6)
+		  ,#{create_time} -- create_time - IN datetime
+		  ,#{last_time} -- last_time - IN datetime
+		  ,#{udt_clr} -- UDT_CLR - IN char(6)
+		  ,#{rec_sts} -- REC_STS - IN char(1)
 		)
     </insert>
 
     <!-- 更新一条记录 -->
     <update id="update" parameterType="ExchangeReceipts" >
         update exchange_receipts SET
-		   exchange_type = #{exchangeType} -- char(10)
-		  ,icon_name = #{iconName} -- char(10)
-		  ,icon_sign = #{iconSign} -- char(3)
-		  ,rate_type = #{rateType} -- char(1)
+		   exchange_type = #{exchange_type} -- char(10)
+		  ,icon_name = #{icon_name} -- char(10)
+		  ,icon_sign = #{icon_sign} -- char(3)
+		  ,rate_type = #{rate_type} -- char(1)
 		  ,rate = #{rate,jdbcType=DOUBLE} -- decimal(3, 1)
-		  ,rate_flag = #{rateFlag} -- char(1)
-		  ,date_flag = #{dateFlag} -- char(1)
-		  ,date_upt_flag = #{dateUptFlag} -- char(1)
-		  ,start_time = #{startTime} -- datetime
-		  ,create_teller = #{createTeller} -- char(6)
-		  ,create_time = #{createTime} -- datetime
-		  ,last_time = #{lastTime} -- datetime
-		  ,UDT_CLR = #{udtClr} -- char(6)
-		  ,REC_STS = #{recSts} -- char(1)
+		  ,rate_flag = #{rate_flag} -- char(1)
+		  ,date_flag = #{date_flag} -- char(1)
+		  ,date_upt_flag = #{date_upt_flag} -- char(1)
+		  ,start_time = #{start_time} -- datetime
+		  ,create_teller = #{create_teller} -- char(6)
+		  ,create_time = #{create_time} -- datetime
+		  ,last_time = #{last_time} -- datetime
+		  ,UDT_CLR = #{udt_clr} -- char(6)
+		  ,REC_STS = #{rec_sts} -- char(1)
 		WHERE id = #{id} -- numeric(8, 0)
     </update>
 
