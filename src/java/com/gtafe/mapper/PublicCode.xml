@@ -32,11 +32,11 @@
 		  ,use_status
 		  ,REC_STS
 		) VALUES (
-		   #{publicCode} -- public_code - IN char(15)
-		  ,#{publicType} -- public_type - IN char(2)
-		  ,#{publicName} -- public_name - IN nvarchar(50)
+		   #{public_code} -- public_code - IN char(15)
+		  ,#{public_type} -- public_type - IN char(2)
+		  ,#{public_name} -- public_name - IN nvarchar(50)
 		  ,#{comment} -- comment - IN text
-		  ,#{controlMessage} -- control_message - IN nvarchar(20)
+		  ,#{control_message} -- control_message - IN nvarchar(20)
 		  ,#{start_time} -- start_time - IN datetime
 		  ,#{last_time} -- last_time - IN datetime
 		  ,#{upt_tlr} -- UPT_TLR - IN char(6)
@@ -48,11 +48,11 @@
     <!-- 更新一条记录 -->
     <update id="update" parameterType="PublicCode" >
         update public_code SET
-		   public_code = #{publicCode} -- char(15)
-		  ,public_type = #{publicType} -- char(2)
-		  ,public_name = #{publicName} -- nvarchar(50)
+		   public_code = #{public_code} -- char(15)
+		  ,public_type = #{public_type} -- char(2)
+		  ,public_name = #{public_name} -- nvarchar(50)
 		  ,comment = #{comment} -- text
-		  ,control_message = #{controlMessage} -- nvarchar(20)
+		  ,control_message = #{control_message} -- nvarchar(20)
 		  ,start_time = #{start_time} -- datetime
 		  ,last_time = #{last_time} -- datetime
 		  ,UPT_TLR = #{upt_tlr} -- char(6)

@@ -16,7 +16,7 @@ $(document).ready(function(){
      */
     jQuery.validator.addMethod("isChinese",function(value,element){
         return /^[\u2E80-\uFE4F]+$/.test(value);
-    },"请输入中英文");
+    },"请输入中文");
     jQuery.validator.addMethod("isPhone",function(value,element){
         return  (value.trim()==""||/^[0-9]+$/.test(value));
     },"请输入数字");

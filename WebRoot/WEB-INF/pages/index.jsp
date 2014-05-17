@@ -44,8 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <li><a href="${pageContext.request.contextPath}/pifbus/list">利率表操作</a></li>
            <li><a href="${pageContext.request.contextPath}/pifirt/list">业务码表表操作</a></li>
            <li><a href="${pageContext.request.contextPath}/countryCode/list">国家码表操作</a></li>
+           <li><a href="${pageContext.request.contextPath}/publicCode/list">公用表操作</a></li>
         </ul>
-        
-        
   </body>
 </html>

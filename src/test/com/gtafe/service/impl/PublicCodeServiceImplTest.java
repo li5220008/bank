@@ -1,7 +1,5 @@
 package com.gtafe.service.impl;
 
-import static org.junit.Assert.*;
-
 import java.util.Date;
 import java.util.List;
 
@@ -36,10 +34,10 @@ public class PublicCodeServiceImplTest extends BaseTest {
 	@Test
 	public void testAdd() {
 		PublicCode pc = new PublicCode();
-		pc.setPublicCode("abcdd");
-		pc.setPublicType("a");
-		pc.setLastTime(new Date());
-		pc.setPublicName("a");
+		pc.setPublic_code("abcdd");
+		pc.setPublic_type("a");
+		pc.setLast_time(new Date());
+		pc.setPublic_name("a");
 		service.add(pc);
 	}
 
@@ -47,10 +45,10 @@ public class PublicCodeServiceImplTest extends BaseTest {
 	public void testUpdate() {
 		PublicCode pc = new PublicCode();
 		pc.setId(1);
-		pc.setPublicCode("abcdeee");
-		pc.setPublicType("a");
-		pc.setLastTime(new Date());
-		pc.setPublicName("a");
+		pc.setPublic_code("abcdeee");
+		pc.setPublic_type("a");
+		pc.setLast_time(new Date());
+		pc.setPublic_name("a");
 		service.update(pc);
 	}
 
