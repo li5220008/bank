@@ -13,45 +13,62 @@
 </head>
 <body>
     <div class="container">
-        <form class="form-horizontal" id="publicCodeForm" action="${pageContext.request.contextPath}/publicCode/addDo" method="post" role="form">
+        <form class="form-horizontal" id="exchangeReceiptsForm" action="${pageContext.request.contextPath}/exchangeReceipts/addDo" method="post" role="form">
             <div class="form-group">
-                <label for="public_code" class="col-sm-1">代码编号</label>
+                <label for="public_code" class="col-sm-1">兑换类别</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="public_code" id="public_code" placeholder="代码编号">
+                    <input type="text" class="form-control" name="public_code" id="public_code" placeholder="兑换类别">
                 </div>
 
-                <label for="public_type" class="col-sm-1">代码种类</label>
+                <label for="public_type" class="col-sm-1">货币符号</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="public_type" id="public_type" placeholder="代码种类">
+                    <input type="text" class="form-control" name="public_type" id="public_type" placeholder="货币符号">
                 </div>
 
-                <label for="public_name" class="col-sm-1">代码名称</label>
+                <label for="public_name" class="col-sm-1">汇率种类</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="public_name" id="public_name" placeholder="代码名称">
+                    <input type="text" class="form-control" name="public_name" id="public_name" placeholder="汇率种类">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="comment" class="col-sm-1">注释</label>
+                <label for="comment" class="col-sm-1">汇率</label>
                 <div class="col-sm-3">
-                    <textarea name="comment" class="form-control"  placeholder="注释"  id="comment"></textarea>
+                    <textarea name="comment" class="form-control"  placeholder="汇率"  id="comment"></textarea>
                 </div>
 
-                <label for="control_message" class="col-sm-1">控制信息</label>
+                <label for="control_message" class="col-sm-1">汇率标识</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="control_message" id="control_message" placeholder="控制信息">
+                    <input type="text" class="form-control" name="control_message" id="control_message" placeholder="汇率标识">
                 </div>
 
-                <label for="start_time" class="col-sm-1">启用日期</label>
+                <label for="start_time" class="col-sm-1">当天使用标记</label>
                 <div class="col-sm-3">
-                    <input type="text" onclick="WdatePicker()" class="form-control" name="start_time" id="start_time" placeholder="启用日期">
+                    <input type="text" onclick="WdatePicker()" class="form-control" name="start_time" id="start_time" placeholder="当天使用标记">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="last_time" class="col-sm-1">最后更新日期</label>
+                <label for="last_time" class="col-sm-1">当天修改标记</label>
                 <div class="col-sm-3">
-                    <input type="text" onclick="WdatePicker()" class="form-control" name="last_time" id="last_time" placeholder="最后更新日期">
+                    <input type="text" onclick="WdatePicker()" class="form-control" name="last_time" id="last_time" placeholder="当天修改标记">
+                </div>
+
+                <label for="upt_tlr" class="col-sm-1">启用时间</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="upt_tlr" id="upt_tlr" placeholder="启用时间">
+                </div>
+
+                <label for="use_status" class="col-sm-1">建档柜员</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="use_status" id="use_status" placeholder="建档柜员">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="rec_sts" class="col-sm-1">建档时间</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="rec_sts" id="rec_sts" placeholder="建档时间">
                 </div>
 
                 <label for="upt_tlr" class="col-sm-1">更新柜员</label>
@@ -59,24 +76,9 @@
                     <input type="text" class="form-control" name="upt_tlr" id="upt_tlr" placeholder="更新柜员">
                 </div>
 
-                <label for="use_status" class="col-sm-1">使用状态</label>
+                <label for="use_status" class="col-sm-1">记录状态</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="use_status" id="use_status" placeholder="使用状态">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="rec_sts" class="col-sm-1">记录状态</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control" name="rec_sts" id="rec_sts" placeholder="记录状态">
-                </div>
-
-                <label class="col-sm-1">###</label>
-                <div class="col-sm-3">
-                </div>
-
-                <label class="col-sm-1">###</label>
-                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="use_status" id="use_status" placeholder="记录状态">
                 </div>
             </div>
 
@@ -93,7 +95,7 @@
 </html>
 <%@include file="/WEB-INF/pages/main.jsp"%>
 <script>
-    $('#publicCodeForm').validate({
+    $('#exchangeReceiptsForm').validate({
         rules: {
             "public_code": {
                 required: true,

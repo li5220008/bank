@@ -35,7 +35,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${publicCodes}" varStatus="status" var="item">
+                <c:forEach items="${exchangeReceiptss}" varStatus="status" var="item">
                     <tr>
                         <td>${status.count}</td>
                         <td>${item.public_code}</td>
@@ -49,9 +49,9 @@
                         <td>${item.use_status}</td>
                         <td>${item.rec_sts}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/publicCode/info?id=${item.id}"> json </a>
-                            <a href="${pageContext.request.contextPath}/publicCode/edit?id=${item.id}"> 修改 </a>
-                            <a href="${pageContext.request.contextPath}/publicCode/delete?id=${item.id}" onclick="return delConfirm('sure to delete?')"> 删除 </a>
+                            <a href="${pageContext.request.contextPath}/exchangeReceipts/info?id=${item.id}"> json </a>
+                            <a href="${pageContext.request.contextPath}/exchangeReceipts/edit?id=${item.id}"> 修改 </a>
+                            <a href="${pageContext.request.contextPath}/exchangeReceipts/delete?id=${item.id}" onclick="return delConfirm('sure to delete?')"> 删除 </a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -63,7 +63,7 @@
         <div class="col-md-11">
         </div>
         <div class="col-md-1">
-            <button type="button" onclick="location.href='${pageContext.request.contextPath}/publicCode/add'" class="btn btn-primary">添加</button>
+            <button type="button" onclick="location.href='${pageContext.request.contextPath}/exchangeReceipts/add'" class="btn btn-primary">添加</button>
         </div>
     </div>
 </div>
