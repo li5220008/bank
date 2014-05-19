@@ -49,10 +49,10 @@ public class AcctOpen {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getOpeCode() {
+	public String getOpe_code() {
 		return ope_code;
 	}
-	public void setOpeCode(String opeCode) {
+	public void setOpe_code(String opeCode) {
 		this.ope_code = opeCode;
 	}
 	public String getAccount() {
@@ -61,166 +61,166 @@ public class AcctOpen {
 	public void setAccount(String account) {
 		this.account = account;
 	}
-	public String getSubjectCode() {
+	public String getSubject_code() {
 		return subject_code;
 	}
-	public void setSubjectCode(String subjectCode) {
+	public void setSubject_code(String subjectCode) {
 		this.subject_code = subjectCode;
 	}
-	public String getOrderCode() {
+	public String getOrder_code() {
 		return order_code;
 	}
-	public void setOrderCode(String orderCode) {
+	public void setOrder_code(String orderCode) {
 		this.order_code = orderCode;
 	}
-	public String getAccountName() {
+	public String getAccount_name() {
 		return account_name;
 	}
-	public void setAccountName(String accountName) {
+	public void setAccount_name(String accountName) {
 		this.account_name = accountName;
 	}
-	public String getCountCode() {
+	public String getCount_code() {
 		return count_code;
 	}
-	public void setCountCode(String countCode) {
+	public void setCount_code(String countCode) {
 		this.count_code = countCode;
 	}
-	public String getOpenLimit() {
+	public String getOpen_limit() {
 		return open_limit;
 	}
-	public void setOpenLimit(String openLimit) {
+	public void setOpen_limit(String openLimit) {
 		this.open_limit = openLimit;
 	}
-	public String getIconLimit() {
+	public String getIcon_limit() {
 		return icon_limit;
 	}
-	public void setIconLimit(String iconLimit) {
+	public void setIcon_limit(String iconLimit) {
 		this.icon_limit = iconLimit;
 	}
-	public String getAllowDeriction() {
+	public String getAllow_deriction() {
 		return allow_deriction;
 	}
-	public void setAllowDeriction(String allowDeriction) {
+	public void setAllow_deriction(String allowDeriction) {
 		this.allow_deriction = allowDeriction;
 	}
-	public String getRemainDeriction() {
+	public String getRemain_deriction() {
 		return remain_deriction;
 	}
-	public void setRemainDeriction(String remainDeriction) {
+	public void setRemain_deriction(String remainDeriction) {
 		this.remain_deriction = remainDeriction;
 	}
-	public String getAccountType() {
+	public String getAccount_type() {
 		return account_type;
 	}
-	public void setAccountType(String accountType) {
+	public void setAccount_type(String accountType) {
 		this.account_type = accountType;
 	}
-	public String getDetailFlag() {
+	public String getDetail_flag() {
 		return detail_flag;
 	}
-	public void setDetailFlag(String detailFlag) {
+	public void setDetail_flag(String detailFlag) {
 		this.detail_flag = detailFlag;
 	}
-	public String getBorrowCode() {
+	public String getBorrow_code() {
 		return borrow_code;
 	}
-	public void setBorrowCode(String borrowCode) {
+	public void setBorrow_code(String borrowCode) {
 		this.borrow_code = borrowCode;
 	}
-	public String getLoadCode() {
+	public String getLoad_code() {
 		return load_code;
 	}
-	public void setLoadCode(String loadCode) {
+	public void setLoad_code(String loadCode) {
 		this.load_code = loadCode;
 	}
-	public String getDestroyFlag() {
+	public String getDestroy_flag() {
 		return destroy_flag;
 	}
-	public void setDestroyFlag(String destroyFlag) {
+	public void setDestroy_flag(String destroyFlag) {
 		this.destroy_flag = destroyFlag;
 	}
-	public String getFlushType() {
+	public String getFlush_type() {
 		return flush_type;
 	}
-	public void setFlushType(String flushType) {
+	public void setFlush_type(String flushType) {
 		this.flush_type = flushType;
 	}
-	public String getFlushLimit() {
+	public String getFlush_limit() {
 		return flush_limit;
 	}
-	public void setFlushLimit(String flushLimit) {
+	public void setFlush_limit(String flushLimit) {
 		this.flush_limit = flushLimit;
 	}
-	public String getCloseLimit() {
+	public String getClose_limit() {
 		return close_limit;
 	}
-	public void setCloseLimit(String closeLimit) {
+	public void setClose_limit(String closeLimit) {
 		this.close_limit = closeLimit;
 	}
-	public String getAllowInput() {
+	public String getAllow_input() {
 		return allow_input;
 	}
-	public void setAllowInput(String allowInput) {
+	public void setAllow_input(String allowInput) {
 		this.allow_input = allowInput;
 	}
-	public String getDerictionFlag() {
+	public String getDeriction_flag() {
 		return deriction_flag;
 	}
-	public void setDerictionFlag(String derictionFlag) {
+	public void setDeriction_flag(String derictionFlag) {
 		this.deriction_flag = derictionFlag;
 	}
-	public String getPublicType() {
+	public String getPublic_type() {
 		return public_type;
 	}
-	public void setPublicType(String publicType) {
+	public void setPublic_type(String publicType) {
 		this.public_type = publicType;
 	}
-	public String getPublicFlag() {
+	public String getPublic_flag() {
 		return public_flag;
 	}
-	public void setPublicFlag(String publicFlag) {
+	public void setPublic_flag(String publicFlag) {
 		this.public_flag = publicFlag;
 	}
-	public String getRemainFlag() {
+	public String getRemain_flag() {
 		return remain_flag;
 	}
-	public void setRemainFlag(String remainFlag) {
+	public void setRemain_flag(String remainFlag) {
 		this.remain_flag = remainFlag;
 	}
-	public String getOrgCode() {
+	public String getOrg_code() {
 		return org_code;
 	}
-	public void setOrgCode(String orgCode) {
+	public void setOrg_code(String orgCode) {
 		this.org_code = orgCode;
 	}
-	public Date getStartTime() {
+	public Date getStart_time() {
 		return start_time;
 	}
-	public void setStartTime(Date startTime) {
+	public void setStart_time(Date startTime) {
 		this.start_time = startTime;
 	}
-	public Date getLastTime() {
+	public Date getLast_time() {
 		return last_time;
 	}
-	public void setLastTime(Date lastTime) {
+	public void setLast_time(Date lastTime) {
 		this.last_time = lastTime;
 	}
-	public String getUptClr() {
+	public String getUpt_clr() {
 		return upt_clr;
 	}
-	public void setUptClr(String uptClr) {
+	public void setUpt_clr(String uptClr) {
 		this.upt_clr = uptClr;
 	}
-	public String getUseStatus() {
+	public String getUse_status() {
 		return use_status;
 	}
-	public void setUseStatus(String useStatus) {
+	public void setUse_status(String useStatus) {
 		this.use_status = useStatus;
 	}
-	public String getRecSts() {
+	public String getRec_sts() {
 		return rec_sts;
 	}
-	public void setRecSts(String recSts) {
+	public void setRec_sts(String recSts) {
 		this.rec_sts = recSts;
 	}
 	@Override
@@ -242,6 +242,6 @@ public class AcctOpen {
 				+ ", uptClr=" + upt_clr + ", useStatus=" + use_status
 				+ ", recSts=" + rec_sts + "]";
 	}
-	   
-	   
+
+
 }

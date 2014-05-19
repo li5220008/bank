@@ -21,12 +21,12 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>代码编号</th>
-                    <th>代码种类</th>
-                    <th>代码名称</th>
-                    <th>注释</th>
-                    <th>控制信息</th>
-                    <th>启用日期</th>
+                    <th>操作码</th>
+                    <th>账号</th>
+                    <th>科目号</th>
+                    <th>顺序号</th>
+                    <th>账户名称</th>
+                    <th>统计代码</th>
                     <th>最后更新日期</th>
                     <th>更新柜员</th>
                     <th>使用状态</th>
@@ -38,14 +38,14 @@
                 <c:forEach items="${acctOpens}" varStatus="status" var="item">
                     <tr>
                         <td>${status.count}</td>
-                        <td>${item.public_code}</td>
-                        <td>${item.public_type}</td>
-                        <td>${item.public_name}</td>
-                        <td>${item.comment}</td>
-                        <td>${item.control_message}</td>
+                        <td>${item.ope_code}</td>
+                        <td>${item.account}</td>
+                        <td>${item.subject_code}</td>
+                        <td>${item.order_code}</td>
+                        <td>${item.account_name}</td>
                         <td><fmt:formatDate value="${item.start_time}" pattern="yyyy-MM-dd"/></td>
                         <td><fmt:formatDate value="${item.last_time}" pattern="yyyy-MM-dd"/></td>
-                        <td>${item.upt_tlr}</td>
+                        <td>${item.upt_clr}</td>
                         <td>${item.use_status}</td>
                         <td>${item.rec_sts}</td>
                         <td>

@@ -20,8 +20,8 @@ import java.util.List;
  * Time: 上午8:47
  */
 @Controller
-@RequestMapping("/exchangeReceipts")
-public class ExchangeReceiptsController {
+@RequestMapping("/exchangePrices")
+public class ExchangePricesController {
     @Autowired
     private IExchangeReceiptsService service;
 
@@ -29,7 +29,7 @@ public class ExchangeReceiptsController {
     public String list(Model model){
         List<ExchangeReceipts> exchangeReceiptss = service.fetchAll();
         model.addAttribute("exchangeReceiptss",exchangeReceiptss);
-        return "/exchangeReceipts/list";
+        return "/exchangePrices/list";
     }
 
     @RequestMapping("/info")
@@ -42,7 +42,7 @@ public class ExchangeReceiptsController {
     public String add(Model model) {
         ExchangeReceipts exchangeReceipts = new ExchangeReceipts();
         model.addAttribute(exchangeReceipts);
-        return "/exchangeReceipts/add";
+        return "/exchangePrices/add";
     }
     @RequestMapping(value = {"/addDo"},method = RequestMethod.POST)
     public String addDo(ExchangeReceipts exchangeReceipts,Model model){
@@ -52,7 +52,7 @@ public class ExchangeReceiptsController {
             e.printStackTrace();
             return CommonUtils.message(model);
         }
-        Message message = new Message("添加成功!","/exchangeReceipts/list","3");
+        Message message = new Message("添加成功!","/exchangePrices/list","3");
         return CommonUtils.message(model,message);
     }
 
@@ -60,7 +60,7 @@ public class ExchangeReceiptsController {
     public String edit(int id, Model model){
         ExchangeReceipts exchangeReceipts = service.selectById(id);
         model.addAttribute("exchangeReceipts",exchangeReceipts);
-        return "/exchangeReceipts/edit";
+        return "/exchangePrices/edit";
     }
 
     @RequestMapping(value = {"/editDo"},method = RequestMethod.POST)
@@ -71,14 +71,14 @@ public class ExchangeReceiptsController {
             e.printStackTrace();
             return CommonUtils.message(model);
         }
-        Message message = new Message("更新成功!","/exchangeReceipts/list","2");
+        Message message = new Message("更新成功!","/exchangePrices/list","2");
         return CommonUtils.message(model,message);
     }
 
     @RequestMapping("/delete")
     public String delete(int id){
         service.softDeleteById(id);
-        return "redirect:/exchangeReceipts/list";
+        return "redirect:/exchangePrices/list";
     }
 
 }

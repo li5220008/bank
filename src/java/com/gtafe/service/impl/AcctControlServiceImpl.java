@@ -34,7 +34,7 @@ public class AcctControlServiceImpl implements IAcctControlService {
 
 	public void add(AcctControl e) {
 		// TODO Auto-generated method stub
-		e.setRecSts("P");//默认值
+		e.setRec_sts("P");//默认值
 		acctControlDao.add(e);
 	}
 

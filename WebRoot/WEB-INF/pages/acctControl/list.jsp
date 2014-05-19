@@ -65,7 +65,7 @@
                         <td>${item.loan_code}</td>
                         <td>${item.destroy_type}</td>
                         <td>${item.flush_type}</td>
-                        <td>${item.upt_tlr}</td>
+                        <td>${item.udt_clr}</td>
                         <td>${item.use_status}</td>
                         <td>${item.rec_sts}</td>
                         <td>

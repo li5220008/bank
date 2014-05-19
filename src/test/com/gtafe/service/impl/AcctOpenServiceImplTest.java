@@ -1,7 +1,5 @@
 package com.gtafe.service.impl;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import com.gtafe.service.BaseTest;
@@ -38,13 +36,13 @@ public class AcctOpenServiceImplTest extends BaseTest {
 	@Test
 	public void testAdd() {
 		AcctOpen open = new AcctOpen();
-		open.setOpeCode("y");
+		open.setOpe_code("y");
 		open.setAccount("adb");
-		open.setSubjectCode("a");
-		open.setOrderCode("d");
-		open.setAccountName("c");
-		open.setCloseLimit("k");
-		open.setIconLimit("b");
+		open.setSubject_code("a");
+		open.setOrder_code("d");
+		open.setAccount_name("c");
+		open.setClose_limit("k");
+		open.setIcon_limit("b");
 		service.add(open);
 	}
 
@@ -52,13 +50,13 @@ public class AcctOpenServiceImplTest extends BaseTest {
 	public void testUpdate() {
 		AcctOpen open = new AcctOpen();
 		open.setId(1);
-		open.setOpeCode("z");
+		open.setOpe_code("z");
 		open.setAccount("adb");
-		open.setSubjectCode("a");
-		open.setOrderCode("d");
-		open.setAccountName("c");
-		open.setCloseLimit("k");
-		open.setIconLimit("b");
+		open.setSubject_code("a");
+		open.setOrder_code("d");
+		open.setAccount_name("c");
+		open.setClose_limit("k");
+		open.setIcon_limit("b");
 		service.update(open);
 	}
 
