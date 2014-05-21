@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><a href="${pageContext.request.contextPath}/pifirt/list">业务码表表操作</a></li>
             <li><a href="${pageContext.request.contextPath}/countryCode/list">国家码表操作</a></li>
             <li><a href="${pageContext.request.contextPath}/publicCode/list">公用表操作</a></li>
-            <li><a href="${pageContext.request.contextPath}/exchangeReceipts/list">结售汇牌价表</a></li>
+            <li><a href="${pageContext.request.contextPath}/exchangePrices/list">结售汇牌价表</a></li>
             <li><a href="${pageContext.request.contextPath}/acctControl/list">内部账户控制表</a></li>
             <li><a href="${pageContext.request.contextPath}/acctOpen/list">内部账户开户表</a></li>
         </ul>

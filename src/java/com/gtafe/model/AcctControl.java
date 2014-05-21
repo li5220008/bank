@@ -44,213 +44,289 @@ public class AcctControl {
 	   private String udt_clr;//更新柜员              char(6)                        null,
 	   private String use_status;//使用状态           char(1)                        null,
 	   private String rec_sts;//记录状态              char(1)                        null
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getOpeCode() {
-		return ope_code;
-	}
-	public void setOpeCode(String opeCode) {
-		this.ope_code = opeCode;
-	}
-	public String getOrgCode() {
-		return org_code;
-	}
-	public void setOrgCode(String orgCode) {
-		this.org_code = orgCode;
-	}
-	public String getSubjectCode() {
-		return subject_code;
-	}
-	public void setSubjectCode(String subjectCode) {
-		this.subject_code = subjectCode;
-	}
-	public String getOrderCode() {
-		return order_code;
-	}
-	public void setOrderCode(String orderCode) {
-		this.order_code = orderCode;
-	}
-	public String getAccountName() {
-		return account_name;
-	}
-	public void setAccountName(String accountName) {
-		this.account_name = accountName;
-	}
-	public String getCountCode() {
-		return count_code;
-	}
-	public void setCountCode(String countCode) {
-		this.count_code = countCode;
-	}
-	public String getAccountLimit() {
-		return account_limit;
-	}
-	public void setAccountLimit(String accountLimit) {
-		this.account_limit = accountLimit;
-	}
-	public String getIconLimit() {
-		return icon_limit;
-	}
-	public void setIconLimit(String iconLimit) {
-		this.icon_limit = iconLimit;
-	}
-	public String getDetailCode() {
-		return detail_code;
-	}
-	public void setDetailCode(String detailCode) {
-		this.detail_code = detailCode;
-	}
-	public String getAllowDirection() {
-		return allow_direction;
-	}
-	public void setAllowDirection(String allowDirection) {
-		this.allow_direction = allowDirection;
-	}
-	public String getRemainingDirection() {
-		return remaining_direction;
-	}
-	public void setRemainingDirection(String remainingDirection) {
-		this.remaining_direction = remainingDirection;
-	}
-	public String getAccountType() {
-		return account_type;
-	}
-	public void setAccountType(String accountType) {
-		this.account_type = accountType;
-	}
-	public String getDetailFlag() {
-		return detail_flag;
-	}
-	public void setDetailFlag(String detailFlag) {
-		this.detail_flag = detailFlag;
-	}
-	public String getBorrowCode() {
-		return borrow_code;
-	}
-	public void setBorrowCode(String borrowCode) {
-		this.borrow_code = borrowCode;
-	}
-	public String getLoanCode() {
-		return loan_code;
-	}
-	public void setLoanCode(String loanCode) {
-		this.loan_code = loanCode;
-	}
-	public String getDestroyType() {
-		return destroy_type;
-	}
-	public void setDestroyType(String destroyType) {
-		this.destroy_type = destroyType;
-	}
-	public String getFlushType() {
-		return flush_type;
-	}
-	public void setFlushType(String flushType) {
-		this.flush_type = flushType;
-	}
-	public String getHandUpLimit() {
-		return hand_up_limit;
-	}
-	public void setHandUpLimit(String handUpLimit) {
-		this.hand_up_limit = handUpLimit;
-	}
-	public String getCloseLimit() {
-		return close_limit;
-	}
-	public void setCloseLimit(String closeLimit) {
-		this.close_limit = closeLimit;
-	}
-	public String getIsallowA() {
-		return isallowA;
-	}
-	public void setIsallowA(String isallowA) {
-		this.isallowA = isallowA;
-	}
-	public String getDirectionalFlag() {
-		return directional_flag;
-	}
-	public void setDirectionalFlag(String directionalFlag) {
-		this.directional_flag = directionalFlag;
-	}
-	public String getPublicType() {
-		return public_type;
-	}
-	public void setPublicType(String publicType) {
-		this.public_type = publicType;
-	}
-	public String getPublicCount_type() {
-		return public_count_type;
-	}
-	public void setPublicCount_type(String publicCount_type) {
-		this.public_count_type = publicCount_type;
-	}
-	public String getRemainFlag() {
-		return remain_flag;
-	}
-	public void setRemainFlag(String remainFlag) {
-		this.remain_flag = remainFlag;
-	}
-	public String getCarFlag() {
-		return car_flag;
-	}
-	public void setCarFlag(String carFlag) {
-		this.car_flag = carFlag;
-	}
-	public Date getStartTime() {
-		return start_time;
-	}
-	public void setStartTime(Date startTime) {
-		this.start_time = startTime;
-	}
-	public Date getLastTime() {
-		return last_time;
-	}
-	public void setLastTime(Date lastTime) {
-		this.last_time = lastTime;
-	}
-	public String getUdtClr() {
-		return udt_clr;
-	}
-	public void setUdtClr(String udtClr) {
-		this.udt_clr = udtClr;
-	}
-	public String getUseStatus() {
-		return use_status;
-	}
-	public void setUseStatus(String useStatus) {
-		this.use_status = useStatus;
-	}
-	public String getRecSts() {
-		return rec_sts;
-	}
-	public void setRecSts(String recSts) {
-		this.rec_sts = recSts;
-	}
-	@Override
-	public String toString() {
-		return "AcctControl [id=" + id + ", opeCode=" + ope_code + ", orgCode="
-				+ org_code + ", subjectCode=" + subject_code + ", orderCode="
-				+ order_code + ", accountName=" + account_name + ", countCode="
-				+ count_code + ", accountLimit=" + account_limit + ", iconLimit="
-				+ icon_limit + ", detailCode=" + detail_code
-				+ ", allowDirection=" + allow_direction
-				+ ", remainingDirection=" + remaining_direction
-				+ ", accountType=" + account_type + ", detailFlag=" + detail_flag
-				+ ", borrowCode=" + borrow_code + ", loanCode=" + loan_code
-				+ ", destroyType=" + destroy_type + ", flushType=" + flush_type
-				+ ", handUpLimit=" + hand_up_limit + ", closeLimit=" + close_limit
-				+ ", isallowA=" + isallowA + ", directionalFlag="
-				+ directional_flag + ", publicType=" + public_type
-				+ ", publicCountType=" + public_count_type + ", remainFlag="
-				+ remain_flag + ", carFlag=" + car_flag + ", startTime="
-				+ start_time + ", lastTime=" + last_time + ", udtClr=" + udt_clr
-				+ ", useStatus=" + use_status + ", recSts=" + rec_sts + "]";
-	}
-	
-	
-	   
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getOpe_code() {
+        return ope_code;
+    }
+
+    public void setOpe_code(String ope_code) {
+        this.ope_code = ope_code;
+    }
+
+    public String getOrg_code() {
+        return org_code;
+    }
+
+    public void setOrg_code(String org_code) {
+        this.org_code = org_code;
+    }
+
+    public String getSubject_code() {
+        return subject_code;
+    }
+
+    public void setSubject_code(String subject_code) {
+        this.subject_code = subject_code;
+    }
+
+    public String getOrder_code() {
+        return order_code;
+    }
+
+    public void setOrder_code(String order_code) {
+        this.order_code = order_code;
+    }
+
+    public String getAccount_name() {
+        return account_name;
+    }
+
+    public void setAccount_name(String account_name) {
+        this.account_name = account_name;
+    }
+
+    public String getCount_code() {
+        return count_code;
+    }
+
+    public void setCount_code(String count_code) {
+        this.count_code = count_code;
+    }
+
+    public String getAccount_limit() {
+        return account_limit;
+    }
+
+    public void setAccount_limit(String account_limit) {
+        this.account_limit = account_limit;
+    }
+
+    public String getIcon_limit() {
+        return icon_limit;
+    }
+
+    public void setIcon_limit(String icon_limit) {
+        this.icon_limit = icon_limit;
+    }
+
+    public String getDetail_code() {
+        return detail_code;
+    }
+
+    public void setDetail_code(String detail_code) {
+        this.detail_code = detail_code;
+    }
+
+    public String getAllow_direction() {
+        return allow_direction;
+    }
+
+    public void setAllow_direction(String allow_direction) {
+        this.allow_direction = allow_direction;
+    }
+
+    public String getRemaining_direction() {
+        return remaining_direction;
+    }
+
+    public void setRemaining_direction(String remaining_direction) {
+        this.remaining_direction = remaining_direction;
+    }
+
+    public String getAccount_type() {
+        return account_type;
+    }
+
+    public void setAccount_type(String account_type) {
+        this.account_type = account_type;
+    }
+
+    public String getDetail_flag() {
+        return detail_flag;
+    }
+
+    public void setDetail_flag(String detail_flag) {
+        this.detail_flag = detail_flag;
+    }
+
+    public String getBorrow_code() {
+        return borrow_code;
+    }
+
+    public void setBorrow_code(String borrow_code) {
+        this.borrow_code = borrow_code;
+    }
+
+    public String getLoan_code() {
+        return loan_code;
+    }
+
+    public void setLoan_code(String loan_code) {
+        this.loan_code = loan_code;
+    }
+
+    public String getDestroy_type() {
+        return destroy_type;
+    }
+
+    public void setDestroy_type(String destroy_type) {
+        this.destroy_type = destroy_type;
+    }
+
+    public String getFlush_type() {
+        return flush_type;
+    }
+
+    public void setFlush_type(String flush_type) {
+        this.flush_type = flush_type;
+    }
+
+    public String getHand_up_limit() {
+        return hand_up_limit;
+    }
+
+    public void setHand_up_limit(String hand_up_limit) {
+        this.hand_up_limit = hand_up_limit;
+    }
+
+    public String getClose_limit() {
+        return close_limit;
+    }
+
+    public void setClose_limit(String close_limit) {
+        this.close_limit = close_limit;
+    }
+
+    public String getIsallowA() {
+        return isallowA;
+    }
+
+    public void setIsallowA(String isallowA) {
+        this.isallowA = isallowA;
+    }
+
+    public String getDirectional_flag() {
+        return directional_flag;
+    }
+
+    public void setDirectional_flag(String directional_flag) {
+        this.directional_flag = directional_flag;
+    }
+
+    public String getPublic_type() {
+        return public_type;
+    }
+
+    public void setPublic_type(String public_type) {
+        this.public_type = public_type;
+    }
+
+    public String getPublic_count_type() {
+        return public_count_type;
+    }
+
+    public void setPublic_count_type(String public_count_type) {
+        this.public_count_type = public_count_type;
+    }
+
+    public String getRemain_flag() {
+        return remain_flag;
+    }
+
+    public void setRemain_flag(String remain_flag) {
+        this.remain_flag = remain_flag;
+    }
+
+    public String getCar_flag() {
+        return car_flag;
+    }
+
+    public void setCar_flag(String car_flag) {
+        this.car_flag = car_flag;
+    }
+
+    public Date getStart_time() {
+        return start_time;
+    }
+
+    public void setStart_time(Date start_time) {
+        this.start_time = start_time;
+    }
+
+    public Date getLast_time() {
+        return last_time;
+    }
+
+    public void setLast_time(Date last_time) {
+        this.last_time = last_time;
+    }
+
+    public String getUdt_clr() {
+        return udt_clr;
+    }
+
+    public void setUdt_clr(String udt_clr) {
+        this.udt_clr = udt_clr;
+    }
+
+    public String getUse_status() {
+        return use_status;
+    }
+
+    public void setUse_status(String use_status) {
+        this.use_status = use_status;
+    }
+
+    public String getRec_sts() {
+        return rec_sts;
+    }
+
+    public void setRec_sts(String rec_sts) {
+        this.rec_sts = rec_sts;
+    }
+
+    @Override
+    public String toString() {
+        return "AcctControl{" +
+                "id=" + id +
+                ", ope_code='" + ope_code + '\'' +
+                ", org_code='" + org_code + '\'' +
+                ", subject_code='" + subject_code + '\'' +
+                ", order_code='" + order_code + '\'' +
+                ", account_name='" + account_name + '\'' +
+                ", count_code='" + count_code + '\'' +
+                ", account_limit='" + account_limit + '\'' +
+                ", icon_limit='" + icon_limit + '\'' +
+                ", detail_code='" + detail_code + '\'' +
+                ", allow_direction='" + allow_direction + '\'' +
+                ", remaining_direction='" + remaining_direction + '\'' +
+                ", account_type='" + account_type + '\'' +
+                ", detail_flag='" + detail_flag + '\'' +
+                ", borrow_code='" + borrow_code + '\'' +
+                ", loan_code='" + loan_code + '\'' +
+                ", destroy_type='" + destroy_type + '\'' +
+                ", flush_type='" + flush_type + '\'' +
+                ", hand_up_limit='" + hand_up_limit + '\'' +
+                ", close_limit='" + close_limit + '\'' +
+                ", isallowA='" + isallowA + '\'' +
+                ", directional_flag='" + directional_flag + '\'' +
+                ", public_type='" + public_type + '\'' +
+                ", public_count_type='" + public_count_type + '\'' +
+                ", remain_flag='" + remain_flag + '\'' +
+                ", car_flag='" + car_flag + '\'' +
+                ", start_time=" + start_time +
+                ", last_time=" + last_time +
+                ", udt_clr='" + udt_clr + '\'' +
+                ", use_status='" + use_status + '\'' +
+                ", rec_sts='" + rec_sts + '\'' +
+                '}';
+    }
 }

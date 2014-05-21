@@ -36,13 +36,13 @@ public class AcctControlServiceImplTest extends BaseTest {
     @Test
     public void testAdd() {
         AcctControl acctControl = new AcctControl();
-        acctControl.setOpeCode("k");
-        acctControl.setSubjectCode("abc");
-        acctControl.setOrgCode("abc");
-        acctControl.setOrderCode("b");
-        acctControl.setAccountName("d");
-        acctControl.setCountCode("d");
-        acctControl.setRecSts("P");
+        acctControl.setOpe_code("k");
+        acctControl.setSubject_code("abc");
+        acctControl.setOrg_code("abc");
+        acctControl.setOrder_code("b");
+        acctControl.setAccount_limit("d");
+        acctControl.setCount_code("d");
+        acctControl.setRec_sts("P");
 
         service.add(acctControl);
     }
@@ -51,13 +51,13 @@ public class AcctControlServiceImplTest extends BaseTest {
 	public void testUpdate() {
         AcctControl acctControl = new AcctControl();
         acctControl.setId(1);
-        acctControl.setOpeCode("v");
-        acctControl.setSubjectCode("abc");
-        acctControl.setOrgCode("abc");
-        acctControl.setOrderCode("b");
-        acctControl.setAccountName("d");
-        acctControl.setCountCode("d");
-        acctControl.setRecSts("P");
+        acctControl.setOpe_code("k");
+        acctControl.setSubject_code("abc");
+        acctControl.setOrg_code("abc");
+        acctControl.setOrder_code("b");
+        acctControl.setAccount_limit("d");
+        acctControl.setCount_code("d");
+        acctControl.setRec_sts("P");
 
         service.update(acctControl);
 	}

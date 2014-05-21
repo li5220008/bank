@@ -21,15 +21,14 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>代码编号</th>
-                    <th>代码种类</th>
-                    <th>代码名称</th>
-                    <th>注释</th>
-                    <th>控制信息</th>
-                    <th>启用日期</th>
+                    <th>兑换类别</th>
+                    <th>货币名称</th>
+                    <th>货币符号</th>
+                    <th>汇率种类</th>
+                    <th>汇率</th>
+                    <th>启用时间</th>
                     <th>最后更新日期</th>
                     <th>更新柜员</th>
-                    <th>使用状态</th>
                     <th>记录状态</th>
                     <th>操作</th>
                 </tr>
@@ -38,20 +37,19 @@
                 <c:forEach items="${exchangeReceiptss}" varStatus="status" var="item">
                     <tr>
                         <td>${status.count}</td>
-                        <td>${item.public_code}</td>
-                        <td>${item.public_type}</td>
-                        <td>${item.public_name}</td>
-                        <td>${item.comment}</td>
-                        <td>${item.control_message}</td>
+                        <td>${item.exchange_type}</td>
+                        <td>${item.icon_name}</td>
+                        <td>${item.icon_sign}</td>
+                        <td>${item.rate_type}</td>
+                        <td>${item.rate}</td>
                         <td><fmt:formatDate value="${item.start_time}" pattern="yyyy-MM-dd"/></td>
                         <td><fmt:formatDate value="${item.last_time}" pattern="yyyy-MM-dd"/></td>
-                        <td>${item.upt_tlr}</td>
-                        <td>${item.use_status}</td>
+                        <td>${item.udt_clr}</td>
                         <td>${item.rec_sts}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/exchangeReceipts/info?id=${item.id}"> json </a>
-                            <a href="${pageContext.request.contextPath}/exchangeReceipts/edit?id=${item.id}"> 修改 </a>
-                            <a href="${pageContext.request.contextPath}/exchangeReceipts/delete?id=${item.id}" onclick="return delConfirm('sure to delete?')"> 删除 </a>
+                            <a href="${pageContext.request.contextPath}/exchangePrices/info?id=${item.id}"> json </a>
+                            <a href="${pageContext.request.contextPath}/exchangePrices/edit?id=${item.id}"> 修改 </a>
+                            <a href="${pageContext.request.contextPath}/exchangePrices/delete?id=${item.id}" onclick="return delConfirm('sure to delete?')"> 删除 </a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -63,7 +61,7 @@
         <div class="col-md-11">
         </div>
         <div class="col-md-1">
-            <button type="button" onclick="location.href='${pageContext.request.contextPath}/exchangeReceipts/add'" class="btn btn-primary">添加</button>
+            <button type="button" onclick="location.href='${pageContext.request.contextPath}/exchangePrices/add'" class="btn btn-primary">添加</button>
         </div>
     </div>
 </div>
