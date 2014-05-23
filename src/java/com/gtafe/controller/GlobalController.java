@@ -36,8 +36,8 @@ public class GlobalController {
      * 生成中文验证码
      * @param req
      * @param resp
-     * @throws ServletException
-     * @throws IOException
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
      */
     @RequestMapping("/randomImg")
     public void randomImg(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

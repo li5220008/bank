@@ -33,7 +33,8 @@ public class ExchangePricesController {
     }
 
     @RequestMapping("/info")
-    public @ResponseBody ExchangeReceipts info(int id) {
+    public @ResponseBody
+    ExchangeReceipts info(int id) {
         ExchangeReceipts exchangeReceipts = service.selectById(id);
         return exchangeReceipts;
     }
@@ -53,7 +54,7 @@ public class ExchangePricesController {
             return CommonUtils.message(model);
         }
         Message message = new Message("添加成功!","/exchangePrices/list","3");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping(value = {"/edit"},method = RequestMethod.GET)
@@ -72,7 +73,7 @@ public class ExchangePricesController {
             return CommonUtils.message(model);
         }
         Message message = new Message("更新成功!","/exchangePrices/list","2");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping("/delete")

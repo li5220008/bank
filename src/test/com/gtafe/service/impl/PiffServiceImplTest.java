@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.gtafe.dao.FeeRateMapper;
-import com.gtafe.model.Piffrt;
+import com.gtafe.model.FeeRate;
 import com.gtafe.service.BaseTest;
 
 public class PiffServiceImplTest extends BaseTest{
@@ -14,8 +14,8 @@ public class PiffServiceImplTest extends BaseTest{
  private FeeRateMapper fm;  	
   @Test
   public void testFindAll(){
-	  List<Piffrt> p  = fm.findAll();
-	  for(Piffrt s:p){
+	  List<FeeRate> p  = fm.findAll();
+	  for(FeeRate s:p){
 		  System.out.println(s.getCRETLR());
 	  }
 	  

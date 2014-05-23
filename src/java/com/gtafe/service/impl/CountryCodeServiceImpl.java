@@ -1,13 +1,12 @@
 package com.gtafe.service.impl;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.gtafe.dao.ICountryCodeDao;
 import com.gtafe.model.CountryCode;
 import com.gtafe.service.ICountryCodeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CountryCodeServiceImpl implements ICountryCodeService {
@@ -16,7 +15,7 @@ public class CountryCodeServiceImpl implements ICountryCodeService {
 	public CountryCode selectById(Object id) {
 		// TODO Auto-generated method stub
 		return dao.selectById(id);
-	}
+	} 
 
 	public List<CountryCode> fetchAll() {
 		// TODO Auto-generated method stub

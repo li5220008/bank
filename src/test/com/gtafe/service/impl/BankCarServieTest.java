@@ -31,11 +31,35 @@ public class BankCarServieTest extends BaseTest {
 	public void add() {
 		    BankCar bc=new BankCar();
 		    bc.setCar_name("农行卡");
+		    bc.setAttached_code("1");
 			bankCarDao.add(bc);	
 	}
 	@Test
-	public void findAll() {	
+	public void findAll() {
+		long beginTime=0,endTime=0;  
+		beginTime= System.currentTimeMillis();  
+        System.out.println(beginTime+":OneByOne begin!");  
 		List<BankCar> bankCarList=bankCarDao.findAll();
+		endTime = System.currentTimeMillis();  
+        System.out.println(endTime+":OneByOne end!costs "+(endTime-beginTime)+"ms."); 		
+		System.out.println("数量是"+bankCarList.size());
+		for (BankCar bc : bankCarList) {			
+			System.out.println("卡名称"+bc.getCar_name());
+		}
+		
+	/*	System.out.println("更新");
+		int i=1;
+		for (BankCar bc : bankCarList) {		
+			bc.setCar_name("缓存测试"+(i++));
+			bankCarDao.update(bc);
+		}*/
+		
+		System.out.println("第二次查询");
+		beginTime= System.currentTimeMillis();  
+        System.out.println(beginTime+":OneByOne begin!");  
+		bankCarList=bankCarDao.findAll();
+		endTime = System.currentTimeMillis();  
+        System.out.println(endTime+":OneByOne end!costs "+(endTime-beginTime)+"ms."); 		
 		System.out.println("数量是"+bankCarList.size());
 		for (BankCar bc : bankCarList) {			
 			System.out.println("卡名称"+bc.getCar_name());

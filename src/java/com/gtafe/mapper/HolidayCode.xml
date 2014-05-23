@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IHolidayCodeDao">
+	<!-- 为了返回list 类型而定义的returnMap -->
+	<resultMap type="HolidayCode" id="resultList">
+
+	</resultMap>
+	<!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+	<select id="findAll" resultMap="resultList">
+		select * from holiday_code
+	</select>
+
+	<select id="selectById" parameterType="String" resultType="HolidayCode">
+		select * from holiday_code where id=convert(NUMERIC,#{id,jdbcType=VARCHAR})
+	</select>
+
+	<delete id="softDeleteById" parameterType="String">
+		delete from holiday_code where id=convert(NUMERIC,#{id,jdbcType=VARCHAR})
+	</delete>
+
+	<update id="update" parameterType="HolidayCode">
+		update holiday_code set
+		holiday_code=#{holiday_code,jdbcType=CHAR},holiday_name=#{holiday_name,jdbcType=VARCHAR},date=#{date,jdbcType=VARCHAR},
+		comment=#{comment,jdbcType=VARCHAR},country_code=#{country_code,jdbcType=VARCHAR},start_time=#{start_time,jdbcType=VARCHAR},
+		last_time=#{last_time,jdbcType=VARCHAR},UPT_TLR=#{UPT_TLR,jdbcType=VARCHAR},use_status=#{use_status,jdbcType= VARCHAR},
+		REC_STS=#{REC_STS,jdbcType= VARCHAR}
+		where id=#{id,jdbcType=NUMERIC}
+	</update>
+
+	<insert id="add" parameterType="HolidayCode">
+		insert into holiday_code(holiday_code,holiday_name,date
+		,comment ,country_code,start_time,last_time,UPT_TLR
+		,use_status,REC_STS
+		) values
+		(#{holiday_code,jdbcType=VARCHAR},#{holiday_name,jdbcType=VARCHAR},convert(DATETIME,#{date,jdbcType=VARCHAR}),
+		#{comment,jdbcType=VARCHAR},#{country_code,jdbcType=VARCHAR},convert(DATETIME,#{start_time,jdbcType=VARCHAR}),
+		convert(DATETIME,#{last_time,jdbcType=VARCHAR}),#{UPT_TLR,jdbcType=VARCHAR},#{use_status,jdbcType= VARCHAR},
+		#{REC_STS,jdbcType= VARCHAR}
+		)
+	</insert>
+
+</mapper>

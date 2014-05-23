@@ -1,13 +1,12 @@
 package com.gtafe.service.impl;
 
-import java.util.List;
-
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.gtafe.model.ExchangeReceipts;
 import com.gtafe.service.BaseTest;
 import com.gtafe.service.IExchangeReceiptsService;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * Desc: 

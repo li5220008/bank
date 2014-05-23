@@ -109,13 +109,13 @@
 
             <label for="cre_dat" class="col-sm-1">建档日期</label>
             <div class="col-sm-3">
-                <input type="text" onclick="WdatePicker()" class="form-control" value="<fmt:formatDate value="${pifirt.upt_dat}" pattern="yyyy-MM-dd" />" name="cre_dat" id="cre_dat" placeholder="建档日期">
+                <input type="text" class="form-control Wdate" onclick="WdatePicker()" value="<fmt:formatDate value="${pifirt.upt_dat}" pattern="yyyy-MM-dd" />" name="cre_dat" id="cre_dat" placeholder="建档日期">
             </div>
         </div>
         <div class="form-group">
             <label for="upt_dat" class="col-sm-1">最后更新日期</label>
             <div class="col-sm-3">
-                <input type="text" onclick="WdatePicker()" class="form-control" value="<fmt:formatDate value="${pifirt.upt_dat}" pattern="yyyy-MM-dd"/>" name="upt_dat" id="upt_dat" placeholder="最后更新日期">
+                <input type="text" class="form-control Wdate" onclick="WdatePicker()" value="<fmt:formatDate value="${pifirt.upt_dat}" pattern="yyyy-MM-dd"/>" name="upt_dat" id="upt_dat" placeholder="最后更新日期">
             </div>
             <label for="upt_tlr" class="col-sm-1">更新柜员</label>
             <div class="col-sm-3">

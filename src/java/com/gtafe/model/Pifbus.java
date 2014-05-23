@@ -2,7 +2,6 @@ package com.gtafe.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.text.NumberFormat;
 import java.util.Date;
 
 /**

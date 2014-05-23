@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IStatisticsCodeDao">
+	<!-- 为了返回list 类型而定义的returnMap -->
+	<resultMap type="StatisticsCode" id="resultList">
+
+	</resultMap>
+	<!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+	<select id="findAll" resultMap="resultList">
+		select * from PIFANC
+	</select>
+
+	<select id="selectById" parameterType="String" resultType="StatisticsCode">
+		select * from PIFANC where ANC_CDE=#{ANC_CDE}
+	</select>
+
+	<delete id="softDeleteById" parameterType="String">
+		delete from PIFANC where ANC_CDE=#{ANC_CDE}
+	</delete>
+
+	<update id="update" parameterType="StatisticsCode">
+		update PIFANC set
+		ANC_TYP=#{ANC_TYP,jdbcType=VARCHAR},ANA_NUM=convert(NUMERIC,#{ANA_NUM,jdbcType=VARCHAR}),ANC_DCR=#{ANC_DCR,jdbcType=VARCHAR},
+		GLC_RAG=#{GLC_RAG,jdbcType=VARCHAR},PLC_RAG=#{PLC_RAG,jdbcType=VARCHAR},CFB_TYP=#{CFB_TYP,jdbcType=VARCHAR},
+		CFB_CD1=#{CFB_CD1,jdbcType=VARCHAR},CFB_CD2=#{CFB_CD2,jdbcType=VARCHAR},CFB_CD3=#{CFB_CD3,jdbcType= VARCHAR},
+		ICL_CDE=#{ICL_CDE,jdbcType= VARCHAR},CDR_FLG=#{CDR_FLG,jdbcType= VARCHAR},
+		RSV_FI1=#{RSV_FI1,jdbcType= VARCHAR},RSV_FI2=#{RSV_FI2,jdbcType= VARCHAR},RSV_FI3=#{RSV_FI3,jdbcType= VARCHAR},
+		UPT_DAT=convert(DATETIME,#{UPT_DAT,jdbcType=VARCHAR}),UPT_TLR=#{UPT_TLR,jdbcType= VARCHAR},REC_STS=#{REC_STS,jdbcType= VARCHAR}
+		where ANC_CDE=#{ANC_CDE,jdbcType=VARCHAR}
+	</update>
+
+	<insert id="add" parameterType="StatisticsCode">
+insert into PIFANC(ANC_CDE,ANC_TYP,ANA_NUM,ANC_DCR,GLC_RAG,PLC_RAG,CFB_TYP,CFB_CD1,CFB_CD2,CFB_CD3,ICL_CDE,CDR_FLG,RSV_FI1,RSV_FI2,RSV_FI3,UPT_DAT,UPT_TLR,REC_STS
+		) values
+		(#{ANC_CDE,jdbcType=VARCHAR},#{ANC_TYP,jdbcType=VARCHAR},convert(NUMERIC,#{ANA_NUM,jdbcType=VARCHAR}),
+		#{ANC_DCR,jdbcType=VARCHAR},#{GLC_RAG,jdbcType=VARCHAR},#{PLC_RAG,jdbcType=VARCHAR},
+		#{CFB_TYP,jdbcType=VARCHAR},#{CFB_CD1,jdbcType=VARCHAR},#{CFB_CD2,jdbcType= VARCHAR},
+		#{CFB_CD3,jdbcType= VARCHAR},#{ICL_CDE,jdbcType= VARCHAR},#{CDR_FLG,jdbcType= VARCHAR},
+		#{RSV_FI1,jdbcType= VARCHAR},#{RSV_FI2,jdbcType= VARCHAR},#{RSV_FI3,jdbcType= VARCHAR},convert(DATETIME,#{UPT_DAT,jdbcType=VARCHAR}),
+		#{UPT_TLR,jdbcType= VARCHAR},#{REC_STS,jdbcType= VARCHAR}
+		)
+	</insert>
+
+</mapper>

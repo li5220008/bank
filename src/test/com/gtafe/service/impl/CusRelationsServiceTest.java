@@ -40,7 +40,7 @@ public class CusRelationsServiceTest extends BaseTest {
 		List<CusRelations> cusRelationsList=cusRelationsDao.findAll();
 		System.out.println("数量是"+cusRelationsList.size());
 		for (CusRelations bc : cusRelationsList) {			
-			System.out.println("客户名称是"+bc.getCus_name());
+			System.out.println("客户名称是"+bc.getCus_name()+bc.getId());
 		}
 	}
 
@@ -53,7 +53,9 @@ public class CusRelationsServiceTest extends BaseTest {
 	}
 	@Test
 	public void selectByID(){
-		CusRelations bc =cusRelationsDao.selectByID(1);
+		CusRelations bc =cusRelationsDao.selectByID(2);
 	   System.out.println("客户名称为："+bc.getCus_name());
+	   System.out.println("客户名称长度："+bc.getCus_name().length());
+	   System.out.println("缓存查询--客户名称为："+cusRelationsDao.selectByID(2).getCus_name());
 	}
 }

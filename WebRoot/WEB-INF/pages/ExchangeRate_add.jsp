@@ -19,13 +19,10 @@
      <script type="text/javascript" src="<%=basePath %>resources/js/My97DatePicker/WdatePicker.js"></script>
     <script>
     $(document).ready(function(){
-    	alert("hello");
+    
     })
    
     </script>
-     
-  
-   
 		<title>add CONTENT</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">

@@ -73,10 +73,10 @@
 
 						<TD><a href="deleteExchange.html?id=${item.XRT_KEY}">删除</a></TD>
 						<TD><a href="editeExchange.html?XRT_KEY=${item.XRT_KEY}">修改</a></TD>
-						<td><a href="addExchange.html">添加</a></td>
+						
 					</tr>
 				</c:forEach>
-
+<td><a href="addExchange.html">添加</a></td>
 
 			</tbody>
 

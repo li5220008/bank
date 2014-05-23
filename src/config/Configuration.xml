@@ -6,10 +6,13 @@
  -->
 <configuration>
     <settings>
+        <!-- 启用全局映射器的缓存-->
+        <setting name="cacheEnabled" value="false"/>
         <!-- 启用自动驼峰映射配置-->
         <setting name="mapUnderscoreToCamelCase" value="false"/>
         <!-- 空值默认null来处理不需要全部指定jdbcType=VARCHAR -->
         <setting name="jdbcTypeForNull" value="VARCHAR"/>
+        
     </settings>
     <typeAliases>
         <typeAlias alias="User" type="com.gtafe.model.User"/>
@@ -23,11 +26,26 @@
         <typeAlias alias="CusRelations" type="com.gtafe.model.CusRelations"/>
         <!--  有价单证实体类 -->
         <typeAlias alias="PriceCertificate" type="com.gtafe.model.PriceCertificate"/>
+        <!--  产品码表 -->
+        <typeAlias alias="Pifpdc" type="com.gtafe.model.Pifpdc"/>
+        <!--  产品定义表 -->
+        <typeAlias alias="Pifprd" type="com.gtafe.model.Pifprd"/>
+
 
         <typeAlias alias="ExchangeRate" type="com.gtafe.model.ExchangeRate"/>
-
+       
+       <!--  计提来源   -->
+       <typeAlias alias="AccrueSource" type="com.gtafe.model.AccrueSource"/>
+       <!--  计提参数 -->
+       <typeAlias alias="AccrueParams" type="com.gtafe.model.AccrueParams"/>
+       <!--  假日表  -->
+       <typeAlias alias="HolidayCode" type="com.gtafe.model.HolidayCode"/>
         <!--  费率表   -->
-        <typeAlias alias="FeeRate" type="com.gtafe.model.Piffrt"/>
+        <typeAlias alias="FeeRate" type="com.gtafe.model.FeeRate"/>
+        <!-- 交易会计分录表 -->
+        <typeAlias alias="TransactionRecord" type="com.gtafe.model.TransactionRecord"/>
+         <!--  统计码表  --> 
+         <typeAlias alias="StatisticsCode" type="com.gtafe.model.StatisticsCode"/>
         <!--  结售汇牌价表   -->
         <typeAlias alias="ExchangeReceipts" type="com.gtafe.model.ExchangeReceipts"/>
         <!--  内部账户控制表   -->

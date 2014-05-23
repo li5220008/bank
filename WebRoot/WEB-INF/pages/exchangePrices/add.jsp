@@ -51,12 +51,12 @@
             <div class="form-group">
                 <label for="last_time" class="col-sm-1">当天修改标记</label>
                 <div class="col-sm-3">
-                    <input type="text" onclick="WdatePicker()" class="form-control" name="last_time" id="last_time" placeholder="当天修改标记">
+                    <input type="text" class="form-control Wdate" onclick="WdatePicker()" class="form-control" name="last_time" id="last_time" placeholder="当天修改标记">
                 </div>
 
                 <label for="upt_tlr" class="col-sm-1">启用时间</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="upt_tlr" id="upt_tlr" placeholder="启用时间">
+                    <input type="text" class="form-control Wdate" onclick="WdatePicker()" name="upt_tlr" id="upt_tlr" placeholder="启用时间">
                 </div>
 
                 <label for="use_status" class="col-sm-1">建档柜员</label>
@@ -68,7 +68,7 @@
             <div class="form-group">
                 <label for="rec_sts" class="col-sm-1">建档时间</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="rec_sts" id="rec_sts" placeholder="建档时间">
+                    <input type="text" class="form-control Wdate" onclick="WdatePicker()" name="rec_sts" id="rec_sts" placeholder="建档时间">
                 </div>
 
                 <label for="upt_tlr" class="col-sm-1">更新柜员</label>

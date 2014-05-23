@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IPifpdcDao">
+    <!-- 缓存配置  -->
+    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"/>
+   
+     <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="Pifpdc" id="resultList">        
+    </resultMap>  
+    
+    <!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+    <select id="findAll"  resultMap="resultList">
+         select * from PIFPDC 
+    </select>
+    
+    <select id="selectByID" parameterType="String" resultType="Pifpdc" >
+         select * from PIFPDC where PRD_CDE=#{prd_cde}
+    </select>
+    
+    <delete id="realDeleteById" parameterType="String">
+         delete from PIFPDC  where PRD_CDE=#{prd_cde}
+    </delete>
+    
+    <update id="update" parameterType="Pifpdc">
+         update PIFPDC set 
+         BUS_CDE=#{bus_cde,jdbcType=VARCHAR},PRD_BUS=#{prd_bus,jdbcType=VARCHAR},
+         PRD_NUM=#{prd_num,jdbcType=NUMERIC},PRD_NAM=#{prd_nam,jdbcType=VARCHAR},PRD_SNM=#{prd_snm,jdbcType=VARCHAR},
+         PRD_IDT=#{prd_idt,jdbcType=VARCHAR},PRD_VAL=#{prd_val,jdbcType= DATE},PRD_ITM=#{prd_itm,jdbcType= VARCHAR},
+         PRD_PRI=#{prd_pri,jdbcType= VARCHAR},PRD_FEE=#{prd_fee,jdbcType=VARCHAR},PRD_PRF=#{prd_prf,jdbcType= VARCHAR},
+         PRD_SEV=#{prd_sev,jdbcType= VARCHAR},PRD_TRM=#{prd_trm,jdbcType= VARCHAR},PRD_RIS=#{prd_ris,jdbcType= VARCHAR}, 
+         PRD_RUL=#{prd_rul,jdbcType= VARCHAR},PRD_CCY=#{prd_ccy,jdbcType= VARCHAR},PRD_CUS=#{prd_cus,jdbcType= VARCHAR},
+         PRD_RSK=#{prd_rsk,jdbcType= NUMERIC},UPT_DAT=#{upt_dat,jdbcType= DATE},
+         UPT_TLR=#{upt_tlr,jdbcType=VARCHAR},REC_STS=#{rec_sts,jdbcType= CHAR}
+         where PRD_CDE=#{prd_cde,jdbcType=VARCHAR}
+    </update>
+       
+    <insert id="add" parameterType="Pifpdc">
+        insert into PIFPDC(PRD_CDE,BUS_CDE,PRD_BUS,PRD_NUM,PRD_NAM,PRD_SNM,PRD_IDT,
+                           PRD_VAL,PRD_ITM,PRD_PRI,PRD_FEE,PRD_PRF,PRD_SEV,
+                           PRD_TRM,PRD_RIS,PRD_RUL,PRD_CCY,PRD_CUS,PRD_RSK,
+                           UPT_DAT,UPT_TLR,REC_STS) values 
+        (#{prd_cde,jdbcType=VARCHAR},#{bus_cde,jdbcType=VARCHAR},#{prd_bus,jdbcType=VARCHAR},#{prd_num,jdbcType=NUMERIC},
+        #{prd_nam,jdbcType=VARCHAR},#{prd_snm,jdbcType=VARCHAR},#{prd_idt,jdbcType=VARCHAR},
+        #{prd_val,jdbcType= DATE},#{prd_itm,jdbcType= VARCHAR},#{prd_pri,jdbcType= VARCHAR},
+        #{prd_fee,jdbcType=VARCHAR},#{prd_prf,jdbcType= VARCHAR},#{prd_sev,jdbcType= VARCHAR},
+        #{prd_trm,jdbcType= VARCHAR},#{prd_ris,jdbcType= VARCHAR}, 
+         #{prd_rul,jdbcType= VARCHAR},#{prd_ccy,jdbcType= VARCHAR},#{prd_cus,jdbcType= VARCHAR},
+         #{prd_rsk,jdbcType= NUMERIC},#{upt_dat,jdbcType= DATE},
+         #{upt_tlr,jdbcType=VARCHAR},#{rec_sts,jdbcType= CHAR}
+         )
+    </insert>
+
+</mapper>

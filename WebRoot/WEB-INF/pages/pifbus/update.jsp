@@ -46,7 +46,7 @@
 
             <label for="upt_dat" class="col-sm-1">最后更新日期</label>
             <div class="col-sm-3">
-                <input type="text" onclick="WdatePicker()" class="form-control" value="<fmt:formatDate value='${pifbus.upt_dat}' pattern='yyyy-MM-dd' />" name="upt_dat" id="upt_dat" placeholder="最后更新日期">
+                <input type="text" class="form-control Wdate" onclick="WdatePicker()" value="<fmt:formatDate value='${pifbus.upt_dat}' pattern='yyyy-MM-dd' />" name="upt_dat" id="upt_dat" placeholder="最后更新日期">
             </div>
         </div>
 

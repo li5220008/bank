@@ -1,11 +1,10 @@
 package com.gtafe.util;
 
+import com.gtafe.dto.Message;
 import org.springframework.ui.Model;
 
-import com.gtafe.dto.Message;
-
 /**
- * Desc:
+ * Desc: 通用工具类
  * User: weiguili(li5220008@gmail.com)
  * Date: 5/3/14
  * Time: 12:46 AM

@@ -33,7 +33,8 @@ public class CountryCodeController {
     }
 
     @RequestMapping("/info")
-    public @ResponseBody CountryCode info(int id) {
+    public @ResponseBody
+    CountryCode info(int id) {
         CountryCode countryCode = service.selectById(id);
         return countryCode;
     }
@@ -53,7 +54,7 @@ public class CountryCodeController {
             return CommonUtils.message(model);
         }
         Message message = new Message("添加成功!","/countryCode/list","3");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping(value = {"/update"},method = RequestMethod.GET)
@@ -72,7 +73,7 @@ public class CountryCodeController {
             return CommonUtils.message(model);
         }
         Message message = new Message("更新成功!","/countryCode/list","2");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping("/delete")

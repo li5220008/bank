@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.AccrueSourceMapper">
+
+    <select id="findById" parameterType="Decimal" resultType="AccrueSource">
+        select * from accrue_source where id = #{id}
+    </select> 
+  
+ <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="AccrueSource" id="resultListAccrueSource"> 
+      
+    </resultMap>  
+    <!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+  
+    
+    <select id="fetchAll"  resultMap="resultListAccrueSource">
+        select * from accrue_source
+    </select>
+   
+    <insert id="add" parameterType="com.gtafe.model.AccrueSource" > 
+    insert into accrue_source(
+   ope_code,org_code,acc_type,acc_account
+  ,acc_name,bak_account,bak_source,acc_percent
+  ,ope_flag,acc_date,source_code,source_comment
+  ,opt_type,count_type,source_class,coin_type
+  ,start_time,last_time,UDT_CLR,use_status
+  ,REC_STS
+) values (
+ #{ope_code,jdbcType=VARCHAR},
+ #{org_code,jdbcType=VARCHAR},
+ #{acc_type,jdbcType=VARCHAR},
+ #{acc_account,jdbcType=VARCHAR},
+ #{acc_name,jdbcType=VARCHAR},
+ #{bak_account,jdbcType=VARCHAR},
+ #{bak_source,jdbcType=VARCHAR},
+ #{acc_percent,jdbcType=VARCHAR},
+ #{ope_flag,jdbcType=VARCHAR},
+ #{acc_date,jdbcType=VARCHAR},
+ #{source_code,jdbcType=VARCHAR},
+ #{source_comment,jdbcType=VARCHAR},
+ #{opt_type,jdbcType=VARCHAR},
+ #{count_type,jdbcType=VARCHAR},
+ #{source_class,jdbcType=VARCHAR},
+ #{coin_type,jdbcType=VARCHAR},
+ #{start_time,jdbcType=VARCHAR},
+ #{last_time,jdbcType=VARCHAR},
+ #{UDT_CLR,jdbcType=VARCHAR},
+ #{use_status,jdbcType=VARCHAR},
+ #{REC_STS,jdbcType=VARCHAR}
+)
+
+    </insert>
+    
+    
+     <update id="update" parameterType="AccrueSource">
+     update accrue_source set
+  ope_code=#{ope_code,jdbcType=VARCHAR}
+  ,org_code=#{org_code,jdbcType=VARCHAR}
+  ,acc_type=#{acc_type,jdbcType=VARCHAR}
+  ,acc_account=#{acc_account,jdbcType=VARCHAR}
+  ,acc_name=#{acc_name,jdbcType=VARCHAR}
+  ,bak_account=#{bak_account,jdbcType=VARCHAR}
+  ,bak_source=#{bak_source,jdbcType=VARCHAR}
+  ,acc_percent=#{acc_percent,jdbcType=VARCHAR}
+  ,ope_flag=#{ope_flag,jdbcType=VARCHAR}
+  ,acc_date=#{acc_date,jdbcType=VARCHAR}
+  ,source_code=#{source_code,jdbcType=VARCHAR}
+  ,source_comment=#{source_comment,jdbcType=VARCHAR}
+  ,opt_type=#{opt_type,jdbcType=VARCHAR}
+  ,count_type=#{count_type,jdbcType=VARCHAR}
+  ,source_class=#{source_class,jdbcType=VARCHAR}
+  ,coin_type=#{coin_type,jdbcType=VARCHAR}
+  ,start_time=#{start_time,jdbcType=VARCHAR}
+  ,last_time=#{last_time,jdbcType=VARCHAR}
+  ,UDT_CLR=#{opt_type,jdbcType=VARCHAR}
+  ,use_status=#{UDT_CLR,jdbcType=VARCHAR}
+  ,REC_STS =#{REC_STS,jdbcType=VARCHAR} where id=#{id,jdbcType=NUMERIC}
+  
+     </update>
+      <delete id="delete" parameterType="Decimal">
+       delete from accrue_source where id =#{id}
+    </delete> 
+
+</mapper>

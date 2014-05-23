@@ -38,7 +38,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!--Configuring a global date & time format-->
+    <!--Configuring a global date & time format
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="registerDefaultFormatters" value="false" />
         <property name="formatters">
@@ -58,7 +58,7 @@
             </set>
         </property>
     </bean>
-
+-->
 
     <!-- sqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -78,10 +78,9 @@
     <!-- 扫描com这个包里的所有类，把里面配上相应注解的类全都放在容器中进行管理 -->
     <context:component-scan base-package="com.gtafe"/>
 
-    <!--注解配置，告诉spring用哪个实现类，注解到这个bean中-->
+    <!--注解配置，告诉spring用哪个实现类，注入到这个bean中-->
     <!--<bean id = "userMapper" class="com.gtafe.dao.UserMapper"/>-->
     <bean id="userService" class="com.gtafe.service.impl.UserServiceImpl"/>
     <bean id="irs" class="com.gtafe.service.impl.ExchangeRateServiceImpl"/>
-    <bean id="psi" class="com.gtafe.service.impl.PiffrtServiceImpl"/>
     <!--<bean id = "userMapper" class="com.gtafe.dao.UserMapper"/>-->
 </beans>

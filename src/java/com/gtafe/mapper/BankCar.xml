@@ -4,42 +4,29 @@
 
 
 <mapper namespace="com.gtafe.dao.IBankCarDao">
+    <!-- 缓存配置  -->
+    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"/>
+   
      <!-- 为了返回list 类型而定义的returnMap -->
-    <resultMap type="BankCar" id="resultList">
-        <id column="id" property="id" />
-        <id column="usage" property="usage" />
-        <id column="car_type" property="car_type" />
-        <id column="car_media" property="car_media" />
-        <id column="car_grade" property="car_grade" />
-        <id column="car_class" property="car_class" />
-        <id column="car_name" property="car_name" />
-        <id column="car_status" property="car_status" />
-        <id column="credit_grade" property="credit_grade" />
-        <id column="year_fee" property="year_fee" />
-        <id column="attached_num" property="attached_num" />
-        <id column="attached_code" property="attached_code" />
-        <id column="start_time" property="start_time" />
-        <id column="UPT_DAT" property="upt_dat" />
-        <id column="UPT_TLR" property="upt_tlr" />
-        <id column="USE_STS" property="use_sts" />
-        <id column="REC_STS" property="rec_sts" />
+    <resultMap type="HolidayCode" id="resultList">
+        
         
     </resultMap>  
     <!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
     <select id="findAll"  resultMap="resultList">
-         select * from bank_car 
+         select * from holiday_code 
     </select>
     
-    <select id="selectByID" parameterType="int" resultType="BankCar" >
-         select * from bank_car where id=#{id}
+    <select id="selectByID" parameterType="decimal" resultType="HolidayCode" >
+         select * from holiday_code where id=#{id}
     </select>
     
-    <delete id="realDeleteById" parameterType="int">
-         delete from bank_car  where id=#{id}
+    <delete id="realDeleteById" parameterType="decimal">
+         delete from holiday_code  where id=#{id}
     </delete>
     
-    <update id="update" parameterType="BankCar">
-         update bank_car set 
+    <update id="update" parameterType="HolidayCode">
+         update holiday_code set 
          usage=#{usage,jdbcType=CHAR},car_type=#{car_type,jdbcType=CHAR},car_media=#{car_media,jdbcType=CHAR},
          car_grade=#{car_grade,jdbcType=CHAR},car_class=#{car_class,jdbcType=CHAR},car_name=#{car_name,jdbcType=VARCHAR},
          car_status=#{car_status,jdbcType=CHAR},credit_grade=#{credit_grade,jdbcType= CHAR},year_fee=#{year_fee,jdbcType= NUMERIC},
@@ -49,8 +36,8 @@
          where id=#{id,jdbcType=NUMERIC}
     </update>
        
-    <insert id="add" parameterType="BankCar">
-        insert into bank_car(usage,car_type,car_media,car_grade,car_class,
+    <insert id="add" parameterType="HolidayCode">
+        insert into holiday_code(usage,car_type,car_media,car_grade,car_class,
                              car_name,car_status,credit_grade,year_fee,attached_num,
                              attached_code,start_time,UPT_DAT,UPT_TLR,USE_STS,
                              REC_STS

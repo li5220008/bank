@@ -4,7 +4,6 @@ import com.gtafe.dto.Message;
 import com.gtafe.model.Pifirt;
 import com.gtafe.service.IPIFIRTService;
 import com.gtafe.util.CommonUtils;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +33,8 @@ public class PifirtController {
     }
 
     @RequestMapping("/info")
-    public @ResponseBody Pifirt info(String id) {
+    public @ResponseBody
+    Pifirt info(String id) {
         Pifirt pifirt = service.selectById(id);
         return pifirt;
     }
@@ -54,7 +54,7 @@ public class PifirtController {
             return CommonUtils.message(model);
         }
         Message message = new Message("添加成功!","/pifirt/list","2");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping(value = {"/update"},method = RequestMethod.GET)
@@ -73,7 +73,7 @@ public class PifirtController {
             return CommonUtils.message(model);
         }
         Message message = new Message("更新成功!","/pifirt/list","2");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping("/delete")

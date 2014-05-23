@@ -1,13 +1,12 @@
 package com.gtafe.service.impl;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.gtafe.dao.IExchangeReceiptsDao;
 import com.gtafe.model.ExchangeReceipts;
 import com.gtafe.service.IExchangeReceiptsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Desc: 结售汇牌价表

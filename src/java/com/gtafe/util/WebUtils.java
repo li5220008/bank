@@ -91,6 +91,10 @@ public class WebUtils {
      * 产生全球唯一ID
      * @return
      */
+    
+    public static void main(String[] args) {
+		System.out.println(generateID());
+	}
     public static String generateID(){
         UUID uuid = UUID.randomUUID();
         return uuid.toString();

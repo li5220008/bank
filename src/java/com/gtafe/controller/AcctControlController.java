@@ -2,9 +2,7 @@ package com.gtafe.controller;
 
 import com.gtafe.dto.Message;
 import com.gtafe.model.AcctControl;
-import com.gtafe.model.PublicCode;
 import com.gtafe.service.IAcctControlService;
-import com.gtafe.service.IPublicCodeService;
 import com.gtafe.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,7 +54,7 @@ public class AcctControlController {
             return CommonUtils.message(model);
         }
         Message message = new Message("添加成功!","/acctControl/list","3");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping(value = {"/edit"},method = RequestMethod.GET)
@@ -75,7 +73,7 @@ public class AcctControlController {
             return CommonUtils.message(model);
         }
         Message message = new Message("更新成功!","/acctControl/list","2");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping("/delete")

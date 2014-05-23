@@ -44,14 +44,14 @@
 
                 <label for="start_time" class="col-sm-1">启用日期</label>
                 <div class="col-sm-3">
-                    <input type="text" onclick="WdatePicker()" class="form-control" name="start_time" id="start_time" placeholder="启用日期">
+                    <input type="text" class="form-control Wdate" onclick="WdatePicker()" name="start_time" id="start_time" placeholder="启用日期">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="last_time" class="col-sm-1">最后更新日期</label>
                 <div class="col-sm-3">
-                    <input type="text" onclick="WdatePicker()" class="form-control" name="last_time" id="last_time" placeholder="最后更新日期">
+                    <input type="text" class="form-control Wdate" onclick="WdatePicker()" name="last_time" id="last_time" placeholder="最后更新日期">
                 </div>
 
                 <label for="upt_tlr" class="col-sm-1">更新柜员</label>

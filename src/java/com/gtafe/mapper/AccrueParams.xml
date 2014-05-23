@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.AccrueParamsMapper">
+
+    <select id="selectById" parameterType="Decimal" resultType="AccrueParams">
+        select * from accrue_params where id = #{id,jdbcType=NUMERIC}
+    </select> 
+  
+ <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="AccrueParams" id="resultListAccrueParams">
+       
+        
+       
+    </resultMap>  
+    <!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+  
+    
+    <select id="fetchAll"  resultMap="resultListAccrueParams">
+        select * from accrue_params
+    </select>
+   
+    <insert id="add" parameterType="com.gtafe.model.AccrueParams" > 
+    insert into accrue_params(ope_code,org_code,acc_type,acc_name,bak_account,bak_source,
+    acc_percent,ope_flag,count_date,start_date,last_date,UPT_CLR,use_status,REC_STS
+) values (
+  #{ope_code,jdbcType=VARCHAR},#{org_code,jdbcType=VARCHAR},#{acc_type,jdbcType=VARCHAR}
+  ,#{acc_name,jdbcType=VARCHAR}
+  ,#{bak_account,jdbcType=VARCHAR}
+  ,#{bak_source,jdbcType=VARCHAR}
+  ,#{acc_percent,jdbcType=VARCHAR}
+  ,#{ope_flag,jdbcType=VARCHAR}
+  ,#{count_date,jdbcType=VARCHAR}
+  ,#{start_date,jdbcType=VARCHAR}
+  ,#{last_date,jdbcType=VARCHAR}
+  ,#{UPT_CLR,jdbcType=VARCHAR}
+  ,#{use_status,jdbcType=VARCHAR}
+  ,#{REC_STS,jdbcType=VARCHAR}
+) 
+    </insert>
+    
+    
+     <update id="update" parameterType="AccrueParams">update accrue_params set 
+        ope_code=#{ope_code,jdbcType=VARCHAR},
+       org_code=#{org_code,jdbcType=VARCHAR},
+      acc_type=#{acc_type,jdbcType=VARCHAR},acc_name=#{acc_name,jdbcType=VARCHAR}, 
+      bak_account=#{bak_account,jdbcType=VARCHAR},bak_source=#{bak_source,jdbcType=VARCHAR},acc_percent=#{acc_percent,jdbcType=VARCHAR}, 
+      ope_flag=#{ope_flag,jdbcType=VARCHAR},count_date=#{count_date,jdbcType=VARCHAR},start_date=#{start_date,jdbcType=VARCHAR}, 
+      last_date=#{last_date,jdbcType=VARCHAR},UPT_CLR=#{UPT_CLR,jdbcType=VARCHAR},use_status=#{use_status,jdbcType=VARCHAR},REC_STS=#{REC_STS,jdbcType=VARCHAR} where id=#{id,jdbcType=NUMERIC}</update>
+       
+
+      <delete id="delete" parameterType="Decimal">
+        delete from accrue_params where id=#{id}
+    </delete> 
+     
+</mapper>

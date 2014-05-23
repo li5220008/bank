@@ -33,7 +33,8 @@ public class PublicCodeController {
     }
 
     @RequestMapping("/info")
-    public @ResponseBody PublicCode info(int id) {
+    public @ResponseBody
+    PublicCode info(int id) {
         PublicCode publicCode = service.selectById(id);
         return publicCode;
     }
@@ -53,7 +54,7 @@ public class PublicCodeController {
             return CommonUtils.message(model);
         }
         Message message = new Message("添加成功!","/publicCode/list","3");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping(value = {"/edit"},method = RequestMethod.GET)
@@ -72,7 +73,7 @@ public class PublicCodeController {
             return CommonUtils.message(model);
         }
         Message message = new Message("更新成功!","/publicCode/list","2");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping("/delete")

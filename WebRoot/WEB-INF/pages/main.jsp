@@ -10,6 +10,8 @@
 
 <!--jquery插件-->
 <script src="${pageContext.request.contextPath}/resources/js/jquery-1.8.0.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.tools.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.fancybox-1.3.4.pack.js"></script>
 
 <!--bootstrap插件-->
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
@@ -28,4 +30,3 @@
 
 <!--插件-->
 
-<script src="${pageContext.request.contextPath}/resources/js/jquery.fancybox-1.3.4.pack.js"></script>

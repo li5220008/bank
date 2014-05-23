@@ -33,7 +33,8 @@ public class AcctOpenController {
     }
 
     @RequestMapping("/info")
-    public @ResponseBody AcctOpen info(int id) {
+    public @ResponseBody
+    AcctOpen info(int id) {
         AcctOpen acctOpen = service.selectById(id);
         return acctOpen;
     }
@@ -53,7 +54,7 @@ public class AcctOpenController {
             return CommonUtils.message(model);
         }
         Message message = new Message("添加成功!","/acctOpen/list","3");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping(value = {"/edit"},method = RequestMethod.GET)
@@ -72,7 +73,7 @@ public class AcctOpenController {
             return CommonUtils.message(model);
         }
         Message message = new Message("更新成功!","/acctOpen/list","2");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping("/delete")

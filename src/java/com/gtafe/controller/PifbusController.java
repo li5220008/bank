@@ -33,7 +33,8 @@ public class PifbusController {
     }
 
     @RequestMapping("/info")
-    public @ResponseBody Pifbus info(String id) {
+    public @ResponseBody
+    Pifbus info(String id) {
         Pifbus pifbus = service.selectById(id);
         return pifbus;
     }
@@ -53,7 +54,7 @@ public class PifbusController {
             return CommonUtils.message(model);
         }
         Message message = new Message("添加成功!","/pifbus/list","3");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping(value = {"/update"},method = RequestMethod.GET)
@@ -72,7 +73,7 @@ public class PifbusController {
             return CommonUtils.message(model);
         }
         Message message = new Message("更新成功!","/pifbus/list","2");
-        return CommonUtils.message(model,message);
+        return CommonUtils.message(model, message);
     }
 
     @RequestMapping("/delete")

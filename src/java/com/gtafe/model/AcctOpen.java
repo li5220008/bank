@@ -1,8 +1,8 @@
 package com.gtafe.model;
 
-import java.util.Date;
-
 import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 /**
  * Desc: 内部账户开户表

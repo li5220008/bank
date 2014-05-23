@@ -1,14 +1,12 @@
 package com.gtafe.service.impl;
 
-import java.util.List;
-
+import com.gtafe.model.AcctOpen;
 import com.gtafe.service.BaseTest;
-
+import com.gtafe.service.IAcctOpenService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.gtafe.model.AcctOpen;
-import com.gtafe.service.IAcctOpenService;
+import java.util.List;
 
 /**
  * Desc: 

@@ -1,8 +1,8 @@
 package com.gtafe.model;
 
-import java.util.Date;
-
 import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 /**
  * Desc: 结售汇牌价表

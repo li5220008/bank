@@ -24,3 +24,5 @@
 
 <!--通用样式-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style/common.css">
+<!-- fancybox样式 -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style/jquery.fancybox-1.3.4.css">

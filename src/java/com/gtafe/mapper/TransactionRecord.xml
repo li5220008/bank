@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.ITransactionRecordDao">
+	<!-- 为了返回list 类型而定义的returnMap -->
+	<resultMap type="TransactionRecord" id="resultList">
+
+	</resultMap>
+	<!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+	<select id="findAll" resultMap="resultList">
+		select * from trn_act_clf
+	</select>
+
+	<select id="selectById" parameterType="String" resultType="TransactionRecord">
+		select * from trn_act_clf where id=#{id}
+	</select>
+
+	<delete id="softDeleteById" parameterType="String">
+		delete from trn_act_clf where id=#{id}
+	</delete>
+
+	<update id="update" parameterType="TransactionRecord">
+		update trn_act_clf set
+		ope_code=#{ope_code,jdbcType=VARCHAR},trade_code=#{trade_code,jdbcType=VARCHAR},trade_name=#{trade_name,jdbcType=VARCHAR},
+		trade_subcode=#{trade_subcode,jdbcType=VARCHAR},comment=#{comment,jdbcType=VARCHAR},trade_pen=#{trade_pen,jdbcType=VARCHAR},
+		pen_reason=#{pen_reason,jdbcType=VARCHAR},journal_no=#{journal_no,jdbcType=VARCHAR},borrow_flag=#{borrow_flag,jdbcType= VARCHAR},
+		subject_code=#{subject_code,jdbcType=VARCHAR},inr_act_no=#{inr_act_no,jdbcType=VARCHAR},out_act_gre=#{out_act_gre,jdbcType= VARCHAR},
+		out_act_tye=#{out_act_tye,jdbcType=VARCHAR},read_flag=#{read_flag,jdbcType=VARCHAR},supervise_flag=#{supervise_flag,jdbcType= VARCHAR},
+		start_date=convert(DATETIME,#{start_date,jdbcType=VARCHAR}),last_date=convert(DATETIME,#{last_date,jdbcType=VARCHAR}),UDT_TLR=#{UDT_TLR,jdbcType= VARCHAR},
+		USE_STS=#{USE_STS,jdbcType= VARCHAR},REC_STS=#{REC_STS,jdbcType=VARCHAR}
+		where id=#{id,jdbcType=NUMERIC}
+	</update>
+
+	<insert id="add" parameterType="TransactionRecord">
+		insert into trn_act_clf(ope_code,trade_code,trade_name
+		,trade_subcode,comment,trade_pen,pen_reason,journal_no
+		,borrow_flag,subject_code,inr_act_no,out_act_gre,out_act_tye,
+		read_flag,supervise_flag,start_date,last_date,UDT_TLR,USE_STS,REC_STS
+		) values
+		(#{ope_code,jdbcType=VARCHAR},#{trade_code,jdbcType=VARCHAR},#{trade_name,jdbcType=VARCHAR},
+		#{trade_subcode,jdbcType=VARCHAR},#{comment,jdbcType=VARCHAR},#{trade_pen,jdbcType=VARCHAR},
+		#{pen_reason,jdbcType=VARCHAR},#{journal_no,jdbcType=VARCHAR},#{borrow_flag,jdbcType=VARCHAR},
+		#{subject_code,jdbcType=VARCHAR},#{inr_act_no,jdbcType=VARCHAR},#{out_act_gre,jdbcType=VARCHAR},
+		#{out_act_tye,jdbcType=VARCHAR},#{read_flag,jdbcType=VARCHAR},#{supervise_flag,jdbcType=VARCHAR},
+		convert(DATETIME,#{start_date,jdbcType=VARCHAR}),convert(DATETIME,#{last_date,jdbcType=VARCHAR}),#{UDT_TLR,jdbcType=VARCHAR},
+		#{USE_STS,jdbcType=VARCHAR},#{REC_STS,jdbcType=VARCHAR}
+		)
+	</insert>
+
+</mapper>

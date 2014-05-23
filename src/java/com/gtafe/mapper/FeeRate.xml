@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.FeeRateMapper">
+
+    <select id="selectFeeRateByID" parameterType="String" resultType="FeeRate">
+        select * from PIFFRT where FRT_KEY = #{FRT_KEY}
+    </select> 
+  
+ <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="FeeRate" id="resultListFeeRate">
+      
+
+    </resultMap>  
+    <!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+     
+        <insert id="addFeeRate" parameterType="com.gtafe.model.FeeRate" > 
+    insert into PIFFRT(
+   FRT_KEY
+  ,CUR_CDE
+  ,FRT_CDEs
+  ,FRT_KD1
+  ,FRT_KD2
+  ,EFF_DAT
+  ,FRT_CDE
+  ,FRT_NAM
+  ,DOC_CDE
+  ,DOC_NAM
+  ,FRT_SPH
+  ,FRT_SPL
+  ,SPR_FLG
+  ,MAL_FEE
+  ,COM_FEE
+  ,FEE_RAT
+  ,HIG_LIM
+  ,LOW_LIM
+  ,FEECYC
+  ,FEESDE
+  ,FEE_ITM
+  ,FRT_FLG
+  ,CMT_FLG
+  ,FEE_TPY
+  ,CMT_TPY
+  ,RSV_FLG
+  ,CRETLR
+  ,CREDAT
+  ,UPT_DAT
+  ,UPT_TLR
+  ,REC_STS
+) values (
+
+   #{FRT_KEY,jdbcType=VARCHAR}
+  ,#{CUR_CDE,jdbcType=VARCHAR}
+  ,#{FRT_CDEs,jdbcType=VARCHAR}
+  ,#{FRT_KD1,jdbcType=VARCHAR}
+  ,#{FRT_KD2,jdbcType=VARCHAR}
+  ,#{EFF_DAT,jdbcType=VARCHAR}
+  ,#{FRT_CDE,jdbcType=VARCHAR}
+  ,#{FRT_NAM,jdbcType=VARCHAR}
+  ,#{DOC_CDE,jdbcType=VARCHAR}
+  ,#{DOC_NAM,jdbcType=VARCHAR},
+ convert(NUMERIC,#{FRT_SPH,jdbcType=VARCHAR}),
+ convert(NUMERIC,#{FRT_SPL,jdbcType=VARCHAR})
+  ,#{SPR_FLG,jdbcType=VARCHAR},
+  convert(NUMERIC,#{MAL_FEE,jdbcType=VARCHAR}),
+  convert(NUMERIC,#{COM_FEE,jdbcType=VARCHAR}),
+  convert(NUMERIC,#{FEE_RAT,jdbcType=VARCHAR}),
+  convert(NUMERIC,#{HIG_LIM,jdbcType=VARCHAR}),
+  convert(NUMERIC,#{LOW_LIM,jdbcType=VARCHAR})
+  ,#{FEECYC,jdbcType=VARCHAR}
+  ,#{FEESDE,jdbcType=VARCHAR}
+  ,#{FEE_ITM,jdbcType=VARCHAR}
+  ,#{FRT_FLG,jdbcType=VARCHAR}
+  ,#{CMT_FLG,jdbcType=VARCHAR}
+  ,#{FEE_TPY,jdbcType=VARCHAR}
+  ,#{CMT_TPY,jdbcType=VARCHAR}
+  ,#{RSV_FLG,jdbcType=VARCHAR}
+  ,#{CRETLR,jdbcType=VARCHAR}
+  ,#{CREDAT,jdbcType=VARCHAR}
+  ,#{UPT_DAT,jdbcType=VARCHAR}
+  ,#{UPT_TLR,jdbcType=VARCHAR}
+  ,#{REC_STS,jdbcType=VARCHAR}
+) 
+    </insert>
+    <select id="findAll"  resultMap="resultListFeeRate">
+        select * from PIFFRT
+    </select>
+   <update id="update">
+   UPDATE PIFFRT
+SET
+   FRT_KEY =#{FRT_KEY,jdbcType=VARCHAR}
+  ,CUR_CDE =#{CUR_CDE,jdbcType=VARCHAR}
+  ,FRT_CDEs =#{FRT_CDEs,jdbcType=VARCHAR}
+  ,FRT_KD1 =#{FRT_KD1,jdbcType=VARCHAR}
+  ,FRT_KD2 =#{FRT_KD2,jdbcType=VARCHAR}
+  ,EFF_DAT =#{EFF_DAT,jdbcType=VARCHAR}
+  ,FRT_CDE =#{FRT_CDE,jdbcType=VARCHAR}
+  ,FRT_NAM =#{FRT_NAM,jdbcType=VARCHAR}
+  ,DOC_CDE =#{DOC_CDE,jdbcType=VARCHAR}
+  ,DOC_NAM =#{DOC_NAM,jdbcType=VARCHAR}
+  ,FRT_SPH =convert(NUMERIC,#{FRT_SPH,jdbcType=VARCHAR})
+  ,FRT_SPL =convert(NUMERIC,#{FRT_SPL,jdbcType=VARCHAR})
+  ,SPR_FLG =#{SPR_FLG,jdbcType=VARCHAR}
+  ,MAL_FEE =convert(NUMERIC,#{MAL_FEE,jdbcType=VARCHAR})
+  ,COM_FEE =convert(NUMERIC,#{COM_FEE,jdbcType=VARCHAR})
+  ,FEE_RAT =convert(NUMERIC,#{FEE_RAT,jdbcType=VARCHAR})
+  ,HIG_LIM =convert(NUMERIC,#{HIG_LIM,jdbcType=VARCHAR})
+  ,LOW_LIM =convert(NUMERIC,#{LOW_LIM,jdbcType=VARCHAR})
+  ,FEECYC =#{FEECYC,jdbcType=VARCHAR}
+  ,FEESDE =#{FEESDE,jdbcType=VARCHAR}
+  ,FEE_ITM =#{FEE_ITM,jdbcType=VARCHAR}
+  ,FRT_FLG =#{FRT_FLG,jdbcType=VARCHAR}
+  ,CMT_FLG =#{CMT_FLG,jdbcType=VARCHAR}
+  ,FEE_TPY =#{FEE_TPY,jdbcType=VARCHAR}
+  ,CMT_TPY =#{CMT_TPY,jdbcType=VARCHAR}
+  ,RSV_FLG =#{RSV_FLG,jdbcType=VARCHAR}
+  ,CRETLR =#{CRETLR,jdbcType=VARCHAR}
+  ,CREDAT =#{CREDAT,jdbcType=VARCHAR}
+  ,UPT_DAT =#{UPT_DAT,jdbcType=VARCHAR}
+  ,UPT_TLR =#{UPT_TLR,jdbcType=VARCHAR}
+  ,REC_STS =#{REC_STS,jdbcType=VARCHAR}
+WHERE FRT_KEY = #{FRT_KEY,jdbcType=VARCHAR}
+   </update>
+      <delete id="deleteFeeRate" parameterType="String">
+        delete from PIFFRT where FRT_KEY=#{FRT_KEY}
+    </delete> 
+
+</mapper>

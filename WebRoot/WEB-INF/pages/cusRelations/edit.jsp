@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -44,13 +45,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       </td>   
                       <td>客户号</td>
                       <td>
-                          <input type="text" name="cus_code" value="${cusRelations.cus_code }">
+                          <input type="text" name="cus_code" value="${fn:trim(cusRelations.cus_code) }">
                       </td>                                        
                     </tr> 
                     <tr>
                       <td>客户名称</td>
                       <td>
-                          <input type="text" name="cus_name" value="${cusRelations.cus_name }">
+                          <input type="text" name="cus_name" value="${fn:trim(cusRelations.cus_name) }">
                       </td>  
                       <td>对方客户号</td>
                       <td>
@@ -60,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <tr>
                       <td>对方客户名称</td>
                       <td>
-                           <input type="text" name="other_cus_name" value="${cusRelations.other_cus_name }">
+                           <input type="text" name="other_cus_name" value="${fn:trim(cusRelations.other_cus_name) }">
                       </td>  
                       <td>证件种类</td>
                       <td>
@@ -70,17 +71,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        <tr>
                       <td>证件号码</td>
                        <td>   
-                          <input type="text" name="certificate_code" value="${cusRelations.certificate_code }"/>                   
+                          <input type="text" name="certificate_code" value="${fn:trim(cusRelations.certificate_code) }"/>                   
                        </td>  
                       <td>客户地址</td>
                       <td>
-                           <input type="text" name="cus_address" value="${cusRelations.cus_address }"/> 
+                           <input type="text" name="cus_address" value="${fn:trim(cusRelations.cus_address) }"/> 
                       </td>                    
                     </tr>
                  <tr>
                       <td>客户电话</td>
                       <td>
-                        <input type="text" name="cus_phone" value="${cusRelations.cus_phone }"/>             
+                        <input type="text" name="cus_phone" value="${fn:trim(cusRelations.cus_phone) }"/>             
                       </td>
                       <td>关系代码</td>
                       <td> 
@@ -130,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       </td> 
                       <td>更新柜员</td>
                       <td>
-                          <input type="text" name="udt_clr" value="${cusRelations.cus_code }"/>
+                          <input type="text" name="udt_clr" value="${fn:trim(cusRelations.cus_code) }"/>
                       </td>                    
                     </tr>
                  <tr>

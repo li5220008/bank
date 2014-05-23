@@ -34,15 +34,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><a href="cusRelations">客户关系表操作</a></li>
             <li><a href="pifapp">应用码表操作</a></li>
             <li><a href="piftrx">交易码表操作</a></li>
-            <li><a href="#">假日码表操作</a></li>
-            <li><a href="exchangeList.html">汇率表操作</a></li>
-            <li><a href="${pageContext.request.contextPath}/pifbus/list">利率表操作</a></li>
-            <li><a href="${pageContext.request.contextPath}/pifirt/list">业务码表表操作</a></li>
+            <li><a href="pifpdc">产品码表操作</a></li>
+            <li><a href="pifprd">产品定义表操作</a></li>
+            <li><a href="${pageContext.request.contextPath}/pifbus/list">业务码表操作</a></li>
+            <li><a href="${pageContext.request.contextPath}/pifirt/list">利率表操作</a></li>
             <li><a href="${pageContext.request.contextPath}/countryCode/list">国家码表操作</a></li>
             <li><a href="${pageContext.request.contextPath}/publicCode/list">公用表操作</a></li>
             <li><a href="${pageContext.request.contextPath}/exchangePrices/list">结售汇牌价表</a></li>
             <li><a href="${pageContext.request.contextPath}/acctControl/list">内部账户控制表</a></li>
             <li><a href="${pageContext.request.contextPath}/acctOpen/list">内部账户开户表</a></li>
+            <li><a href="${pageContext.request.contextPath}/holidayCodeList">假日码表操作</a></li>
+            <li><a href="exchangeList.html">汇率表操作</a></li>
+            <li><a href="${pageContext.request.contextPath}/accrueSourceList">计提来源表</a></li>
+            <li><a href="${pageContext.request.contextPath}/accrueParamsList">计提参数表</a></li>
+            <li><a href="${pageContext.request.contextPath}/tranRecordList">交易会计分录表</a></li>
+            <li><a href="${pageContext.request.contextPath}/staCodeList">统计码表</a></li>
+            <li><a href="${pageContext.request.contextPath}/feeRateList">费率表操作</a></li>
         </ul>
   </body>
 </html>

@@ -26,7 +26,8 @@ import com.gtafe.service.ICusRelationsService;
 public class CusRelationsController {
 	 @Autowired
 	    ICusRelationsService  cusRelationsService;
-
+	    
+	    
 	    @RequestMapping(value="/delete/{id}",method = RequestMethod.GET)
 		public String  delete(HttpServletRequest request,HttpServletResponse response,@PathVariable int id) throws IOException {      
 			   String msg=null;
