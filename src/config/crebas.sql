@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Sybase AS Enterprise 12.5.2                  */
-/* Created on:     2014-5-22 14:35:17                           */
+/* Created on:     2014-5-24 16:42:43                           */
 /*==============================================================*/
 
 
@@ -1923,7 +1923,7 @@ create table CIFCIB (
    CUS_IDT              char(9)                        not null,
    CUS_KND              char(1)                        null,
    CUS_NUM              char(7)                        null,
-   CUS_CHK              char(2)                        null,
+   CUS_CHK              char(1)                        null,
    PAS_TPY              char(2)                        null,
    PAS_NUM              char(30)                       null,
    PAS_EXP              date                           null,
@@ -3413,15 +3413,15 @@ go
 create table account_balance (
    id                   numeric(8,0)                   identity,
    cus_number           char(9)                        null,
-   cus_account          char(10)                       null,
-   cus_type             char(1)                        null,
-   cus_name             char(1)                        null,
-   account_status       char(1)                        null,
-   fon_cuy_type         char(1)                        null,
-   loy_cuy_type         char(1)                        null,
+   cus_account          char(36)                       null,
+   cus_type             char(2)                        null,
+   cus_name             char(2)                        null,
+   account_status       char(2)                        null,
+   fon_cuy_type         char(10)                       null,
+   loy_cuy_type         char(10)                       null,
    open_date            datetime                       null,
-   pay_type             char(1)                        null,
-   coin_code            char(3)                        null,
+   pay_type             char(6)                        null,
+   coin_code            char(10)                       null,
    fixed_quota          decimal                        null,
    current_quota        decimal                        null,
    quota_amount         decimal                        null
@@ -3737,14 +3737,14 @@ go
 /*==============================================================*/
 create table exg_tre_prt (
    id                   numeric(8,0)                   identity,
-   牌价类别                 char(2)                        null,
-   生效日期                 datetime                       null,
-   币种                   char(6)                        null,
-   货币符号和代码              char(6)                        null,
-   牌价                   char(10)                       null,
-   最后更新日期               datetime                       null,
-   更新柜员                 char(6)                        null,
-   记录状态                 char(1)                        null
+   price_type           char(2)                        null,
+   effect_date          datetime                       null,
+   currency_type        char(6)                        null,
+   currency_code        char(6)                        null,
+   price                char(10)                       null,
+   last_time            datetime                       null,
+   UDT_TLR              char(6)                        null,
+   REC_STS              char(1)                        null
 )
 with identity_gap = 1
 go
@@ -3854,10 +3854,8 @@ go
 create table ticket_datum (
    id                   numeric(8,0)                   identity,
    currency             char(6)                        null,
-   currency
-   currency_short char(2)                        null,
-   currency
-   currency_symbol char(2)                        null,
+   currency_shorts      char(2)                        null,
+   currency_symbol      char(2)                        null,
    face_value           char(2)                        null,
    last_time            datetime                       null,
    UDT_TLR              char(6)                        null,

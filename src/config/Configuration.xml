@@ -66,11 +66,4 @@
         <!-- 国家码表 -->
         <typeAlias alias="CountryCode" type="com.gtafe.model.CountryCode"/>
     </typeAliases>
-
-    <!--自定义去除数据库返回字段两边空格-->
-    <plugins>
-        <plugin interceptor="com.gtafe.util.TrimPlugin">
-            <property name="isTrim" value="true"/>
-        </plugin>
-    </plugins>
 </configuration>
