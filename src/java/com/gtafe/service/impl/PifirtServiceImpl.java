@@ -38,7 +38,7 @@ public class PifirtServiceImpl implements IPIFIRTService {
         pifirtMapper.update(pifbus);
     }
 
-    public void softDeleteById(Object id) {
+    public void deleteById(Object id) {
         pifirtMapper.softDeleteById(id);
     }
 }

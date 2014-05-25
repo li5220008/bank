@@ -53,7 +53,7 @@ public class PublicCodeServiceImplTest extends BaseTest {
 
 	@Test
 	public void testSoftDeleteById() {
-		service.softDeleteById(1);
+		service.deleteById(1);
 	}
 
 }

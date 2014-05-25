@@ -78,7 +78,7 @@ public class PifirtController {
 
     @RequestMapping("/delete")
     public String delete(String id){
-        service.softDeleteById(id);
+        service.deleteById(id);
         return "redirect:/pifirt/list";
     }
 

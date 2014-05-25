@@ -65,5 +65,11 @@
         <typeAlias alias="Piftrx" type="com.gtafe.model.Piftrx"/>
         <!-- 国家码表 -->
         <typeAlias alias="CountryCode" type="com.gtafe.model.CountryCode"/>
+
+        <!-- 账户余额 -->
+        <typeAlias alias="AccountBalance" type="com.gtafe.model.AccountBalance"/>
+        <!-- 劵别资料 -->
+        <typeAlias alias="AccountBalance" type="com.gtafe.model.TicketDatum"/>
+
     </typeAliases>
 </configuration>

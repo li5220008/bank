@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.gtafe.model.AccrueParams;
 import com.gtafe.service.IAccrueParamsService;
-import com.gtafe.util.MathUtil;
 
 @Controller
 public class AccrueParamsController {
@@ -31,7 +30,7 @@ public class AccrueParamsController {
 
 	@RequestMapping(value = "/deleteAccureParams")
 	public String deleteUser(String id) {
-		apm.softDeleteById(id);;
+		apm.deleteById(id);;
 		return "redirect:/accrueParamsList";
 	}
 

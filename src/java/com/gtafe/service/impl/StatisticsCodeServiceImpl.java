@@ -27,7 +27,7 @@ IStatisticsCodeDao statisticsCodeService;
 		statisticsCodeService.update(e);
 	}
 
-	public void softDeleteById(Object id) {
+	public void deleteById(Object id) {
 		statisticsCodeService.softDeleteById(id);
 	}
 

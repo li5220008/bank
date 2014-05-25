@@ -78,7 +78,7 @@ public class PublicCodeController {
 
     @RequestMapping("/delete")
     public String delete(int id){
-        service.softDeleteById(id);
+        service.deleteById(id);
         return "redirect:/publicCode/list";
     }
 

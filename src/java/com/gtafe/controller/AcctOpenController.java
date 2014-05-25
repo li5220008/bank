@@ -78,7 +78,7 @@ public class AcctOpenController {
 
     @RequestMapping("/delete")
     public String delete(int id){
-        service.softDeleteById(id);
+        service.deleteById(id);
         return "redirect:/acctOpen/list";
     }
 

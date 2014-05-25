@@ -32,7 +32,7 @@ public class StatisticsCodeController {
 
 	@RequestMapping(value = "/deleteStatCode")
 	public String delete(String id) {
-		statisticsCodeService.softDeleteById(id);;
+		statisticsCodeService.deleteById(id);;
 		return "redirect:/staCodeList";
 	}
 

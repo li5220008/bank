@@ -33,7 +33,7 @@ public class TransactionRecordController {
 
 	@RequestMapping(value = "/deleteTranRecord")
 	public String delete(String id) {
-		trs.softDeleteById(id);;
+		trs.deleteById(id);;
 		return "redirect:/tranRecordList";
 	}
 

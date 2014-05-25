@@ -31,7 +31,7 @@ public void update(HolidayCode e) {
 	hc.update(e);
 }
 
-public void softDeleteById(Object id) {
+public void deleteById(Object id) {
 	hc.softDeleteById((String) id);
 	
 }

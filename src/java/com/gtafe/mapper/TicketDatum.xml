@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IAcctOpenDao">
+
+    <!-- 根据ID搜索一条记录 -->
+    <select id="selectById" parameterType="int" resultType="AcctOpen">
+        select * from ticket_datum as a where a.id = #{id}
+    </select>
+
+    <!-- 获取全部 -->
+    <select id="findAll" resultMap="resultListAcctOpen">
+        select * FROM ticket_datum as a where a.REC_STS != 'I' or a.REC_STS IS NULL
+    </select>
+
+    <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="AcctOpen" id="resultListAcctOpen" ></resultMap>
+
+    <!-- 添加一条记录 -->
+    <insert id="add" parameterType="AcctOpen">
+        insert into ticket_datum (
+            currency, -- CHAR(6),
+            currency_shorts, -- CHAR(2),
+            currency_symbol, -- CHAR(2),
+            face_value, -- CHAR(2),
+            last_time, -- DATETIME,
+            UDT_TLR, -- CHAR(6),
+            REC_STS, -- CHAR(1)
+        ) VALUES (
+            #{currency}, -- CHAR(6),
+            #{currency_shorts}, -- CHAR(2),
+            #{currency_symbol}, -- CHAR(2),
+            #{face_value}, -- CHAR(2),
+            #{last_time}, -- DATETIME,
+            #{udt_tlr}, -- CHAR(6),
+            #{rec_sts} -- CHAR(1)
+        )
+    </insert>
+
+    <!-- 更新一条记录 -->
+    <update id="update" parameterType="AcctOpen" >
+        update ticket_datum SET
+            currency=#{currency}, -- CHAR(6),
+            currency_shorts=#{currency_shorts}, -- CHAR(2),
+            currency_symbol=#{currency_symbol}, -- CHAR(2),
+            face_value=#{face_value}, -- CHAR(2),
+            last_time=#{last_time}, -- DATETIME,
+            UDT_TLR=#{udt_tlr}, -- CHAR(6),
+            REC_STS=#{rec_sts}, -- CHAR(1)
+        WHERE id = #{id} -- numeric(8, 0)
+    </update>
+
+    <!-- 软删除一条记录 -->
+    <update id="softDeleteById" parameterType="int">
+        update ticket_datum SET a.REC_STS = 'I' where id=#{id}
+    </update>
+</mapper>

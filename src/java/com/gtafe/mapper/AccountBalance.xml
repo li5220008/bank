@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gtafe.dao.IAcctOpenDao">
+
+    <!-- 根据ID搜索一条记录 -->
+    <select id="selectById" parameterType="int" resultType="AcctOpen">
+        select * from account_balance as a where a.id = #{id}
+    </select>
+
+    <!-- 获取全部 -->
+    <select id="findAll" resultMap="resultListAcctOpen">
+        select * FROM account_balance
+    </select>
+
+    <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="AcctOpen" id="resultListAcctOpen" ></resultMap>
+
+    <!-- 添加一条记录 -->
+    <insert id="add" parameterType="AcctOpen">
+        insert into account_balance (
+		    cus_number, -- CHAR(9),
+            cus_account, -- CHAR(36),
+            cus_type, -- CHAR(2),
+            cus_name, -- CHAR(2),
+            account_status, -- CHAR(2),
+            fon_cuy_type, -- CHAR(10),
+            loy_cuy_type, -- CHAR(10),
+            open_date, -- DATETIME,
+            pay_type, -- CHAR(6),
+            coin_code, -- CHAR(10),
+            fixed_quota, -- DECIMAL(18,0),
+            current_quota, -- DECIMAL(18,0),
+            quota_amount -- DECIMAL(18,0)
+		) VALUES (
+		    #{cus_number}, -- CHAR(9),
+            #{cus_account}, -- CHAR(36),
+            #{cus_type}, -- CHAR(2),
+            #{cus_name}, -- CHAR(2),
+            #{account_status}, -- CHAR(2),
+            #{fon_cuy_type}, -- CHAR(10),
+            #{loy_cuy_type}, -- CHAR(10),
+            #{open_date}, -- DATETIME,
+            #{pay_type}, -- CHAR(6),
+            #{coin_code}, -- CHAR(10),
+            #{fixed_quota}, -- DECIMAL(18,0),
+            #{current_quota}, -- DECIMAL(18,0),
+            #{quota_amount} -- DECIMAL(18,0)
+		)
+    </insert>
+
+    <!-- 更新一条记录 -->
+    <update id="update" parameterType="AcctOpen" >
+        update account_balance SET
+		    cus_number=#{cus_number}, -- CHAR(9),
+            cus_account=#{cus_account}, -- CHAR(36),
+            cus_type=#{cus_type}, -- CHAR(2),
+            cus_name=#{cus_name}, -- CHAR(2),
+            account_status=#{account_status}, -- CHAR(2),
+            fon_cuy_type=#{fon_cuy_type}, -- CHAR(10),
+            loy_cuy_type=#{loy_cuy_type}, -- CHAR(10),
+            open_date=#{open_date}, -- DATETIME,
+            pay_type=#{pay_type}, -- CHAR(6),
+            coin_code=#{coin_code}, -- CHAR(10),
+            fixed_quota=#{fixed_quota}, -- DECIMAL(18,0),
+            current_quota=#{current_quota}, -- DECIMAL(18,0),
+            quota_amount=#{quota_amount} -- DECIMAL(18,0)
+		WHERE id = #{id} -- numeric(8, 0)
+    </update>
+
+    <!-- 软删除一条记录 -->
+    <update id="softDeleteById" parameterType="int">
+        delete from account_balance where id =#{id}
+    </update>
+</mapper>

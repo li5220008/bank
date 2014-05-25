@@ -57,7 +57,7 @@ public class ExchangeReceiptsServiceImplTest extends BaseTest {
 
 	@Test
 	public void testSoftDeleteById() {
-		service.softDeleteById(3);
+		service.deleteById(3);
 	}
 
 }

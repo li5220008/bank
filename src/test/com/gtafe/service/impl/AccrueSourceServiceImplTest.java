@@ -47,6 +47,6 @@ public class AccrueSourceServiceImplTest extends BaseTest{
      
      @Test
      public void testDelete(){
-    	 asm.softDeleteById("5");
+    	 asm.deleteById("5");
      }
 }

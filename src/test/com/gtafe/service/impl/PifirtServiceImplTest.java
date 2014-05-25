@@ -90,6 +90,6 @@ public class PifirtServiceImplTest extends BaseTest {
     }
     @Test
     public void testSoftDeleteById() throws Exception {
-        ipifirtService.softDeleteById("1234567855");
+        ipifirtService.deleteById("1234567855");
     }
 }

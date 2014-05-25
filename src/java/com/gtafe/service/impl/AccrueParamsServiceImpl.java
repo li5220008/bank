@@ -34,7 +34,7 @@ public class AccrueParamsServiceImpl implements IAccrueParamsService {
 		return apms.selectById(MathUtil.getBigDecimal(id));
 	}
 
-	public void softDeleteById(Object id) {
+	public void deleteById(Object id) {
 		apms.delete(MathUtil.getBigDecimal(id));
 		
 	}

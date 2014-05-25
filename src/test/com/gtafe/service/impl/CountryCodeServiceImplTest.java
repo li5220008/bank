@@ -55,7 +55,7 @@ public class CountryCodeServiceImplTest extends BaseTest {
 
 	@Test
 	public void testSoftDeleteById() {
-		service.softDeleteById(1);
+		service.deleteById(1);
 	}
 
 }

@@ -78,7 +78,7 @@ public class PifbusController {
 
     @RequestMapping("/delete")
     public String delete(String id){
-        service.softDeleteById(id);
+        service.deleteById(id);
         return "redirect:/pifbus/list";
     }
 

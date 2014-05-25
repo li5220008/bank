@@ -78,7 +78,7 @@ public class CountryCodeController {
 
     @RequestMapping("/delete")
     public String delete(int id){
-        service.softDeleteById(id);
+        service.deleteById(id);
         return "redirect:/countryCode/list";
     }
 

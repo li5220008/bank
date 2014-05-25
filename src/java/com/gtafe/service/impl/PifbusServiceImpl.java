@@ -38,7 +38,7 @@ public class PifbusServiceImpl implements IPIFBUSService {
         pifbusMapper.update(pifbus);
     }
 
-    public void softDeleteById(Object id) {
+    public void deleteById(Object id) {
         pifbusMapper.softDeleteById(id);
     }
 }

@@ -60,7 +60,7 @@ public class AcctOpenServiceImplTest extends BaseTest {
 
 	@Test
 	public void testSoftDeleteById() {
-		service.softDeleteById(1);
+		service.deleteById(1);
 	}
 
 }

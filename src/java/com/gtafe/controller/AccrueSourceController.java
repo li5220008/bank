@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gtafe.model.AccrueSource;
 import com.gtafe.service.IAccrueSourceService;
-import com.gtafe.util.MathUtil;
 
 @Controller
 public class AccrueSourceController {
@@ -37,7 +36,7 @@ public class AccrueSourceController {
 
 	@RequestMapping(value = "/deleteAccureSource")
 	public String deleteUser(String id) {
-		asm.softDeleteById(id);;
+		asm.deleteById(id);;
 		return "redirect:/accrueSourceList";
 	}
 

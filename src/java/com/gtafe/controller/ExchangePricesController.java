@@ -78,7 +78,7 @@ public class ExchangePricesController {
 
     @RequestMapping("/delete")
     public String delete(int id){
-        service.softDeleteById(id);
+        service.deleteById(id);
         return "redirect:/exchangePrices/list";
     }
 

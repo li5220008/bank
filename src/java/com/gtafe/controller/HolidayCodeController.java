@@ -34,7 +34,7 @@ public class HolidayCodeController  {
 
 	@RequestMapping(value ="/deleteHolidayCode")
 	public String delete(String id) {
-		ihc.softDeleteById(id);
+		ihc.deleteById(id);
 		return "redirect:/holidayCodeList";
 	}
 

@@ -69,6 +69,6 @@ public class PifbusServiceImplTest extends BaseTest {
 
     @Test
     public void testSoftDeleteById() throws Exception {
-        ipifbusService.softDeleteById("004");
+        ipifbusService.deleteById("004");
     }
 }

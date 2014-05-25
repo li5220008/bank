@@ -13,5 +13,4 @@ public interface FeeRateMapper extends IBaseDao<FeeRate> {
    public void deleteFeeRate(String id);
    
    public void addFeeRate(FeeRate pf);
-   
 }

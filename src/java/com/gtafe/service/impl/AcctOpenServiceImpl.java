@@ -40,7 +40,7 @@ public class AcctOpenServiceImpl implements IAcctOpenService {
 		dao.update(e);
 	}
 
-	public void softDeleteById(Object id) {
+	public void deleteById(Object id) {
 		// TODO Auto-generated method stub
 		dao.softDeleteById(id);
 	}

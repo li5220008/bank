@@ -15,5 +15,5 @@ public interface IBaseService<E> {
     List<E> fetchAll();
     void add(E e);
     void update(E e);
-    void softDeleteById(Object id);
+    void deleteById(Object id);
 }

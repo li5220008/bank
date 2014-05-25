@@ -32,7 +32,7 @@ public class TransactionRecordServiceImpl implements ITransactionRecordService {
 		trs.update(e);
 	}
 
-	public void softDeleteById(Object id) {
+	public void deleteById(Object id) {
 		trs.softDeleteById(MathUtil.getBigDecimal(id));
 	}
 

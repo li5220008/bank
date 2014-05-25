@@ -30,7 +30,7 @@ public class AccrueSourceServiceImpl implements IAccrueSourceService {
 		return asm.findById(MathUtil.getBigDecimal(id));
 	}
 
-	public void softDeleteById(Object id) {
+	public void deleteById(Object id) {
 		asm.delete(MathUtil.getBigDecimal(id));
 		
 	}

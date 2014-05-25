@@ -21,7 +21,7 @@ public class BankCarServieTest extends BaseTest {
 	    boolean add(T t);
 	    boolean update(T t);
 	    boolean realDeleteById(String id);
-	    boolean softDeleteById(String id);*/
+	    boolean deleteById(String id);*/
 	@Test
 	public void realDeleteById(){      
 			bankCarDao.realDeleteById(2);

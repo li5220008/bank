@@ -42,7 +42,7 @@ public class AcctControlServiceImpl implements IAcctControlService {
 		acctControlDao.update(e);
 	}
 
-	public void softDeleteById(Object id) {
+	public void deleteById(Object id) {
 		// TODO Auto-generated method stub
 		acctControlDao.softDeleteById(id);
 	}

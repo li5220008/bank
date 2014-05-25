@@ -18,8 +18,6 @@ import java.util.Properties;
         args={MappedStatement.class}))
 public class TrimPlugin implements Interceptor {
     public Object intercept(Invocation invocation) throws Throwable {
-
-
         return invocation.proceed();
     }
     public Object plugin(Object target) {
