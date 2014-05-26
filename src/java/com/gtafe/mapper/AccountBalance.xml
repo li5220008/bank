@@ -3,23 +3,23 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.gtafe.dao.IAcctOpenDao">
+<mapper namespace="com.gtafe.dao.IAccountBalanceDao">
 
     <!-- 根据ID搜索一条记录 -->
-    <select id="selectById" parameterType="int" resultType="AcctOpen">
+    <select id="selectById" parameterType="int" resultType="AccountBalance">
         select * from account_balance as a where a.id = #{id}
     </select>
 
     <!-- 获取全部 -->
-    <select id="findAll" resultMap="resultListAcctOpen">
+    <select id="findAll" resultMap="resultListAccountBalance">
         select * FROM account_balance
     </select>
 
     <!-- 为了返回list 类型而定义的returnMap -->
-    <resultMap type="AcctOpen" id="resultListAcctOpen" ></resultMap>
+    <resultMap type="AccountBalance" id="resultListAccountBalance" ></resultMap>
 
     <!-- 添加一条记录 -->
-    <insert id="add" parameterType="AcctOpen">
+    <insert id="add" parameterType="AccountBalance">
         insert into account_balance (
 		    cus_number, -- CHAR(9),
             cus_account, -- CHAR(36),
@@ -52,7 +52,7 @@
     </insert>
 
     <!-- 更新一条记录 -->
-    <update id="update" parameterType="AcctOpen" >
+    <update id="update" parameterType="AccountBalance" >
         update account_balance SET
 		    cus_number=#{cus_number}, -- CHAR(9),
             cus_account=#{cus_account}, -- CHAR(36),

@@ -69,7 +69,7 @@
         <!-- 账户余额 -->
         <typeAlias alias="AccountBalance" type="com.gtafe.model.AccountBalance"/>
         <!-- 劵别资料 -->
-        <typeAlias alias="AccountBalance" type="com.gtafe.model.TicketDatum"/>
+        <typeAlias alias="TicketDatum" type="com.gtafe.model.TicketDatum"/>
 
     </typeAliases>
 </configuration>

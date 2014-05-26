@@ -1,6 +1,6 @@
 package com.gtafe.service.impl;
 
-import com.gtafe.dao.ITicketDatum;
+import com.gtafe.dao.ITicketDatumDao;
 import com.gtafe.model.TicketDatum;
 import com.gtafe.service.ITicketDatumService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,19 +15,19 @@ import java.util.List;
  * Time: 3:32 PM
  */
 @Service
-public class TicketDatumServiceImpl implements ITicketDatum {
+public class TicketDatumServiceImpl implements ITicketDatumService {
 
     @Autowired
-    private ITicketDatumService service;
+    private ITicketDatumDao service;
 
     @Override
     public TicketDatum selectById(Object id) {
-        return service.selectById(id);
+        return null;
     }
 
     @Override
-    public List<TicketDatum> findAll() {
-        return service.fetchAll();
+    public List<TicketDatum> fetchAll() {
+        return null;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class TicketDatumServiceImpl implements ITicketDatum {
     }
 
     @Override
-    public void softDeleteById(Object id) {
-        service.deleteById(id);
+    public void deleteById(Object id) {
+
     }
 }

@@ -8,5 +8,5 @@ import com.gtafe.model.TicketDatum;
  * Date: 5/25/14
  * Time: 3:05 PM
  */
-public interface ITicketDatum extends IBaseDao<TicketDatum> {
+public interface ITicketDatumDao extends IBaseDao<TicketDatum> {
 }

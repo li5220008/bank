@@ -15,9 +15,9 @@ import java.util.List;
  * Time: 3:30 PM
  */
 @Service
-public class AccountBalanceServiceImpl implements IAccountBalanceDao {
+public class AccountBalanceServiceImpl implements IAccountBalanceService {
     @Autowired
-    private IAccountBalanceService service;
+    private IAccountBalanceDao service;
 
     @Override
     public AccountBalance selectById(Object id) {
@@ -25,12 +25,13 @@ public class AccountBalanceServiceImpl implements IAccountBalanceDao {
     }
 
     @Override
-    public List<AccountBalance> findAll() {
-        return service.fetchAll();
+    public List<AccountBalance> fetchAll() {
+        return service.findAll();
     }
 
     @Override
     public void add(AccountBalance accountBalance) {
+
     }
 
     @Override
@@ -39,7 +40,7 @@ public class AccountBalanceServiceImpl implements IAccountBalanceDao {
     }
 
     @Override
-    public void softDeleteById(Object id) {
-        service.deleteById(id);
+    public void deleteById(Object id) {
+        service.softDeleteById(id);
     }
 }
